@@ -1,0 +1,10 @@
+# npm 套件目錄
+node_modules/
+
+# 環境變數檔案
+.env
+
+# 影片
+*.mp4
+*.mov
+video/
