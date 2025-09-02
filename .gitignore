@@ -8,3 +8,7 @@ node_modules/
 *.mp4
 *.mov
 video/
+
+#壓縮檔案
+*.zip
+*.rar
