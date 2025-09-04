@@ -8,6 +8,8 @@ npm install
 
 npm start
 
+npm dotenv
+
 \# 開 http://localhost:3000
 
 
