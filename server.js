@@ -23,7 +23,7 @@ app.use("/videos", express.static(path.join(__dirname, "videos")));
 app.use("/subs", express.static(path.join(__dirname, "subs")));
 
 // OpenRouter 影像分析 API
-app.use(express.json({ limit: "15mb" }));
+app.use(express.json({ limit: "10mb" }));
 
 app.post("/api/analyze", async (req, res) => {
   try {
@@ -32,7 +32,7 @@ app.post("/api/analyze", async (req, res) => {
       return res.status(400).json({ error: "missing dataUrl" });
     }
 
-    // 使用更適合視覺任務的模型
+    // 使用模型
     const model =
       process.env.OPENROUTER_MODEL || "google/gemini-2.0-flash-exp:free";
     const apiKey = process.env.OPENROUTER_API_KEY || process.env.OPENROUTER_KEY;
