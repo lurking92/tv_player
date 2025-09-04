@@ -4,6 +4,10 @@ node_modules/
 # 環境變數檔案
 .env
 
+#debug pyhton
+public/find_danger_list.py
+list.txt
+
 # 影片
 *.mp4
 *.mov

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TV Subtitle (本機：情境 + 攝影機) - 除錯版</title>
+  <title>TV Subtitle（本機：情境 + 攝影機</title>
   <style>
     :root { color-scheme: dark; }
     body { background:#0f1115; color:#eaeaea; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif; margin:16px; }
@@ -33,7 +33,7 @@
     .debug-item { margin:4px 0; }
     .debug-success { color:#4ade80; }
     .debug-error { color:#ef4444; }
-    .debug-warning { color:#f59e0b; }
+    .debug-warning { color:#ff8a04; }
     .debug-info { color:#8b5cf6; }
     
     /* 手動進度條樣式 */
@@ -66,7 +66,7 @@
   </style>
 </head>
 <body>
-  <h1>TV Subtitle (本機：情境 sceneX_DayY + 攝影機 1~5) - 除錯版</h1>
+  <h1>TV Subtitle（本機：情境 sceneX_DayY + 攝影機 1~5</h1>
 
   <div class="row">
     <label>情境：</label>
@@ -87,7 +87,7 @@
     </label>
     <label style="margin-left:8px;">
       <input type="checkbox" id="aiToggle" />
-      AI分析 (即時偵測)
+      AI分析（即時偵測）
     </label>
     <button id="testAI" style="background:#4a9eff;">測試 AI API</button>
     <span id="diag"></span>
@@ -95,7 +95,7 @@
 
   <!-- 除錯面板 -->
   <div class="debug-panel">
-    <div class="debug-title">API 除錯資訊</div>
+    <div class="debug-title">API debug資訊</div>
     <div id="debugLog">等待 API 測試...</div>
   </div>
 
@@ -103,7 +103,7 @@
     <div id="alertOverlay" style="position:absolute; top:10px; right:10px; padding:6px 10px; background:rgba(200,0,0,.85); color:#fff; border-radius:6px; display:none; z-index:5; font-weight:600;">警告</div>
     <canvas id="framegrab" width="0" height="0" style="display:none"></canvas>
     <video id="player" controls playsinline></video>
-    <div class="caption"><span id="captionText">(敘述暫無)</span></div>
+    <div class="caption"><span id="captionText">（敘述暫無）</span></div>
   </div>
 
   <!-- 手動進度條 -->
@@ -120,20 +120,22 @@
     <select id="videoSelect" style="min-width:360px;"></select>
     <button id="btnPlay">播放</button>
     <button id="btnPause">暫停</button>
-    <button id="btnPrev">上一個</button>
-    <button id="btnNext">下一個</button>
+    <button id="btnPrev">上一句</button>
+    <button id="btnNext">下一句</button>
     <button id="btnReset">重置</button>
     <div id="meta"></div>
   </div>
 
-  <div>字幕清單 (敘述先空白)：</div>
+  <div>字幕清單（敘述先空白）：</div>
   <ul id="list"></ul>
 
 <script>
+  // 以相對路徑抓 manifest.json，加上 no-store 避快取。
   const MANIFEST_URL = "./manifest.json";
 
   const sceneSel = document.getElementById('sceneSelect');
   const angleSel = document.getElementById('angleSelect');
+
   const vsel   = document.getElementById('videoSelect');
   const player = document.getElementById('player');
   const caption= document.getElementById('captionText');
@@ -143,8 +145,8 @@
   const debugLog = document.getElementById('debugLog');
 
   let manifest = null;
-  let playlist = [];
-  let intervalSec = 2.5;
+  let playlist = []; // [{title, src}]
+  let intervalSec = 2.5; // 敘述先空白
 
   // 除錯記錄函數
   function addDebugLog(message, type = 'info') {
@@ -164,27 +166,14 @@
   document.getElementById('testAI').onclick = async () => {
     addDebugLog('開始測試 AI API 連線...', 'info');
     
-    // 創建一個簡單的測試圖像 - 模擬一個人在跑步的場景
+    // 創建一個簡單的測試圖像
     const testCanvas = document.createElement('canvas');
-    testCanvas.width = 320;
-    testCanvas.height = 240;
+    testCanvas.width = 64;
+    testCanvas.height = 64;
     const ctx = testCanvas.getContext('2d');
-    
-    // 繪製一個更明顯的測試場景
-    ctx.fillStyle = '#87CEEB'; // 天空藍
-    ctx.fillRect(0, 0, 320, 240);
-    
-    ctx.fillStyle = '#32CD32'; // 草地綠
-    ctx.fillRect(0, 180, 320, 60);
-    
-    // 畫一個人形 (簡化版)
-    ctx.fillStyle = '#FFB366'; // 膚色
-    ctx.fillRect(150, 100, 20, 30); // 頭
-    ctx.fillRect(145, 130, 30, 40); // 身體
-    ctx.fillRect(140, 170, 15, 30); // 左腿 (跑步姿勢)
-    ctx.fillRect(165, 160, 15, 40); // 右腿
-    
-    const testDataUrl = testCanvas.toDataURL('image/jpeg', 0.8);
+    ctx.fillStyle = '#ff0000';
+    ctx.fillRect(0, 0, 64, 64);
+    const testDataUrl = testCanvas.toDataURL('image/jpeg', 0.5);
     
     try {
       const res = await fetch('/api/analyze', {
@@ -203,17 +192,12 @@
       
       const result = await res.json();
       addDebugLog(`API 回應成功: ${JSON.stringify(result)}`, 'success');
-      
-      if (result.raw) {
-        addDebugLog(`AI 原始回應: ${result.raw}`, 'info');
-      }
+      addDebugLog(`原始回應內容: ${JSON.stringify(result.raw || 'N/A')}`, 'info');
       
       if (result.error) {
         addDebugLog(`API 內部錯誤: ${result.error}`, 'error');
       } else if (result.result) {
         addDebugLog(`解析結果: ${JSON.stringify(result.result)}`, 'success');
-        // 測試更新UI
-        updateAIUI(result);
       }
       
     } catch (e) {
@@ -225,42 +209,22 @@
 
   document.getElementById('btnPlay').onclick  = () => player.play();
   document.getElementById('btnPause').onclick = () => player.pause();
-  document.getElementById('btnPrev').onclick  = () => { 
-    const i = vsel.selectedIndex; 
-    if (i > 0) { 
-      vsel.selectedIndex = i - 1; 
-      loadVideoByIndex(i - 1); 
-      player.play(); 
-    } 
-  };
-  document.getElementById('btnNext').onclick  = () => { 
-    const i = vsel.selectedIndex; 
-    if (i + 1 < playlist.length) { 
-      vsel.selectedIndex = i + 1; 
-      loadVideoByIndex(i + 1); 
-      player.play(); 
-    } 
-  };
+  document.getElementById('btnPrev').onclick  = () => { const i = vsel.selectedIndex; if (i > 0) { vsel.selectedIndex = i - 1; loadVideoByIndex(i - 1); player.play(); } };
+  document.getElementById('btnNext').onclick  = () => { const i = vsel.selectedIndex; if (i + 1 < playlist.length) { vsel.selectedIndex = i + 1; loadVideoByIndex(i + 1); player.play(); } };
   document.getElementById('btnReset').onclick = () => { player.currentTime = 0; };
 
   vsel.onchange = () => loadVideoByIndex(vsel.selectedIndex);
-  // 只在攝影機改變時觸發，場景改變時重置到第一個活動
-  sceneSel.onchange = () => {
-    // 場景改變，重置到第一個活動
-    buildPlaylistFromManifest();
-  };
-  angleSel.onchange = () => {
-    // 攝影機改變，保持當前活動
-    buildPlaylistFromManifest();
-  };
+  sceneSel.onchange = buildPlaylistFromManifest;
+  angleSel.onchange = buildPlaylistFromManifest;
 
+  // 影片載入錯誤時，在 Console 與畫面顯示詳細原因
   player.addEventListener('error', () => {
     const err = player.error;
     console.error('Video element error:', err, 'src=', player.currentSrc || player.src);
     meta.textContent = `影片載入失敗：${player.currentSrc || player.src}`;
   });
 
-  // 手動進度條功能
+  // ===== 手動進度條功能 =====
   const progressBar = document.getElementById('progressBar');
   const progressFilled = document.getElementById('progressFilled');
   const currentTimeDisplay = document.getElementById('currentTime');
@@ -282,6 +246,7 @@
     }
   }
 
+  // 點擊進度條跳轉
   progressBar.addEventListener('click', (e) => {
     if (player.duration) {
       const rect = progressBar.getBoundingClientRect();
@@ -293,6 +258,7 @@
     }
   });
 
+  // 監聽影片時間更新
   player.addEventListener('timeupdate', updateProgress);
   player.addEventListener('loadedmetadata', updateProgress);
 
@@ -309,7 +275,7 @@
     } catch (err) {
       console.error("manifest.json 不是合法 JSON，前 500 字如下：\n", text.slice(0, 500));
       addDebugLog(`manifest.json 解析失敗: ${err.message}`, 'error');
-      throw new Error("manifest.json 解析失敗 (JSON 格式錯誤)");
+      throw new Error("manifest.json 解析失敗（JSON 格式錯誤）");
     }
     intervalSec = manifest?.config?.defaultIntervalSec ?? 2.5;
     initSceneDropdown();
@@ -334,11 +300,8 @@
     const sceneId = sceneSel.value;
     const angle   = String(angleSel.value);
     const scene   = (manifest.scenes || []).find(s => s.id === sceneId);
-    
-    // 記住當前播放的活動索引
-    const currentActivityIndex = vsel.selectedIndex >= 0 ? vsel.selectedIndex : 0;
-    
     playlist = [];
+    let missing = 0;
 
     if (!scene) {
       vsel.innerHTML = '';
@@ -346,7 +309,7 @@
       player.load();
       meta.textContent = '找不到情境';
       list.innerHTML = '';
-      caption.textContent = '(敘述暫無)';
+      caption.textContent = '（敘述暫無）';
       if (diag) diag.textContent = '';
       return;
     }
@@ -354,14 +317,14 @@
     const suffixMap = manifest.angleSuffixMap || { "1":"_0","2":"_1","3":"_2","4":"_3","5":"_4" };
 
     (scene.activities || []).forEach(act => {
-      if (!act || !act.base || !act.ext) { 
-        return; 
-      }
+      // 以 base + 後綴 + ext 組 URL；若 base/ext 缺失就視為缺檔
+      if (!act || !act.base || !act.ext) { missing += 1; return; }
       const suffix = suffixMap[angle] || "_0";
       const src = `${act.base}${suffix}${act.ext}`;
       playlist.push({ title: `${act.name} (camera ${angle})`, src });
     });
 
+    // 渲染活動下拉
     vsel.innerHTML = '';
     playlist.forEach((v, i) => {
       const opt = document.createElement('option');
@@ -371,12 +334,10 @@
     });
 
     if (playlist.length) {
-      // 保持在同一個活動，但不超過新列表的範圍
-      const targetIndex = Math.min(currentActivityIndex, playlist.length - 1);
-      vsel.value = String(targetIndex);
-      loadVideoByIndex(targetIndex);
+      vsel.value = "0";
+      loadVideoByIndex(0);
       meta.textContent = `可播數量=${playlist.length}`;
-      addDebugLog(`載入場景 ${sceneId}，攝影機 ${angle}，共 ${playlist.length} 個影片，保持在活動 ${targetIndex + 1}`, 'success');
+      addDebugLog(`載入場景 ${sceneId}，攝影機 ${angle}，共 ${playlist.length} 個影片`, 'success');
     } else {
       player.removeAttribute('src');
       player.load();
@@ -384,6 +345,7 @@
       addDebugLog(`場景 ${sceneId} 在攝影機 ${angle} 無可用影片`, 'warning');
     }
 
+    // 診斷訊息
     if (diag) {
       const totalActs = (scene.activities || []).length;
       const ok = playlist.length;
@@ -391,8 +353,9 @@
       diag.textContent = `活動總數=${totalActs}，可播=${ok}，缺檔=${miss}`;
     }
 
+    // 敘述暫空
     list.innerHTML = '';
-    caption.textContent = '(敘述暫無)';
+    caption.textContent = '（敘述暫無）';
   }
 
   function loadVideoByIndex(i) {
@@ -401,20 +364,28 @@
     player.src = v.src;
     player.currentTime = 0;
     meta.textContent = (playlist[i] && playlist[i].title) ? playlist[i].title : '';
-    caption.textContent = '(敘述暫無)';
+    caption.textContent = '（敘述暫無）';
     addDebugLog(`載入影片: ${v.title}`, 'info');
     if (autoPlayToggle && typeof autoPlayToggle === 'function' && autoPlayToggle()) {
       try { player.play(); } catch (e) {}
     }
   }
 
+  // 影片播畢自動播下一支（尊重自動播放開關）
+  // 影片播畢處理
   player.addEventListener('ended', () => {
     const i = vsel.selectedIndex;
     const next = i + 1;
-    if (autoPlayToggle() && next < playlist.length) {
-      vsel.selectedIndex = next;
-      loadVideoByIndex(next);
-      try { player.play(); } catch (e) { /* ignore */ }
+    if (autoPlayToggle() && next < playlist.length && !pausedForDanger) {
+      addDebugLog('影片播畢，3秒後播放下一個...', 'info');
+      // 延遲3秒播放下一個，讓AI有時間完成分析
+      setTimeout(() => {
+        if (!pausedForDanger) { // 確認沒有因危險行為暫停
+          vsel.selectedIndex = next;
+          loadVideoByIndex(next);
+          try { player.play(); } catch (e) { /* ignore */ }
+        }
+      }, 3000);
     }
   });
 
@@ -428,7 +399,7 @@
     }
   })();
 
-  // AI 影像即時分析 (OpenRouter)
+  // ===== AI 影像即時分析（OpenRouter） =====
   const aiToggle = document.getElementById('aiToggle');
   const frameCanvas = document.getElementById('framegrab');
   const alertOverlay = document.getElementById('alertOverlay');
@@ -440,7 +411,7 @@
     if (!aiToggle || !aiToggle.checked) return;
     if (aiTimer) return;
     addDebugLog('啟動 AI 即時分析', 'info');
-    aiTimer = setInterval(captureAndAnalyze, 1500); // 1.5秒
+    aiTimer = setInterval(captureAndAnalyze, 1000);
   }
 
   function stopAIAnalysis() {
@@ -455,20 +426,18 @@
     if (!aiToggle || !aiToggle.checked) return;
     if (aiBusy) return;
     if (!frameCtx) return;
-    
     const vw = player.videoWidth || 0;
     const vh = player.videoHeight || 0;
     if (vw === 0 || vh === 0) return;
-    if (player.paused || player.ended) return; // 只在播放時分析
 
     // 控制尺寸避免 payload 過大
-    const MAX_W = 640; // 增加解析度以提高識別準確性
+    const MAX_W = 512;
     const scale = Math.min(1, MAX_W / vw);
     frameCanvas.width = Math.round(vw * scale);
     frameCanvas.height = Math.round(vh * scale);
     frameCtx.drawImage(player, 0, 0, frameCanvas.width, frameCanvas.height);
 
-    const dataUrl = frameCanvas.toDataURL('image/jpeg', 0.8); // 提高圖片品質
+    const dataUrl = frameCanvas.toDataURL('image/jpeg', 0.75);
 
     aiBusy = true;
     try {
@@ -480,6 +449,14 @@
       
       if (!res.ok) {
         const errorText = await res.text();
+        if (res.status === 429){
+          addDebugLog(`API 請求被拒絕，OpenRouter 端請求過多，請稍後再試`, 'warning');
+          return;
+        }
+        else if (res.status === 430){
+          addDebugLog(`今日的API請求已經達到上限，請於明日繼續使用或使用另外的 API Key`, 'warning');
+          return;
+        }
         addDebugLog(`AI API 錯誤 ${res.status}: ${errorText}`, 'error');
         return;
       }
@@ -487,30 +464,24 @@
       const out = await res.json();
       
       // 詳細記錄每次分析結果
-      if (out.result) {
-        const behaviors = [];
-        if (out.result.fall) behaviors.push('跌倒');
-        if (out.result.climbing) behaviors.push('爬高');
-        if (out.result.running) behaviors.push('奔跑');
-        if (out.result.disoriented) behaviors.push('迷失方向');
-        
-        if (behaviors.length > 0) {
-          addDebugLog(`偵測到行為: ${behaviors.join(', ')}`, 'warning');
-        } else {
-          addDebugLog('未偵測到異常行為', 'info');
-        }
-      }
-      
+      addDebugLog(`影像分析結果: ${JSON.stringify(out.result || out)}`, 'info');
       if (out.raw) {
-        addDebugLog(`AI 原始回應: ${out.raw.substring(0, 100)}...`, 'info');
+        addDebugLog(`AI 原始回應: ${out.raw}`, 'info');
       }
       
       updateAIUI(out);
       
-      // 如果影片已結束且在等待 AI 回應，現在可以跳轉了
-      if (videoEndedWaiting && endedVideoIndex >= 0) {
-        addDebugLog('AI 分析完成，現在跳轉到下一個影片', 'info');
-        proceedToNextVideo();
+      // 只在有危險行為時記錄警告
+      const result = out && (out.result || out);
+      const danger = result && (result.fall || result.climbing || result.running || result.disoriented);
+      const which_danger = [];
+      if (result.fall) which_danger.push('跌倒');
+      if (result.climbing) which_danger.push('爬高');
+      if (result.running) which_danger.push('奔跑');
+      if (result.disoriented) which_danger.push('迷失方向');
+
+      if (danger) {
+        addDebugLog(`警告：偵測到危險行為: ${which_danger}`, 'warning');
       }
       
     } catch (e) {
@@ -523,41 +494,59 @@
   function updateAIUI(out) {
     try {
       const result = out && (out.result || out);
-      if (!result) return;
-      
-      const stats = [
-        ['跌倒', result.fall],
-        ['爬高', result.climbing],
-        ['奔跑', result.running],
-        ['迷失方向', result.disoriented]
-      ].map(([k, v]) => `${k}:${v ? '是' : '否'}`);
-      
+      const stats = [];
+      if (result.fall === true) {
+        stats.push("跌倒");
+        if (!pausedForDanger) {
+          player.pause();
+          pausedForDanger = true;
+          addDebugLog('因偵測到跌倒行為，影片已自動暫停', 'warning');
+        }
+      }
+      if(result.climbing === true){
+        stats.push("爬高");
+        if (!pausedForDanger) {
+          player.pause();
+          pausedForDanger = true;
+          addDebugLog('因偵測到爬高行為，影片已自動暫停', 'warning');
+        }
+      }
+      if(result.running === true){
+        stats.push("奔跑");
+        if (!pausedForDanger) {
+          player.pause();
+          pausedForDanger = true;
+          addDebugLog('因偵測到奔跑行為，影片已自動暫停', 'warning');
+        }
+      } 
+      if(result.disoriented === true){
+        stats.push("迷失方向");
+        if (!pausedForDanger) {
+          player.pause();
+          pausedForDanger = true;
+          addDebugLog('因偵測到迷失方向，影片已自動暫停', 'warning');
+        }
+      } 
+
       if (diag) diag.textContent = stats.join('  ');
 
-      const danger = result.fall || result.climbing || result.disoriented;
+      const danger = result && (result.fall || result.climbing || result.running || result.disoriented);
       if (danger) {
         alertOverlay.style.display = 'block';
-        const dangerTypes = [];
-        if (result.fall) dangerTypes.push('跌倒');
-        if (result.climbing) dangerTypes.push('爬高');
-        if (result.disoriented) dangerTypes.push('迷失方向');
-        alertOverlay.textContent = `警告: ${dangerTypes.join(', ')}`;
+        alertOverlay.textContent = '警告：' + stats.join('  ');
       } else {
         alertOverlay.style.display = 'none';
+        alertOverlay.textContent = '';
       }
     } catch (e) {
       console.warn('updateAIUI error', e);
-      addDebugLog(`UI 更新錯誤: ${e.message}`, 'error');
     }
   }
 
   if (aiToggle) {
     aiToggle.addEventListener('change', () => {
-      if (aiToggle.checked && !player.paused) {
-        startAIAnalysis();
-      } else {
-        stopAIAnalysis();
-      }
+      if (aiToggle.checked && !player.paused) startAIAnalysis();
+      else stopAIAnalysis();
     });
   }
   
@@ -566,7 +555,7 @@
   player.addEventListener('ended', stopAIAnalysis);
 
   // 初始化時添加歡迎訊息
-  addDebugLog('TV Subtitle 除錯系統啟動', 'success');
+  addDebugLog('TV Subtitle debug系統啟動', 'success');
 
 </script>
 </body>
