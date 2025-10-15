@@ -601,7 +601,7 @@ async function captureAndAnalyze() {
     if (vw === 0 || vh === 0) return;
 
     // 控制尺寸避免 payload 過大
-    const MAX_W = 512;
+    const MAX_W = 256;
     const scale = Math.min(1, MAX_W / vw);
     frameCanvas.width = Math.round(vw * scale);
     frameCanvas.height = Math.round(vh * scale);
