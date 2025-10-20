@@ -8,10 +8,13 @@ tv_server_full/node_modules/
 tv_server_full/public/find_danger_list.py
 tv_server_full/list.txt
 
-# 影片
+# 影片、圖片
 *.mp4
 *.mov
+*.png
+*.jpg
 tv_server_full/video/
+pictures/
 
 #壓縮檔案
 *.zip
@@ -19,6 +22,4 @@ tv_server_full/video/
 
 # Google 服務帳戶金鑰檔案
 google-credentials.json
-
-# 照片
-pictures/
+credentials/
