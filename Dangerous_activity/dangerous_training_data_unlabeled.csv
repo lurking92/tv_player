@@ -1,0 +1,156 @@
+event_description,is_dangerous_event
+MAIN_OBJECT:alcohol,0
+MAIN_OBJECT:alcohol TARGET_OBJECT:fridge,0
+MAIN_OBJECT:alcohol TARGET_OBJECT:kitchentable,0
+MAIN_OBJECT:alcohol TARGET_OBJECT:towel,0
+MAIN_OBJECT:alcohol TARGET_OBJECT:waterglass,1
+MAIN_OBJECT:barsoap,0
+MAIN_OBJECT:bathroom,1
+MAIN_OBJECT:bathroomcounter,0
+MAIN_OBJECT:bed,0
+MAIN_OBJECT:bedroom,1
+MAIN_OBJECT:bench,0
+MAIN_OBJECT:book,0
+MAIN_OBJECT:book TARGET_OBJECT:desk,0
+MAIN_OBJECT:bookshelf,0
+MAIN_OBJECT:box,0
+MAIN_OBJECT:box TARGET_OBJECT:coffeetable,0
+MAIN_OBJECT:breadslice,0
+MAIN_OBJECT:breadslice TARGET_OBJECT:fryingpan,1
+MAIN_OBJECT:cabinet,0
+MAIN_OBJECT:carrot,0
+MAIN_OBJECT:carrot TARGET_OBJECT:fridge,0
+MAIN_OBJECT:carrot TARGET_OBJECT:fryingpan,1
+MAIN_OBJECT:carrot TARGET_OBJECT:kitchentable,0
+MAIN_OBJECT:cat,0
+MAIN_OBJECT:cellphone,0
+MAIN_OBJECT:cereal,0
+MAIN_OBJECT:cereal TARGET_OBJECT:dishbowl,0
+MAIN_OBJECT:cereal TARGET_OBJECT:fridge,0
+MAIN_OBJECT:cereal TARGET_OBJECT:fryingpan,1
+MAIN_OBJECT:chair,0
+MAIN_OBJECT:chicken,0
+MAIN_OBJECT:chicken TARGET_OBJECT:fridge,0
+MAIN_OBJECT:chicken TARGET_OBJECT:garbagecan,0
+MAIN_OBJECT:chips,0
+MAIN_OBJECT:chips TARGET_OBJECT:fridge,0
+MAIN_OBJECT:chocolatesyrup,0
+MAIN_OBJECT:chocolatesyrup TARGET_OBJECT:fridge,0
+MAIN_OBJECT:closet,0
+MAIN_OBJECT:clothespants,0
+MAIN_OBJECT:clothespants TARGET_OBJECT:bed,0
+MAIN_OBJECT:clothespants TARGET_OBJECT:closet,0
+MAIN_OBJECT:clothespile,0
+MAIN_OBJECT:clothespile TARGET_OBJECT:bed,0
+MAIN_OBJECT:clothesshirt,0
+MAIN_OBJECT:clothesshirt TARGET_OBJECT:bed,0
+MAIN_OBJECT:clothesshirt TARGET_OBJECT:closet,0
+MAIN_OBJECT:coffeetable,0
+MAIN_OBJECT:computer,0
+MAIN_OBJECT:crackers,0
+MAIN_OBJECT:crackers TARGET_OBJECT:fridge,0
+MAIN_OBJECT:creamybuns,0
+MAIN_OBJECT:creamybuns TARGET_OBJECT:fridge,0
+MAIN_OBJECT:cupcake,0
+MAIN_OBJECT:cupcake TARGET_OBJECT:fridge,0
+MAIN_OBJECT:curtains,0
+MAIN_OBJECT:cutleryfork,1
+MAIN_OBJECT:cutleryfork TARGET_OBJECT:kitchentable,1
+MAIN_OBJECT:cutleryfork TARGET_OBJECT:sink,1
+MAIN_OBJECT:cutleryknife,1
+MAIN_OBJECT:cutleryknife TARGET_OBJECT:kitchentable,1
+MAIN_OBJECT:cutleryknife TARGET_OBJECT:sink,1
+MAIN_OBJECT:desk,0
+MAIN_OBJECT:dishbowl,0
+MAIN_OBJECT:dishbowl TARGET_OBJECT:kitchentable,0
+MAIN_OBJECT:dishwashingliquid,0
+MAIN_OBJECT:dishwashingliquid TARGET_OBJECT:bathroomcounter,0
+MAIN_OBJECT:dishwashingliquid TARGET_OBJECT:sink,0
+MAIN_OBJECT:door,0
+MAIN_OBJECT:facecream,0
+MAIN_OBJECT:facecream TARGET_OBJECT:sink,0
+MAIN_OBJECT:facecream TARGET_OBJECT:towel,0
+MAIN_OBJECT:faucet,0
+MAIN_OBJECT:floor,0
+MAIN_OBJECT:fridge,0
+MAIN_OBJECT:fryingpan,1
+MAIN_OBJECT:garbagecan,0
+MAIN_OBJECT:juice,0
+MAIN_OBJECT:juice TARGET_OBJECT:fridge,0
+MAIN_OBJECT:juice TARGET_OBJECT:kitchentable,0
+MAIN_OBJECT:juice TARGET_OBJECT:towel,0
+MAIN_OBJECT:juice TARGET_OBJECT:waterglass,1
+MAIN_OBJECT:keyboard,0
+MAIN_OBJECT:kitchen,1
+MAIN_OBJECT:kitchencabinet,0
+MAIN_OBJECT:kitchencounter,0
+MAIN_OBJECT:kitchentable,0
+MAIN_OBJECT:lightswitch,0
+MAIN_OBJECT:livingroom,0
+MAIN_OBJECT:microwave,1
+MAIN_OBJECT:milk,0
+MAIN_OBJECT:milk TARGET_OBJECT:fridge,0
+MAIN_OBJECT:milk TARGET_OBJECT:fryingpan,1
+MAIN_OBJECT:milk TARGET_OBJECT:kitchentable,0
+MAIN_OBJECT:milk TARGET_OBJECT:towel,0
+MAIN_OBJECT:milk TARGET_OBJECT:waterglass,1
+MAIN_OBJECT:mouse,0
+MAIN_OBJECT:notes,0
+MAIN_OBJECT:notes TARGET_OBJECT:desk,0
+MAIN_OBJECT:paper,0
+MAIN_OBJECT:paper TARGET_OBJECT:desk,0
+MAIN_OBJECT:pillow,0
+MAIN_OBJECT:plate,1
+MAIN_OBJECT:plate TARGET_OBJECT:fridge,1
+MAIN_OBJECT:plate TARGET_OBJECT:kitchentable,1
+MAIN_OBJECT:plate TARGET_OBJECT:sink,1
+MAIN_OBJECT:potato,0
+MAIN_OBJECT:potato TARGET_OBJECT:fryingpan,0
+MAIN_OBJECT:potato TARGET_OBJECT:garbagecan,0
+MAIN_OBJECT:potato TARGET_OBJECT:microwave,0
+MAIN_OBJECT:remotecontrol,0
+MAIN_OBJECT:remotecontrol TARGET_OBJECT:coffeetable,0
+MAIN_OBJECT:remotecontrol TARGET_OBJECT:tvstand,0
+MAIN_OBJECT:salad,0
+MAIN_OBJECT:salmon,0
+MAIN_OBJECT:salmon TARGET_OBJECT:fryingpan,0
+MAIN_OBJECT:sink,0
+MAIN_OBJECT:slippers,0
+MAIN_OBJECT:slippers TARGET_OBJECT:sink,0
+MAIN_OBJECT:sofa,0
+MAIN_OBJECT:stove,1
+MAIN_OBJECT:toilet,1
+MAIN_OBJECT:toothbrush,0
+MAIN_OBJECT:toothbrush TARGET_OBJECT:sink,0
+MAIN_OBJECT:toothbrush TARGET_OBJECT:towel,0
+MAIN_OBJECT:toothpaste,0
+MAIN_OBJECT:toothpaste TARGET_OBJECT:sink,0
+MAIN_OBJECT:toothpaste TARGET_OBJECT:towel,0
+MAIN_OBJECT:towel,0
+MAIN_OBJECT:towel TARGET_OBJECT:desk,0
+MAIN_OBJECT:towel TARGET_OBJECT:kitchentable,0
+MAIN_OBJECT:towel TARGET_OBJECT:pillow,0
+MAIN_OBJECT:towel TARGET_OBJECT:sink,0
+MAIN_OBJECT:towel TARGET_OBJECT:slippers,0
+MAIN_OBJECT:tv,0
+MAIN_OBJECT:tvstand,0
+MAIN_OBJECT:wallpictureframe,0
+MAIN_OBJECT:wallshelf,0
+MAIN_OBJECT:washingsponge,0
+MAIN_OBJECT:washingsponge TARGET_OBJECT:fridge,0
+MAIN_OBJECT:washingsponge TARGET_OBJECT:kitchencounter,0
+MAIN_OBJECT:washingsponge TARGET_OBJECT:kitchentable,0
+MAIN_OBJECT:washingsponge TARGET_OBJECT:sink,0
+MAIN_OBJECT:washingsponge TARGET_OBJECT:stove,1
+MAIN_OBJECT:waterglass,1
+MAIN_OBJECT:waterglass TARGET_OBJECT:kitchentable,1
+MAIN_OBJECT:waterglass TARGET_OBJECT:sink,1
+MAIN_OBJECT:waterglass TARGET_OBJECT:towel,1
+MAIN_OBJECT:wine,0
+MAIN_OBJECT:wine TARGET_OBJECT:fridge,0
+MAIN_OBJECT:wine TARGET_OBJECT:kitchentable,0
+MAIN_OBJECT:wine TARGET_OBJECT:towel,0
+MAIN_OBJECT:wine TARGET_OBJECT:wineglass,1
+MAIN_OBJECT:wineglass,1
+MAIN_OBJECT:wineglass TARGET_OBJECT:kitchentable,1
+MAIN_OBJECT:wineglass TARGET_OBJECT:sink,1
