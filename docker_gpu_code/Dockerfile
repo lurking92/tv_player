@@ -21,9 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # 安裝 micromamba（不會有 Anaconda TOS）
 SHELL ["/bin/bash", "-lc"]
-RUN curl -L https://micro.mamba.pm/api/micromamba/linux-64/latest \
-    | tar -xvj -C /usr/local/bin --strip-components=1 bin/micromamba
-
+RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj -C /usr/local/bin --strip-components=1 bin/micromamba
 WORKDIR /app
 
 # 建立 conda-forge 的 Python 3.10 環境
@@ -33,7 +31,7 @@ RUN micromamba create -y -n app -c conda-forge python=3.10 && \
 # --- 以下是修改的關鍵部分 ---
 
 # 1. 複製 "GPU分析腳本" 用的 requirements
-#    (它會複製你剛才建立的 requirements_gpu.txt)
+#    (它會複製建立的 requirements_gpu.txt)
 COPY requirements_gpu.txt /app/requirements.txt
 
 # 2. 先安裝 PyTorch，再安裝 "GPU分析腳本" 用的 requirements
@@ -43,8 +41,8 @@ RUN micromamba run -n app python -m pip install --upgrade pip && \
     micromamba run -n app python -m pip install --no-cache-dir -r /app/requirements.txt
 
 # 3. 複製你的 "GPU分析腳本"
-#    (它會複製你改名後的 main_gpu.py，並在容器中命名為 main.py)
+#    (它會複製改名後的 main_gpu.py，並在容器中命名為 main.py)
 COPY main_gpu.py /app/main.py
 
-# 4. (保持不變) 以 micromamba 執行你的腳本
+# 4. 以 micromamba 執行你的腳本
 ENTRYPOINT ["micromamba","run","-n","app","python","/app/main.py"]

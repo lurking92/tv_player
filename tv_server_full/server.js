@@ -247,6 +247,74 @@ app.get("/api/download/:fileName", async (req, res) => {
     res.status(404).send("找不到檔案");
   }
 });
+// --- 下載 TTL 檔 ---
+app.get("/api/download/ttl/:fileName", async (req, res) => {
+  const { fileName } = req.params;
+  const baseName = fileName.split(".")[0];
+  const ttlFileName = `${baseName}.ttl`;
+  try {
+    const file = storageClient
+      .bucket(GCS_RESULTS_BUCKET_NAME)
+      .file(ttlFileName);
+    const [exists] = await file.exists();
+    if (!exists) return res.status(404).send("找不到知識圖譜檔案");
+
+    res.setHeader("Content-Disposition", `attachment; filename=${ttlFileName}`);
+    res.setHeader("Content-Type", "text/turtle");
+    file.createReadStream().pipe(res);
+  } catch (error) {
+    console.error("[Download TTL] 下載檔案時發生錯誤:", error);
+    res.status(500).send("下載知識圖譜檔案時發生錯誤");
+  }
+});
+
+// --- 下載 DINO TXT 檔 ---
+app.get("/api/download/dino_txt/:fileName", async (req, res) => {
+  const { fileName } = req.params;
+  const baseName = fileName.split(".")[0];
+  const dinoTxtFileName = `${baseName}_dino.txt`;
+  try {
+    const file = storageClient
+      .bucket(GCS_RESULTS_BUCKET_NAME)
+      .file(dinoTxtFileName);
+    const [exists] = await file.exists();
+    if (!exists) return res.status(404).send("找不到 DINO TXT 檔案");
+
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename=${dinoTxtFileName}`
+    );
+    res.setHeader("Content-Type", "text/plain");
+    file.createReadStream().pipe(res);
+  } catch (error) {
+    console.error("[Download DINO TXT] 下載檔案時發生錯誤:", error);
+    res.status(500).send("下載 DINO TXT 檔案時發生錯誤");
+  }
+});
+
+// --- 下載 DINO 圖片 ZIP 檔 ---
+app.get("/api/download/dino_zip/:fileName", async (req, res) => {
+  const { fileName } = req.params;
+  const baseName = fileName.split(".")[0];
+  const dinoZipFileName = `${baseName}_dino_images.zip`;
+  try {
+    const file = storageClient
+      .bucket(GCS_RESULTS_BUCKET_NAME)
+      .file(dinoZipFileName);
+    const [exists] = await file.exists();
+    if (!exists) return res.status(404).send("找不到 DINO 圖片 ZIP 檔案");
+
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename=${dinoZipFileName}`
+    );
+    res.setHeader("Content-Type", "application/zip");
+    file.createReadStream().pipe(res);
+  } catch (error) {
+    console.error("[Download DINO ZIP] 下載檔案時發生錯誤:", error);
+    res.status(500).send("下載 DINO 圖片 ZIP 檔案時發生錯誤");
+  }
+});
 
 // --- 啟動 ---
 app.listen(PORT, () => {

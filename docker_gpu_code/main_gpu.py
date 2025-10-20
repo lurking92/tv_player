@@ -22,6 +22,9 @@ import re
 import datetime
 import traceback
 import argparse
+import zipfile
+from pathlib import Path
+
 
 # 2) 服務 / 網路
 from google.cloud import storage
@@ -348,6 +351,7 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
             "knowledge_graph_ttl": f"{video_base_name}.ttl",
             "dino_log_txt": f"{video_base_name}_dino.txt",
             "dino_images_dir": f"{video_base_name}_dino_images/",
+            "dino_images_zip": None,
         },
         "analysis": {
             "visual_analysis": {"status": "pending", "object_detections_log": [], "visual_triples": []},
@@ -356,7 +360,7 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
             "kbert_analysis": {"status": "pending", "summary": "", "contains_danger": False},
         },
         "errors": [],
-    }-
+    }
 
     try:
         # 0) 初始化
@@ -540,6 +544,25 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
             report["analysis"]["kbert_analysis"] = kbert_result
             report["status"] = "completed"
             log_message("步驟 6：完成。")
+            
+            # 建立 DINO 圖片 ZIP 檔 
+            dino_zip_filename = f"{video_base_name}_dino_images.zip"
+            dino_zip_path_local = Path(tmpdir) / dino_zip_filename
+            print(f"[DEBUG] 開始壓縮 DINO 圖片到 {dino_zip_path_local}...")
+            try:
+                with zipfile.ZipFile(dino_zip_path_local, 'w', zipfile.ZIP_DEFLATED) as zipf:
+                    image_files = list(Path(local_dino_images_dir).glob('*.jpg'))
+                    if image_files:
+                        for img_path in image_files:
+                            zipf.write(img_path, arcname=img_path.name)
+                        print(f"[DEBUG] 成功壓縮 {len(image_files)} 張圖片。")
+                    else:
+                        print(f"[DEBUG] 找不到 DINO 圖片進行壓縮。")
+                        zipf.writestr("empty.txt", "No DINO images generated.")
+            except Exception as e:
+                print(f"[錯誤] 壓縮 DINO 圖片時失敗: {e}")
+                dino_zip_path_local = None  # 讓後面上傳時略過
+
 
             # 7) 上傳所有成果
             log_message("步驟 7：上傳成果到 -results Bucket...")
@@ -549,11 +572,24 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
             with open(local_dino_txt_path, "w", encoding="utf-8") as f: f.write("\n".join(dino_log_lines))
             upload_file_to_results(video_bucket_name, report["artifacts"]["dino_log_txt"], local_dino_txt_path, "text/plain")
 
-            for img_name in os.listdir(local_dino_images_dir):
-                local_img_path = os.path.join(local_dino_images_dir, img_name)
-                gcs_img_path = f"{report['artifacts']['dino_images_dir']}{img_name}"
-                upload_file_to_results(video_bucket_name, gcs_img_path, local_img_path, "image/jpeg")
-            log_message(f"  已上傳 {len(os.listdir(local_dino_images_dir))} 張 DINO 標註圖像。")
+            # for img_name in os.listdir(local_dino_images_dir):
+            #     local_img_path = os.path.join(local_dino_images_dir, img_name)
+            #     gcs_img_path = f"{report['artifacts']['dino_images_dir']}{img_name}"
+            #     upload_file_to_results(video_bucket_name, gcs_img_path, local_img_path, "image/jpeg")
+            # log_message(f"  已上傳 {len(os.listdir(local_dino_images_dir))} 張 DINO 標註圖像。")
+            
+            # 上傳 zip
+            if dino_zip_path_local and dino_zip_path_local.exists():
+                upload_file_to_results(
+                    video_bucket_name,
+                    f"{video_base_name}_dino_images.zip",
+                    str(dino_zip_path_local),
+                    "application/zip",
+                )
+                report["artifacts"]["dino_images_zip"] = f"{video_base_name}_dino_images.zip"
+                log_message("  已上傳 DINO 圖片 ZIP 檔。")
+            else:
+                log_message("  無 DINO 圖片 ZIP 可上傳（可能沒有偵測到圖片或壓縮失敗）。")
 
             upload_file_to_results(video_bucket_name, report["artifacts"]["knowledge_graph_ttl"], local_ttl_path, "text/turtle")
             
@@ -581,7 +617,6 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
             report["artifacts"] = {"report_json": f"{video_base_name}_report.json"}
         if "errors" not in report:
             report["errors"] = []
-        # END NEW
 
         report["status"] = "error"
         report["errors"].append(str(e))

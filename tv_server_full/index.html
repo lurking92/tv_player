@@ -860,14 +860,51 @@ function displayResults(fileName, data) {
   // 下載按鈕容器
   const container = document.getElementById('downloadButtonsContainer');
   container.innerHTML = '';
-  const downloadBtn = document.createElement('button');
-  downloadBtn.id = 'downloadButton';
-  downloadBtn.textContent = `下載分析報告 (${fileName}_report.json)`;
-  downloadBtn.onclick = () => {
+  const baseName = fileName.split('.')[0];
+
+  // 1) 報告 JSON（保留現有）
+  const reportBtn = document.createElement('button');
+  reportBtn.id = 'downloadReportButton';
+  reportBtn.textContent = `下載分析報告 (${baseName}_report.json)`;
+  reportBtn.onclick = () => {
     window.location.href = `/api/download/${fileName}`;
-    addDebugLog(`觸發下載報告: ${fileName}`, 'info');
+    addDebugLog(`觸發下載報告 JSON: ${fileName}`, 'info');
   };
-  container.appendChild(downloadBtn);
+  container.appendChild(reportBtn);
+
+  // 2) TTL
+  const ttlBtn = document.createElement('button');
+  ttlBtn.id = 'downloadTtlButton';
+  ttlBtn.textContent = `下載知識圖譜 (${baseName}.ttl)`;
+  ttlBtn.style.marginLeft = '10px';
+  ttlBtn.onclick = () => {
+    window.location.href = `/api/download/ttl/${fileName}`;
+    addDebugLog(`觸發下載知識圖譜: ${fileName}`, 'info');
+  };
+  container.appendChild(ttlBtn);
+
+  // 3) DINO TXT
+  const dinoTxtBtn = document.createElement('button');
+  dinoTxtBtn.id = 'downloadDinoTxtButton';
+  dinoTxtBtn.textContent = `下載偵測摘要 (${baseName}_dino.txt)`;
+  dinoTxtBtn.style.marginLeft = '10px';
+  dinoTxtBtn.onclick = () => {
+    window.location.href = `/api/download/dino_txt/${fileName}`;
+    addDebugLog(`觸發下載 DINO TXT: ${fileName}`, 'info');
+  };
+  container.appendChild(dinoTxtBtn);
+
+  // 4) DINO ZIP
+  const dinoZipBtn = document.createElement('button');
+  dinoZipBtn.id = 'downloadDinoZipButton';
+  dinoZipBtn.textContent = `下載偵測圖片 (${baseName}_dino_images.zip)`;
+  dinoZipBtn.style.marginLeft = '10px';
+  dinoZipBtn.onclick = () => {
+    window.location.href = `/api/download/dino_zip/${fileName}`;
+    addDebugLog(`觸發下載 DINO ZIP: ${fileName}`, 'info');
+  };
+  container.appendChild(dinoZipBtn);
+
   meta.textContent = `分析完成：${fileName}`;
   addDebugLog(`分析完成，已顯示結果。影片 ${fileName} 為本地預覽。`, 'success');
 }
