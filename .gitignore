@@ -1,0 +1,24 @@
+# npm 套件目錄
+tv_server_full/node_modules/
+
+# 環境變數檔案
+.env
+
+#debug pyhton
+tv_server_full/public/find_danger_list.py
+tv_server_full/list.txt
+
+# 影片
+*.mp4
+*.mov
+tv_server_full/video/
+
+#壓縮檔案
+*.zip
+*.rar
+
+# Google 服務帳戶金鑰檔案
+google-credentials.json
+
+# 照片
+pictures/
