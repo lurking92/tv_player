@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TV Subtitle - 影片分析與知識圖譜</title>
+  <style>
+    :root { color-scheme: dark; }
+    /* --- body 字體 --- */
+    body {
+      background:#0f1115;
+      color:#eaeaea;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      margin:16px;
+      font-size: 15px; /* 再調大一點 */
+    }
+    .row { display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap; }
+    select, button, label, input[type="file"]::file-selector-button {
+      background:#21252e; /* 稍微亮一點的背景 */
+      color:#eaeaea;
+      border:1px solid #333946; /* 加上邊框 */
+      border-radius:8px;
+      padding: 9px 14px; /* 稍微加大 padding */
+      font-size: 0.9em; /* 稍微縮小一點點，因為基礎字體變大了 */
+    }
+    input[type="file"] { color: #ccc; background: none; border: none; padding-left: 0;}
+    button { cursor:pointer; transition: background-color 0.2s; }
+    button:hover:not(:disabled) { background: #333946; }
+    button:disabled { cursor: not-allowed; opacity: 0.6; }
+
+    /* --- 主要佈局 (新增包裹 upload 和 progress panel 的容器) --- */
+    .top-panels-container {
+        display: flex;
+        gap: 16px; /* 面板間距 */
+        align-items: flex-start; /* 頂部對齊 */
+        margin-bottom: 16px;
+    }
+    .top-panels-container > .mode-controls {
+        flex: 1;
+        margin-bottom: 0;
+    }
+    .top-panels-container > #kbert-panel {
+        flex: 1;
+        margin-top: 0;
+        min-height: 110px;
+        box-sizing: border-box;
+    }
+
+    /* --- 主要內容區 (影片 + Log) --- */
+    .main-content {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    /* --- 影片容器與控制列 --- */
+    .video-container {
+        flex: 3;
+        max-width: 960px;
+        display: flex;
+        flex-direction: column;
+    }
+    .screen {
+      position:relative;
+      width: 100%;
+      aspect-ratio:16/9;
+      border:1px solid #2a2f3a;
+      border-radius:10px;
+      background:#000;
+      overflow: hidden; /* 確保影片不超出邊框 */
+    }
+    .screen video { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; cursor: pointer; }
+    .video-controls { /* 包裹進度條和按鈕 */
+        display: flex;
+        flex-direction: column; /* 進度條在上，按鈕在下 */
+        gap: 8px; /* 進度條和按鈕間距 */
+        margin-top: 8px; /* 和影片的間距 */
+    }
+    .progress-container {
+        display:flex; align-items:center; gap:8px; width: 100%;
+    }
+    .progress-bar { flex:1; height:8px; background:#2a2f3a; border-radius:4px; cursor:pointer; position:relative; }
+    .progress-filled { height:100%; background:#4a9eff; border-radius:4px; width:0%; transition:width 0.1s; }
+    .time-display { font-size:12px; color:#aaa; min-width:45px; text-align: center; }
+
+    .buttons-container {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #meta { opacity:.8; font-size: 0.9em; margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;}
+    #diag { margin-left:8px; opacity:.8; font-size: 0.9em; }
+
+    /* --- 除錯面板 (標題置頂) --- */
+    .debug-panel {
+        flex: 1;
+        background:#1a1e24; border:1px solid #2a2f3a; border-radius:8px; padding:12px; margin: 0;
+        font-family:monospace; font-size: 13px;
+        display: flex;
+        flex-direction: column;
+        height: 540px;
+        box-sizing: border-box;
+    }
+    .debug-title {
+        color:#4a9eff; font-weight:bold; margin-bottom:8px;
+        flex-shrink: 0;
+    }
+    #debugLog {
+        flex-grow: 1;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column-reverse; /* Log 內容反轉 */
+        border-radius: 4px;
+    }
+    .debug-item { margin:4px 0; word-break: break-all; }
+    .debug-success { color:#4ade80; }
+    .debug-error { color:#ef4444; }
+    .debug-warning { color:#ff8a04; }
+    .debug-info { color:#8b5cf6; }
+
+    /* --- 控制項 --- */
+    .mode-controls {
+      background:#1a1e24; border:1px solid #2a2f3a; border-radius:8px; padding:12px;
+    }
+    .mode-toggle { display:flex; gap: 15px; align-items:center; margin-bottom:12px; }
+    .mode-toggle label { display: flex; align-items: center; cursor: pointer;}
+    .mode-toggle input[type="radio"] { margin-right: 5px; }
+    #uploadStatus { font-size: 0.85em; margin-top:8px; }
+
+    /* --- K-BERT 面板 --- */
+    #kbert-panel {
+      background:#1a1e24; border:1px solid #2a2f3a; border-radius:8px; padding:12px;
+      font-family:monospace; font-size: 13.5px;
+    }
+    .status-list { list-style-type:none; padding-left:0; margin:0; line-height:1.6; }
+    #kbertResult strong { color: #4a9eff; }
+    #downloadButtonsContainer { margin-top: 10px; }
+    #downloadButton {
+        display: inline-block;
+        margin-top: 10px;
+        margin-right: 8px;
+        padding: 8px 12px;
+        background: #28a745;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 13px;
+        border: none;
+        cursor: pointer;
+    }
+    #downloadButton:hover { background: #218838; }
+
+    /* 播放/暫停 按鈕圖示 */
+    .play-pause-button { min-width: 84px; }
+    .play-pause-button::before { content: '▶'; margin-right: 6px; }
+    .play-pause-button.playing::before { content: '❚❚'; }
+  </style>
+</head>
+<body>
+  <h1>TV Subtitle - 影片分析與知識圖譜</h1>
+
+  <div class="top-panels-container">
+      <div class="mode-controls">
+        <div class="debug-title">上傳影片進行雲端分析</div>
+        <div class="row">
+          <input type="file" id="videoUploader" accept="video/*" />
+          <button id="uploadButton" style="background:#28a745;">上傳並分析</button>
+        </div>
+        <div id="uploadStatus">請選擇影片檔案...</div>
+      </div>
+
+      <div id="kbert-panel">
+          <div class="debug-title">後端分析進度</div>
+          <ul class="status-list">
+            <li>[等待] 1. 上傳影片至 GCS...</li>
+            <li>[等待] 2. 觸發雲端分析管線...</li>
+            <li>[等待] 3. 執行知識圖譜分析 (可能需數分鐘)...</li>
+            <li>[等待] 4. 分析完成。</li>
+          </ul>
+          <div id="kbertResult" style="margin-top:10px;">等待影片上傳與分析...</div>
+          <div id="downloadButtonsContainer"></div>
+      </div>
+  </div>
+
+  <div class="mode-controls">
+      <div class="mode-toggle">
+        <label>
+          <input type="radio" name="sceneMode" value="virtual" checked />
+          內建測試虛擬影片
+        </label>
+        <label>
+          <input type="radio" name="sceneMode" value="uploaded" />
+          已上傳影片 (分析/預覽模式)
+        </label>
+        <label style="margin-left:auto;">
+          <input type="checkbox" id="autoPlayToggle" checked /> 自動播放 (情境模式)
+        </label>
+      </div>
+
+      <div id="virtualControls" class="row">
+        <label>情境：</label>
+        <select id="sceneSelect"></select>
+        <label>活動：</label>
+        <select id="videoSelect" style="min-width:300px;"></select>
+        <label>攝影機：</label>
+        <select id="angleSelect">
+          <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+        </select>
+      </div>
+  </div>
+
+  <div class="main-content">
+      <div class="video-container">
+          <div class="screen">
+              <div id="alertOverlay" style="position:absolute; top:10px; right:10px; padding:6px 10px; background:rgba(200,0,0,.85); color:#fff; border-radius:6px; display:none; z-index:5; font-weight:600;">警告</div>
+              <canvas id="framegrab" width="0" height="0" style="display:none"></canvas>
+              <video id="player" playsinline></video>
+          </div>
+
+          <div class="video-controls">
+              <div class="progress-container">
+                  <div class="time-display" id="currentTime">0:00</div>
+                  <div class="progress-bar" id="progressBar">
+                      <div class="progress-filled" id="progressFilled"></div>
+                  </div>
+                  <div class="time-display" id="duration">0:00</div>
+              </div>
+              <div class="buttons-container">
+                  <button id="playPauseButton" class="play-pause-button">播放</button>
+                  <button id="btnPrev" title="上一個活動 (僅情境模式)">上一個</button>
+                  <button id="btnNext" title="下一個活動 (僅情境模式)">下一個</button>
+                  <button id="btnReset">重置</button>
+                  <label style="margin-left:15px;">
+                      <input type="checkbox" id="aiToggle" /> AI即時分析
+                  </label>
+                  <button id="testAI" style="background:#4a9eff; margin-left: 5px;">測試 AI API</button>
+                  <span id="diag"></span> <div id="meta"></div>
+              </div>
+          </div>
+      </div>
+      <div class="debug-panel">
+          <div class="debug-title">API debug資訊</div>
+          <div id="debugLog"><div>等待操作...</div></div>
+      </div>
+  </div>
+
+  <ul id="list" style="display: none;"></ul>
+
+<script>
+const MANIFEST_URL = "./manifest.json";
+
+// --- DOM 元素 ---
+const sceneSel = document.getElementById('sceneSelect');
+const angleSel = document.getElementById('angleSelect');
+const vsel = document.getElementById('videoSelect');
+const player = document.getElementById('player');
+const list = document.getElementById('list');
+const meta = document.getElementById('meta');
+const diag = document.getElementById('diag');
+const debugLog = document.getElementById('debugLog');
+const playPauseButton = document.getElementById('playPauseButton');
+const downloadButtonsContainer = document.getElementById('downloadButtonsContainer');
+
+const virtualControls = document.getElementById('virtualControls');
+const modeRadios = document.querySelectorAll('input[name="sceneMode"]');
+
+const videoUploader = document.getElementById('videoUploader');
+const uploadButton = document.getElementById('uploadButton');
+const uploadStatus = document.getElementById('uploadStatus');
+
+const progressBar = document.getElementById('progressBar');
+const progressFilled = document.getElementById('progressFilled');
+const currentTimeDisplay = document.getElementById('currentTime');
+const durationDisplay = document.getElementById('duration');
+
+const aiToggle = document.getElementById('aiToggle');
+const frameCanvas = document.getElementById('framegrab');
+const alertOverlay = document.getElementById('alertOverlay');
+const frameCtx = frameCanvas.getContext ? frameCanvas.getContext('2d', { willReadFrequently: true }) : null;
+
+const autoPlayToggle = document.getElementById('autoPlayToggle');
+const kbertPanel = document.getElementById('kbert-panel');
+const kbertResultDiv = document.getElementById('kbertResult');
+
+// --- 全域variables ---
+let manifest = null;
+let playlist = [];
+let intervalSec = 2.5;
+let currentMode = 'virtual';
+let pausedForDanger = false;
+let aiTimer = null;
+let aiBusy = false;
+let pollingInterval = null;
+let uploadedVideoInfo = null;
+let currentAnalysisReport = null; // 儲存雲端分析報告
+
+
+// --- 除錯輸出（prepend + scroll） ---
+function addDebugLog(message, type = 'info') {
+  if (!debugLog) return;
+  const timestamp = new Date().toLocaleTimeString([], { hour12: false });
+  const classMap = { success: 'debug-success', error: 'debug-error', warning: 'debug-warning', info: 'debug-info' };
+  const className = classMap[type] || 'debug-info';
+  const wrapper = document.createElement('div');
+  wrapper.className = 'debug-item';
+  wrapper.innerHTML = `<span class="${className}">[${timestamp}] ${message}</span>`;
+  debugLog.insertBefore(wrapper, debugLog.firstChild);
+  const maxLogLines = 100;
+  while (debugLog.childElementCount > maxLogLines) {
+    debugLog.removeChild(debugLog.lastElementChild);
+  }
+  // 滾動父容器到頂部（最新訊息可見）
+  const panel = debugLog;
+  if (panel) panel.scrollTop = 0;
+}
+
+// --- 模式切換 ---
+function toggleControlsForMode(mode) {
+  const isVirtual = mode === 'virtual';
+  virtualControls.style.display = isVirtual ? 'flex' : 'none';
+  document.getElementById('btnPrev').disabled = !isVirtual;
+  document.getElementById('btnNext').disabled = !isVirtual;
+  autoPlayToggle.disabled = !isVirtual;
+  if (!isVirtual) autoPlayToggle.checked = false;
+}
+
+function clearPlayerAndUI() {
+  player.removeAttribute('src');
+  try { player.load(); } catch (_) {}
+  meta.textContent = '';
+  if (diag) diag.textContent = '';
+  currentTimeDisplay.textContent = '0:00';
+  durationDisplay.textContent = '0:00';
+  progressFilled.style.width = '0%';
+  alertOverlay.style.display = 'none';
+  stopAIAnalysis();
+  updatePlayPauseButton();
+}
+
+function clearVirtualSceneUI() {
+  playlist = [];
+  vsel.innerHTML = '<option value="-1">-- 請選擇活動 --</option>';
+  list.innerHTML = '';
+}
+
+function switchMode(mode) {
+  const previousMode = currentMode;
+  currentMode = mode;
+  toggleControlsForMode(mode);
+
+  if (previousMode !== mode) player.pause();
+
+  if (mode === 'virtual') {
+    if (manifest) {
+      buildPlaylistFromManifest();
+    } else {
+      clearPlayerAndUI();
+      meta.textContent = 'Manifest 未載入';
+    }
+    addDebugLog('切換至 內建測試虛擬影片 模式', 'info');
+  } else {
+    clearVirtualSceneUI();
+    if (uploadedVideoInfo && uploadedVideoInfo.url) {
+      player.src = uploadedVideoInfo.url;
+      player.load();
+      meta.textContent = `預覽檔案：${uploadedVideoInfo.name}`;
+      addDebugLog(`切換至 上傳模式，顯示預覽：${uploadedVideoInfo.name}`, 'info');
+    } else {
+      clearPlayerAndUI();
+      meta.textContent = '請先上傳影片';
+      addDebugLog('切換至 上傳模式，等待上傳...', 'info');
+    }
+  }
+  updateProgress();
+  updatePlayPauseButton();
+}
+modeRadios.forEach(radio => radio.addEventListener('change', e => switchMode(e.target.value)));
+
+// --- 播放控制 ---
+function togglePlayPause() {
+  if (!player.src) return;
+  if (player.paused || player.ended) {
+    pausedForDanger = false;
+    player.play().catch(e => addDebugLog(`播放失敗: ${e.message}`, 'error'));
+  } else {
+    player.pause();
+  }
+}
+function updatePlayPauseButton() {
+  const playing = !player.paused && !player.ended && player.currentTime > 0;
+  playPauseButton.classList.toggle('playing', playing);
+  playPauseButton.textContent = playing ? '暫停' : '播放';
+}
+playPauseButton.onclick = togglePlayPause;
+player.addEventListener('click', togglePlayPause);
+player.addEventListener('play', updatePlayPauseButton);
+player.addEventListener('pause', updatePlayPauseButton);
+player.addEventListener('ended', updatePlayPauseButton);
+
+document.getElementById('btnPrev').onclick  = () => {
+  if (currentMode !== 'virtual') return;
+  const i = vsel.selectedIndex;
+  if (i > 0) { vsel.selectedIndex = i - 1; loadVideoByIndex(i - 1); }
+  else { addDebugLog('已經是第一個影片', 'warning'); }
+};
+document.getElementById('btnNext').onclick  = () => {
+  if (currentMode !== 'virtual') return;
+  const i = vsel.selectedIndex;
+  if (i + 1 < playlist.length) { vsel.selectedIndex = i + 1; loadVideoByIndex(i + 1); }
+  else { addDebugLog('已經是最後一個影片', 'warning'); }
+};
+document.getElementById('btnReset').onclick = () => { player.currentTime = 0; };
+
+// --- 影片錯誤 ---
+player.addEventListener('error', () => {
+  const err = player.error;
+  const src = player.currentSrc || player.src || '未知來源';
+  const errMsg = err ? `Code ${err.code}: ${err.message}` : '未知錯誤';
+  meta.textContent = `影片載入失敗: ${src}`;
+  addDebugLog(`影片錯誤: ${errMsg} (來源: ${src})`, 'error');
+});
+
+// --- 進度條 ---
+function formatTime(seconds) {
+  if (isNaN(seconds) || seconds < 0) return '0:00';
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+function updateProgress() {
+  const duration = player.duration;
+  const currentTime = player.currentTime;
+  if (!isNaN(duration) && duration > 0) {
+    const progress = (currentTime / duration) * 100;
+    progressFilled.style.width = progress + '%';
+    currentTimeDisplay.textContent = formatTime(currentTime);
+    durationDisplay.textContent = formatTime(duration);
+  } else {
+    progressFilled.style.width = '0%';
+    currentTimeDisplay.textContent = '0:00';
+    durationDisplay.textContent = '0:00';
+  }
+}
+progressBar.addEventListener('click', (e) => {
+  const duration = player.duration;
+  if (isNaN(duration) || duration <= 0) return addDebugLog('無法跳轉，影片長度未知', 'warning');
+  const rect = progressBar.getBoundingClientRect();
+  const clickX = e.clientX - rect.left;
+  const progressBarWidth = rect.width;
+  if (progressBarWidth <= 0) return;
+  const newTime = (clickX / progressBarWidth) * duration;
+  player.currentTime = Math.max(0, Math.min(newTime, duration));
+  addDebugLog(`手動跳轉至 ${formatTime(player.currentTime)}`, 'info');
+  updateProgress();
+});
+player.addEventListener('timeupdate', updateProgress);
+player.addEventListener('loadedmetadata', updateProgress);
+player.addEventListener('durationchange', updateProgress);
+player.addEventListener('seeked', updateProgress);
+
+// --- Manifest 載入與 Virtual Scene ---
+async function loadManifest() {
+  addDebugLog('開始載入 manifest.json...', 'info');
+  try {
+    const res = await fetch(MANIFEST_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText} @ ${res.url}`);
+    const text = await res.text();
+    try {
+      manifest = JSON.parse(text);
+      addDebugLog('manifest.json 載入成功', 'success');
+    } catch (err) {
+      addDebugLog(`manifest.json 解析失敗: ${err.message}`, 'error');
+      throw new Error("manifest.json 解析失敗（JSON 格式錯誤）");
+    }
+    intervalSec = manifest?.config?.defaultIntervalSec ?? 2.5;
+    initSceneDropdown();
+    const initialMode = document.querySelector('input[name="sceneMode"]:checked').value;
+    switchMode(initialMode);
+  } catch (e) {
+    addDebugLog(`載入 manifest.json 失敗: ${e.message}`, 'error');
+    meta.textContent = `載入 manifest.json 失敗: ${e.message}`;
+    switchMode(document.querySelector('input[name="sceneMode"]:checked').value || 'virtual');
+  }
+}
+function initSceneDropdown() {
+  sceneSel.innerHTML = '';
+  const scenes = manifest?.virtualScenes || manifest?.scenes || [];
+  if (scenes.length === 0) { addDebugLog('manifest 中找不到 virtualScenes 或 scenes', 'warning'); return; }
+  scenes.forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s.id;
+    opt.textContent = s.title || s.id;
+    sceneSel.appendChild(opt);
+  });
+  if (sceneSel.options.length > 0) sceneSel.selectedIndex = 0;
+}
+function buildPlaylistFromManifest() {
+  if (currentMode !== 'virtual' || !manifest) return;
+  const sceneId = sceneSel.value;
+  const angle = String(angleSel.value);
+  const scenes = manifest.virtualScenes || manifest.scenes || [];
+  const scene = scenes.find(s => s.id === sceneId);
+  playlist = [];
+  if (!scene) {
+    vsel.innerHTML = '<option value="-1">-- 請選擇活動 --</option>';
+    clearPlayerAndUI();
+    meta.textContent = '找不到資料';
+    list.innerHTML = '';
+    if (diag) diag.textContent = '';
+    addDebugLog(`找不到 ID 為 ${sceneId} 的情境`, 'warning');
+    return;
+  }
+  const suffixMap = manifest.angleSuffixMap || { "1": "_0", "2": "_1", "3": "_2", "4": "_3", "5": "_4" };
+  const activities = scene.activities || [];
+  activities.forEach(act => {
+    if (!act || !act.base || !act.ext) return;
+    const suffix = suffixMap[angle] || "_0";
+    const cleanBase = act.base.endsWith('/') ? act.base.slice(0, -1) : act.base;
+    const cleanSuffix = suffix.startsWith('/') ? suffix.slice(1) : suffix;
+    const src = `${cleanBase}${cleanSuffix}${act.ext}`;
+    playlist.push({ title: `${act.name} (相機 ${angle})`, src });
+  });
+
+  vsel.innerHTML = '';
+  if (playlist.length > 0) {
+    playlist.forEach((v, i) => {
+      const opt = document.createElement('option');
+      opt.value = String(i);
+      opt.textContent = v.title;
+      vsel.appendChild(opt);
+    });
+    vsel.value = "0";
+    loadVideoByIndex(0);
+    meta.textContent = `活動數量=${playlist.length}`;
+    addDebugLog(`載入場景 ${sceneId}，相機 ${angle}，共 ${playlist.length} 個活動`, 'success');
+  } else {
+    vsel.innerHTML = '<option value="-1">-- 無可用活動 --</option>';
+    clearPlayerAndUI();
+    meta.textContent = '此情境在此相機角度無可用活動';
+    addDebugLog(`場景 ${sceneId} 在相機 ${angle} 無可用活動`, 'warning');
+  }
+  const totalActs = activities.length;
+  if (diag) diag.textContent = `總活動=${totalActs}，可播=${playlist.length}`;
+  list.innerHTML = '';
+}
+function loadVideoByIndex(i) {
+  if (currentMode !== 'virtual') return;
+  const index = parseInt(i, 10);
+  if (isNaN(index) || index < 0 || index >= playlist.length) {
+    addDebugLog(`無效的影片索引: ${i}`, 'error');
+    clearPlayerAndUI();
+    meta.textContent = '無效的影片選擇';
+    return;
+  }
+  const v = playlist[index];
+  if (!v || !v.src) { addDebugLog(`索引 ${index} 缺少影片來源`, 'error'); meta.textContent = '影片來源錯誤'; return; }
+  player.src = v.src;
+  player.currentTime = 0;
+  player.load();
+  meta.textContent = v.title || `影片 ${index + 1}`;
+  addDebugLog(`載入影片: ${v.title}`, 'info');
+  if (alertOverlay) { alertOverlay.style.display = 'none'; alertOverlay.textContent = ''; }
+  pausedForDanger = false;
+  progressFilled.style.width = '0%';
+  currentTimeDisplay.textContent = '0:00';
+  durationDisplay.textContent = '0:00';
+  // 這裡不自動播放，由 ended 事件統一處理自動播放下一個
+  player.pause();
+  updatePlayPauseButton();
+}
+player.addEventListener('ended', () => {
+  if (currentMode === 'virtual' && autoPlayToggle.checked && !pausedForDanger) {
+    const i = vsel.selectedIndex;
+    const next = i + 1;
+    if (next < playlist.length) {
+      addDebugLog('影片播畢，自動播放下一個...', 'info');
+      vsel.selectedIndex = next;
+      loadVideoByIndex(next); // 載入但不立刻播放
+      setTimeout(() => {
+        if (currentMode === 'virtual' && autoPlayToggle.checked && !pausedForDanger) {
+          player.play().catch(e => addDebugLog(`自動播放下一個失敗: ${e.message}`, 'warning'));
+        }
+      }, 150);
+    } else {
+      addDebugLog('已播完播放列表中的所有影片', 'info');
+    }
+  } else if (currentMode === 'uploaded') {
+    addDebugLog('上傳的影片播畢', 'info');
+  }
+});
+
+// --- AI 即時分析 ---
+function startAIAnalysis() {
+  if (!aiToggle || !aiToggle.checked) return;
+  if (!frameCtx) { addDebugLog('Canvas context 無法初始化', 'error'); return; }
+  if (aiTimer) return;
+  addDebugLog('啟動 AI 分析 (每 1.5 秒)', 'info');
+  aiTimer = setInterval(captureAndAnalyze, 1500);
+}
+function stopAIAnalysis() {
+  if (aiTimer) {
+    clearInterval(aiTimer);
+    aiTimer = null;
+    aiBusy = false;
+    addDebugLog('停止 AI 即時分析', 'info');
+  }
+}
+async function captureAndAnalyze() {
+  if (aiBusy || player.paused || player.ended || !frameCtx || !aiToggle.checked) return;
+  const vw = player.videoWidth || 0;
+  const vh = player.videoHeight || 0;
+  if (vw === 0 || vh === 0) return;
+  aiBusy = true;
+  try {
+    const MAX_W = 256;
+    const scale = Math.min(1, MAX_W / vw);
+    frameCanvas.width = Math.round(vw * scale);
+    frameCanvas.height = Math.round(vh * scale);
+    frameCtx.drawImage(player, 0, 0, frameCanvas.width, frameCanvas.height);
+    const dataUrl = frameCanvas.toDataURL('image/jpeg', 0.6);
+    // 準備要傳送的 context
+    let analysisContext = null;
+    if (currentAnalysisReport) {
+      analysisContext = {
+        visual_triples: currentAnalysisReport?.analysis?.visual_analysis?.visual_triples || [],
+        kbert_summary: currentAnalysisReport?.analysis?.kbert_analysis?.summary || ""
+      };
+    }
+
+    const res = await fetch('/api/analyze', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        dataUrl,
+        context: analysisContext // 傳送背景知識
+      })
+    });
+
+    if (!res.ok) { const errorText = await res.text(); throw new Error(`API Error ${res.status}: ${errorText}`); }
+    const out = await res.json();
+    if (out.error) throw new Error(`API returned error: ${out.error}`);
+    updateAIUI(out);
+  } catch (e) {
+    addDebugLog(`AI 分析失敗: ${e.message}`, 'error');
+    stopAIAnalysis();
+  } finally {
+    aiBusy = false;
+  }
+}
+function updateAIUI(out) {
+  try {
+    const result = out?.result;              
+    const reportText = out?.report || "(無分析報告)"; 
+    if (!result) return;
+
+    const stats = [];
+    if (result.fall)        stats.push("跌倒");
+    if (result.climbing)    stats.push("爬高");
+    if (result.running)     stats.push("奔跑");
+    if (result.disoriented) stats.push("迷失方向");
+
+    // 將 diag 顯示狀態與簡報告
+    const statusText = stats.length > 0
+      ? `<span style="color:#ef4444;">${stats.join(' / ')}</span>`
+      : '<span style="color:#4ade80;">正常</span>';
+    if (diag) diag.innerHTML = `[狀態: ${statusText}] [AI報告: ${reportText}]`;
+
+    const danger = stats.length > 0;
+    if (danger) {
+      alertOverlay.style.display = 'block';
+      alertOverlay.textContent = '警告：偵測到 ' + stats.join(' / ');
+      if (!pausedForDanger) {
+        player.pause();
+        pausedForDanger = true;
+        addDebugLog(`警告：偵測到危險行為 [${stats.join(', ')}]，影片已自動暫停`, 'warning');
+      }
+    } else {
+      alertOverlay.style.display = 'none';
+      alertOverlay.textContent = '';
+    }
+  } catch (e) {
+    addDebugLog(`更新 AI 狀態 UI 時出錯: ${e.message}`, 'error');
+  }
+}
+
+aiToggle.addEventListener('change', () => {
+  if (aiToggle.checked) {
+    if (!player.paused) startAIAnalysis();
+    addDebugLog('AI 即時分析已啟用', 'info');
+  } else {
+    stopAIAnalysis();
+    if (diag) diag.textContent = '';
+    alertOverlay.style.display = 'none';
+    addDebugLog('AI 即時分析已停用', 'info');
+  }
+});
+player.addEventListener('play', () => { if (aiToggle.checked) startAIAnalysis(); });
+player.addEventListener('pause', stopAIAnalysis);
+player.addEventListener('emptied', stopAIAnalysis);
+player.addEventListener('error', stopAIAnalysis);
+
+// --- 測試 AI API 按鈕 ---
+document.getElementById('testAI').onclick = async () => {
+  addDebugLog('開始測試 AI API 連線...', 'info');
+  const btn = document.getElementById('testAI');
+  btn.disabled = true;
+  btn.textContent = '測試中...';
+  const c = document.createElement('canvas'); c.width = 64; c.height = 64;
+  const ctx = c.getContext('2d'); ctx.fillStyle = '#ff0000'; ctx.fillRect(0,0,64,64);
+  const testDataUrl = c.toDataURL('image/jpeg', 0.5);
+  try {
+    const res = await fetch('/api/analyze', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ dataUrl: testDataUrl }) });
+    addDebugLog(`API 回應狀態: ${res.status} ${res.statusText}`, res.ok ? 'success' : 'error');
+    if (!res.ok) { const t = await res.text(); addDebugLog(`錯誤內容: ${t}`, 'error'); throw new Error(t); }
+    const result = await res.json();
+    addDebugLog(`API 回應成功: ${JSON.stringify(result)}`, 'success');
+    if (result.error) addDebugLog(`API 內部錯誤: ${result.error}`, 'error');
+    else if (result.result) addDebugLog(`解析結果: ${JSON.stringify(result.result)}`, 'success');
+  } catch (e) {
+    addDebugLog(`網路或 API 錯誤: ${e.message}`, 'error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '測試 AI API';
+  }
+};
+
+// --- K-BERT 進度面板 ---
+function resetKbertPanel() {
+  kbertResultDiv.innerHTML = '等待影片上傳與分析...';
+  downloadButtonsContainer.innerHTML = '';
+  const existingButton = document.getElementById('downloadButton');
+  if (existingButton) existingButton.remove();
+  currentAnalysisReport = null; 
+
+}
+function updateAnalysisStatusUI(stage, message = '') {
+  if (!kbertPanel) return;
+  let uploading = '<li>[等待] 1. 上傳影片至 GCS...</li>';
+  let pending   = '<li>[等待] 2. 觸發雲端分析管線...</li>';
+  let processing= '<li>[等待] 3. 執行知識圖譜分析 (可能需數分鐘)...</li>';
+  let complete  = '<li>[等待] 4. 分析完成。</li>';
+  if (stage === 'uploading') {
+    uploading = '<li><span class="debug-info">[執行中] 1. 上傳影片至 GCS...</span></li>';
+  } else if (stage === 'pending') {
+    uploading = '<li><span class="debug-success">[完成] 1. 上傳影片至 GCS。</span></li>';
+    pending   = '<li><span class="debug-info">[執行中] 2. 觸發雲端分析管線...</span></li>';
+  } else if (stage === 'processing') {
+    uploading  = '<li><span class="debug-success">[完成] 1. 上傳影片至 GCS。</span></li>';
+    pending    = '<li><span class="debug-success">[完成] 2. 雲端分析已觸發。</span></li>';
+    processing = '<li><span class="debug-info">[執行中] 3. 執行知識圖譜分析 (可能需數分鐘)...</li>';
+  } else if (stage === 'complete') {
+    uploading  = '<li><span class="debug-success">[完成] 1. 上傳影片至 GCS。</span></li>';
+    pending    = '<li><span class="debug-success">[完成] 2. 雲端分析已觸發。</span></li>';
+    processing = '<li><span class="debug-success">[完成] 3. 知識圖譜分析完畢。</span></li>';
+    complete   = '<li><span class="debug-success">[完成] 4. 分析報告已載入！</span></li>';
+  } else if (stage === 'error') {
+    if (kbertPanel.innerHTML.includes('[執行中] 1.')) {
+      uploading = `<li><span class="debug-error">[錯誤] 1. 上傳失敗: ${message}</span></li>`;
+    } else if (kbertPanel.innerHTML.includes('[執行中] 2.')) {
+      uploading = '<li><span class="debug-success">[完成] 1. 上傳影片至 GCS。</span></li>';
+      pending = `<li><span class="debug-error">[錯誤] 2. 觸發失敗: ${message}</span></li>`;
+    } else {
+      uploading  = '<li><span class="debug-success">[完成] 1. 上傳影片至 GCS。</span></li>';
+      pending    = '<li><span class="debug-success">[完成] 2. 雲端分析已觸發。</span></li>';
+      processing = `<li><span class="debug-error">[錯誤] 3. 分析失敗: ${message}</span></li>`;
+    }
+  }
+  const currentResultHTML = (stage !== 'complete' && stage !== 'error') ? kbertResultDiv.innerHTML : '等待分析結果...';
+  document.getElementById('kbert-panel').innerHTML = `
+    <div class="debug-title">後端分析進度</div>
+    <ul class="status-list">${uploading}${pending}${processing}${complete}</ul>
+    <div id="kbertResult" style="margin-top:10px;">${currentResultHTML}</div>
+    <div id="downloadButtonsContainer" style="margin-top:10px;"></div>
+  `;
+}
+function stopPolling() {
+  if (pollingInterval) {
+    clearInterval(pollingInterval);
+    pollingInterval = null;
+    addDebugLog('停止等待分析結果', 'info');
+  }
+}
+function startPollingForResult(fileName) {
+  stopPolling();
+  addDebugLog(`等待分析檔案 ${fileName} 的分析結果 (每 1 分鐘)...`, 'info');
+  updateAnalysisStatusUI('processing');
+  uploadStatus.textContent = `[3/4] 後端正在分析中 (${fileName})...`;
+  uploadStatus.style.color = '#4a9eff';
+  let pollCount = 0;
+  const maxPolls = 60;
+  pollingInterval = setInterval(async () => {
+    pollCount++;
+    if (pollCount > maxPolls) {
+      stopPolling();
+      const timeoutMsg = '等待超時 (1小時)，後端可能仍在處理或已失敗。';
+      updateAnalysisStatusUI('error', timeoutMsg);
+      uploadStatus.textContent = `錯誤：${timeoutMsg}`;
+      uploadStatus.style.color = '#ef4444';
+      addDebugLog(timeoutMsg, 'error');
+      return;
+    }
+    try {
+      addDebugLog(`等待結果第 #${pollCount}次 /api/result/${fileName}`, 'info');
+      const res = await fetch(`/api/result/${fileName}`);
+      if (!res.ok) {
+        if (res.status === 404 || res.status === 202) {
+          addDebugLog(`分析結果 (${fileName}) 尚未就緒 (HTTP ${res.status})，繼續等待...`, 'info');
+          return;
+        } else {
+          const errorText = await res.text();
+          throw new Error(`查詢結果失敗: HTTP ${res.status} ${res.statusText} - ${errorText}`);
+        }
+      }
+      const result = await res.json();
+      if (result.status === 'completed') {
+        stopPolling();
+        uploadStatus.textContent = `[4/4] 分析完成！ (${fileName})`;
+        uploadStatus.style.color = '#4ade80';
+        addDebugLog(`分析完成，取得報告: ${JSON.stringify(result.data).substring(0, 100)}...`, 'success');
+        displayResults(fileName, result.data);
+      } else if (result.status === 'processing' || result.status === 202) {
+        addDebugLog(`狀態仍為 processing，繼續等待...`, 'info');
+      } else {
+        stopPolling();
+        const errorMsg = result.message || JSON.stringify(result.data?.errors || '未知後端錯誤');
+        updateAnalysisStatusUI('error', `後端分析失敗: ${errorMsg}`);
+        uploadStatus.textContent = `錯誤：後端分析失敗 (${fileName})`;
+        uploadStatus.style.color = '#ef4444';
+        addDebugLog(`後端回報錯誤: ${errorMsg}`, 'error');
+      }
+    } catch (error) {
+      stopPolling();
+      const errorMsg = error.message || '等待時發生未知錯誤';
+      updateAnalysisStatusUI('error', `輪詢錯誤: ${errorMsg}`);
+      uploadStatus.textContent = `錯誤：無法連接伺服器或解析回應 (${fileName})`;
+      uploadStatus.style.color = '#ef4444';
+      addDebugLog(`等待結果 fetch 或 JSON 解析錯誤: ${errorMsg}`, 'error');
+    }
+  }, 60000);
+}
+
+function displayResults(fileName, data) {
+  currentAnalysisReport = data; // 儲存雲端分析報告，供 AI context 使用
+  updateAnalysisStatusUI('complete');
+  const kbert_analysis = data?.analysis?.kbert_analysis || { summary: "(無 K-BERT 分析結果)", contains_danger: false };
+  const panel = document.getElementById('kbertResult');
+  panel.innerHTML = `
+      <div class="debug-title" style="border-top:1px solid #2a2f3a; padding-top:10px;">分析結果</div>
+      <div><strong>分析摘要:</strong> ${kbert_analysis.summary || "(無摘要)"}</div>
+      <div><strong>偵測到危險:</strong> <span style="color: ${kbert_analysis.contains_danger ? '#ef4444' : '#4ade80'}; font-weight: bold;">${kbert_analysis.contains_danger ? '是' : '否'}</span></div>
+  `;
+  if (kbert_analysis.contains_danger) {
+    alertOverlay.style.display = 'block';
+    alertOverlay.textContent = '警告：分析偵測到潛在危險！';
+    addDebugLog('K-BERT 分析偵測到危險行為。', 'warning');
+  } else {
+    alertOverlay.style.display = 'none';
+  }
+  // 下載按鈕容器
+  const container = document.getElementById('downloadButtonsContainer');
+  container.innerHTML = '';
+  const downloadBtn = document.createElement('button');
+  downloadBtn.id = 'downloadButton';
+  downloadBtn.textContent = `下載分析報告 (${fileName}_report.json)`;
+  downloadBtn.onclick = () => {
+    window.location.href = `/api/download/${fileName}`;
+    addDebugLog(`觸發下載報告: ${fileName}`, 'info');
+  };
+  container.appendChild(downloadBtn);
+  meta.textContent = `分析完成：${fileName}`;
+  addDebugLog(`分析完成，已顯示結果。影片 ${fileName} 為本地預覽。`, 'success');
+}
+
+// --- 上傳與等待 ---
+videoUploader.addEventListener('change', () => {
+  const file = videoUploader.files[0];
+  if (file) {
+    if (uploadedVideoInfo && uploadedVideoInfo.url && uploadedVideoInfo.url.startsWith('blob:')) {
+      URL.revokeObjectURL(uploadedVideoInfo.url);
+    }
+    const objectURL = URL.createObjectURL(file);
+    uploadedVideoInfo = { name: file.name, url: objectURL, file };
+    addDebugLog(`已選擇檔案: ${file.name}`, 'info');
+    if (currentMode === 'uploaded') {
+      player.src = uploadedVideoInfo.url;
+      player.load();
+      meta.textContent = `預覽檔案：${uploadedVideoInfo.name}`;
+      updateProgress();
+    }
+    uploadStatus.textContent = `已選擇檔案：${file.name}，點擊「上傳並分析」開始。`;
+    resetKbertPanel();
+    updateAnalysisStatusUI('initial');
+    stopPolling();
+    currentAnalysisReport = null; // <<< 選擇新檔案時清除
+  } else {
+    if (uploadedVideoInfo && uploadedVideoInfo.url && uploadedVideoInfo.url.startsWith('blob:')) {
+      URL.revokeObjectURL(uploadedVideoInfo.url);
+    }
+    uploadedVideoInfo = null;
+    if (currentMode === 'uploaded') {
+      clearPlayerAndUI();
+      meta.textContent = '請選擇影片檔案';
+    }
+    uploadStatus.textContent = '請選擇影片檔案...';
+  }
+});
+
+uploadButton.onclick = async () => {
+  if (!uploadedVideoInfo || !uploadedVideoInfo.file) {
+    uploadStatus.textContent = '錯誤：請先選擇一個影片檔案！';
+    addDebugLog('上傳按鈕點擊，但未選擇檔案', 'warning');
+    currentAnalysisReport = null; // 開始上傳時清除
+    return;
+  }
+  const file = uploadedVideoInfo.file;
+  const fileName = uploadedVideoInfo.name;
+
+  addDebugLog(`準備上傳檔案: ${fileName}`, 'info');
+  stopPolling();
+  resetKbertPanel();
+  updateAnalysisStatusUI('uploading');
+  uploadStatus.textContent = `[1/4] 上傳中 (${fileName})，請稍候...`;
+  uploadButton.disabled = true;
+  document.getElementById('testAI').disabled = true;
+
+  const formData = new FormData();
+  formData.append('video', file, fileName);
+
+  try {
+    addDebugLog('呼叫 /api/upload...', 'info');
+    const res = await fetch('/api/upload', { method: 'POST', body: formData });
+    const result = await res.json();
+    if (res.ok) {
+      addDebugLog(`/api/upload 成功: ${JSON.stringify(result)}`, 'success');
+      uploadStatus.textContent = `[2/4] 上傳成功！開始等待分析結果 (${fileName})...`;
+      updateAnalysisStatusUI('pending');
+      if (currentMode !== 'uploaded') {
+        document.querySelector('input[name="sceneMode"][value="uploaded"]').checked = true;
+        switchMode('uploaded');
+      } else {
+        player.src = uploadedVideoInfo.url;
+        player.load();
+        meta.textContent = `預覽檔案：${fileName}`;
+      }
+      startPollingForResult(fileName);
+    } else {
+      const errorMsg = result?.error || `HTTP ${res.status} ${res.statusText}`;
+      addDebugLog(`/api/upload 失敗: ${errorMsg}`, 'error');
+      throw new Error(errorMsg);
+    }
+  } catch (e) {
+    const errorMsg = e.message || '未知的上傳錯誤';
+    uploadStatus.textContent = `上傳失敗：${errorMsg}`;
+    updateAnalysisStatusUI('error', `上傳失敗: ${errorMsg}`);
+    addDebugLog(`上傳或處理 /api/upload 回應時發生錯誤: ${errorMsg}`, 'error');
+  } finally {
+    uploadButton.disabled = false;
+    document.getElementById('testAI').disabled = false;
+  }
+};
+
+// --- 初始化 ---
+addDebugLog('頁面載入，TV Subtitle Debug 系統啟動', 'success');
+document.addEventListener('DOMContentLoaded', async () => {
+  addDebugLog('DOM Ready, 開始初始化...', 'info');
+  toggleControlsForMode(currentMode);
+  resetKbertPanel();
+  updateAnalysisStatusUI('initial');
+  await loadManifest();
+});
+</script>
+</body>
+</html>

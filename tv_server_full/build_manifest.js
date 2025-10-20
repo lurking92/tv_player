@@ -2,7 +2,7 @@
 // 讀 Episodes/*.json + 掃描 videos/*，輸出 public/manifest.json（敘述留空）
 // 每個活動只輸出 { name, base, ext, narration:null }（不再含 angles）；
 // 全域補上 angleSuffixMap，前端選角度時再用 base + 後綴 + ext 組 URL。
-// 新增：掃描額外的影片檔案作為 true_scene
+// 掃描額外的影片檔案作為 true_scene
 
 import fs from "fs";
 import path from "path";
@@ -11,9 +11,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// =====================
 // Config
-// =====================
 const EPISODES_DIR = path.join(__dirname, "Episodes");
 const VIDEOS_ROOT = path.join(__dirname, "videos");
 const OUTPUT_MANIFEST = path.join(__dirname, "public", "manifest.json");
@@ -24,9 +22,7 @@ const ANGLE_SUFFIX_MAP = { 1: "_0", 2: "_1", 3: "_2", 4: "_3", 5: "_4" };
 
 const VIDEO_EXTS = [".mp4", ".mov", ".mkv", ".webm"];
 
-// =====================
 // Helpers
-// =====================
 
 function walkFiles(dir) {
   const out = [];
@@ -104,7 +100,7 @@ function findBaseAndExtForActivity(activityName, allVideoPaths) {
         const baseNoExt = rel.slice(0, -ext.length); // 去掉副檔名
         const base = baseNoExt.endsWith(sfx)
           ? baseNoExt.slice(0, -sfx.length)
-          : baseNoExt; // 去掉後綴 // 加 encodeURI，避免空格等特殊字元
+          : baseNoExt; // 去掉後綴、加 encodeURI，避免空格等特殊字元
         return { base: encodeURI(base), ext };
       }
     }
@@ -112,7 +108,7 @@ function findBaseAndExtForActivity(activityName, allVideoPaths) {
   return null;
 }
 
-// 新增：掃描額外的影片檔案（不屬於任何場景的）
+// 掃描額外的影片檔案（不屬於任何場景的）
 function scanStandaloneVideos(allVideoPaths, usedPaths) {
   const standaloneVideos = [];
   const usedSet = new Set(usedPaths.map((p) => p.toLowerCase()));
@@ -191,9 +187,7 @@ function buildManifest() {
   };
 }
 
-// =====================
-// main 函式 (已修改)
-// =====================
+// main 函式
 function main() {
   const newManifest = buildManifest();
   let finalManifest;
