@@ -77,10 +77,10 @@ app.post("/api/upload", upload.single("video"), async (req, res) => {
   }
 });
 
-// API：Gemini 即時影像分析（單張影像 dataURL）
+// API：Gemini 即時影像分析（單張影像 dataURL + 背景知識，"以當前畫面為主"）
 app.post("/api/analyze", async (req, res) => {
   try {
-    const { dataUrl } = req.body || {};
+    const { dataUrl, context } = req.body || {};
     if (!dataUrl || typeof dataUrl !== "string") {
       return res.status(400).json({ error: "missing dataUrl" });
     }
@@ -100,39 +100,50 @@ app.post("/api/analyze", async (req, res) => {
       return res.status(400).json({ error: "Invalid dataUrl format" });
     }
 
+    // 背景只取少量，避免干擾過大
+    const visualStr =
+      Array.isArray(context?.visual_triples) && context.visual_triples.length
+        ? `- 參考背景 - 影片視覺關聯(節錄): ${JSON.stringify(
+            context.visual_triples.slice(0, 3)
+          )}...`
+        : `- 無影片視覺關聯資訊`;
+    const kbertStr = context?.kbert_summary
+      ? `- 參考背景 - K-BERT 摘要: ${context.kbert_summary}`
+      : `- 無 K-BERT 摘要`;
+
+    const prompt = `你是一位專注於失智症長者居家安全的 AI 助手。請優先根據眼前的即時影像進行分析，並輔以參考以下背景資訊，提供安全評估。
+
+    背景資訊 (僅供參考，以即時影像為主):
+    ${visualStr}
+    ${kbertStr}
+
+    分析2項任務：
+    1. 判斷目前畫面，或是根據前面提供的圖片判斷連續動作中是否有以下四種立即性風險 (fall, climbing, running, disoriented)，即使只是輕微跡象也要標記為 true。此判斷必須基於即時影像。
+    2. 根據即時影像，並稍微參考背景資訊，生成一份簡短的中文風險評估報告 (report)，包含：
+      - 危險動作傾向：根據四個布林值，描述目前畫面顯示的主要風險。若無則說明「目前畫面無明顯危險動作」。
+      - 環境風險評估：畫面中是否有容易絆倒的物品、危險物品、光線問題等？可結合背景資訊中的物件，提出潛在環境風險。
+      - 預防建議：針對上述畫面中觀察到的風險，提供 1-2 點具體建議。
+
+    請嚴格以 JSON 格式回應，包含 analysis (四個布林值) 和 report (中文報告文字)，格式如下：
+    {
+      "analysis": { "fall": boolean, "climbing": boolean, "running": boolean, "disoriented": boolean },
+      "report": "中文風險評估報告文字..."
+    }
+
+    重要：
+    1. 優先依賴即時影像進行判斷與報告生成。
+    2. 僅回傳 JSON 物件，無其他多餘文字。`;
+
     const payload = {
       contents: [
         {
           parts: [
-            {
-              text: `你是一個專業的安全監控系統，請仔細分析這張圖片中人物的動作和姿勢。
-
-                請判斷是否出現以下四種情況，即使只是輕微跡象也要標記為 true：
-
-                1. fall (跌倒)：人物是否有跌倒、倒地、失去平衡、不正常的躺臥姿勢？
-                2. climbing (爬高)：人物是否在攀爬任何物體，包括椅子、桌子、樓梯、牆壁等？
-                3. running (奔跑)：人物是否在快速移動、跑步、或比正常走路更快的動作、或是手有大幅度擺動的狀況？
-                4. disoriented (迷失方向)：人物是否看起來困惑、徘徊不定、重複相同動作、或行為異常？
-
-                請以 JSON 格式回應，只包含這四個布林值，格式如下：
-                {"fall":false,"climbing":false,"running":false,"disoriented":false}
-
-                重要：
-                - 如果不確定，請標記為 true
-                - 只回傳 JSON，不要任何其他文字
-                - 仔細觀察人物的姿勢、動作和周圍環境`,
-            },
-            {
-              inline_data: {
-                mime_type: "image/jpeg",
-                data: base64Data,
-              },
-            },
+            { text: prompt },
+            { inline_data: { mime_type: "image/jpeg", data: base64Data } },
           ],
         },
       ],
-      // generationConfig 可視需要加入
-      // generationConfig: { temperature: 0.1, maxOutputTokens: 100 }
+      generationConfig: { responseMimeType: "application/json" },
     };
 
     const resp = await fetch(apiUrl, {
@@ -152,47 +163,49 @@ app.post("/api/analyze", async (req, res) => {
     }
 
     const data = await resp.json();
-    let raw = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+    const content = data?.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
 
-    // 嘗試抽取 JSON
-    let result = null;
-    if (typeof raw === "string") {
-      raw = raw.replace(/```json|```/g, "").trim();
-      const jsonMatch = raw.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        try {
-          result = JSON.parse(jsonMatch[0]);
-        } catch (e) {
-          console.error("[AI] JSON 解析失敗:", e.message);
-        }
-      }
-    }
-
-    if (!result) {
-      result = {
-        fall: false,
-        climbing: false,
-        running: false,
-        disoriented: false,
+    // 解析 JSON（允許模型外包一層 ```json ... ```）
+    let parsed = {};
+    try {
+      const cleaned = String(content)
+        .replace(/```json|```/g, "")
+        .trim();
+      parsed = JSON.parse(cleaned || "{}");
+    } catch (e) {
+      console.error("[AI] JSON 解析失敗:", e.message, "原始回應:", content);
+      parsed = {
+        analysis: {
+          fall: false,
+          climbing: false,
+          running: false,
+          disoriented: false,
+        },
+        report: "AI 分析回應格式錯誤，無法生成報告。",
       };
     }
 
-    const finalResult = {
-      fall: !!result.fall,
-      climbing: !!result.climbing,
-      running: !!result.running,
-      disoriented: !!result.disoriented,
+    const finalAnalysis = {
+      fall: !!parsed?.analysis?.fall,
+      climbing: !!parsed?.analysis?.climbing,
+      running: !!parsed?.analysis?.running,
+      disoriented: !!parsed?.analysis?.disoriented,
     };
+    const finalReport =
+      typeof parsed?.report === "string"
+        ? parsed.report
+        : "無法生成有效的分析報告。";
 
-    res.json({
-      result: finalResult,
-      raw: raw,
-      model: model,
+    return res.json({
+      result: finalAnalysis, // 前端沿用 out.result
+      report: finalReport, // 新增：報告文字（前端顯示）
+      raw_response: content, // 方便除錯
+      model,
       timestamp: new Date().toISOString(),
     });
   } catch (e) {
     console.error("[AI] analyze error:", e);
-    res.status(500).json({
+    return res.status(500).json({
       error: String(e?.message || e),
       timestamp: new Date().toISOString(),
     });
@@ -316,10 +329,28 @@ app.get("/api/download/dino_zip/:fileName", async (req, res) => {
   }
 });
 
+app.post("/api/download/ai_report", express.text(), (req, res) => {
+  const reportText = req.body;
+  if (!reportText || typeof reportText !== "string") {
+    return res.status(400).send("缺少報告內容");
+  }
+  try {
+    const ts = new Date().toISOString().replace(/[:.]/g, "-");
+    const filename = `ai_risk_report_${ts}.txt`;
+    res.setHeader("Content-Disposition", `attachment; filename=${filename}`);
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
+    res.send(reportText);
+    console.log(`[Download AI Report] 已提供報告下載: ${filename}`);
+  } catch (err) {
+    console.error("[Download AI Report] 產生下載時發生錯誤:", err);
+    res.status(500).send("無法產生報告下載");
+  }
+});
+
 // --- 啟動 ---
 app.listen(PORT, () => {
   console.log(`靜態伺服器運行於 http://localhost:${PORT}`);
-  console.log(`即時分析模型: google/gemini-1.5-flash-latest`);
+  console.log(`即時分析模型: google/gemini-2.5-flash`);
   console.log(
     `Gemini API Key 狀態: ${
       process.env.GEMINI_API_KEY ? "已設定" : "未設定 (.env 檔案)"

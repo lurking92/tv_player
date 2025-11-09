@@ -1,0 +1,8 @@
+{
+    "walk": 9,
+    "grab": 4,
+    "put": 4,
+    "drink": 1,
+    "eat": 1,
+    "pour": 1
+}

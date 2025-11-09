@@ -1,0 +1,81 @@
+{
+    "name": "Test Test",
+    "senario": "scene1_Day2",
+    "answers": [
+        {
+            "name": "breadslice312_scene1",
+            "change": {
+                "first": {
+                    "pos": [
+                        -0.9130588,
+                        0.7348586,
+                        -2.876046
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                },
+                "later": {
+                    "pos": [
+                        -0.9130588,
+                        0.7348586,
+                        -2.876046
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "milk341_scene1",
+            "change": {
+                "first": {
+                    "pos": [
+                        -0.3721665,
+                        1.072861,
+                        -5.464913
+                    ],
+                    "state": [
+                        "CLOSED"
+                    ]
+                },
+                "later": {
+                    "pos": [
+                        0.8354525,
+                        0.7346042,
+                        -2.963124
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "washingsponge268_scene1",
+            "change": {
+                "first": {
+                    "pos": [
+                        -1.613703,
+                        0.7374958,
+                        -3.091954
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                },
+                "later": {
+                    "pos": [
+                        -1.613703,
+                        0.7374958,
+                        -3.091954
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                }
+            }
+        }
+    ]
+}

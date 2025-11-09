@@ -1,0 +1,6280 @@
+{
+  "relations": [
+    {
+      "time_state": 0,
+      "obj1": "Clock267",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger388",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile159",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper330",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryknife277",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel57",
+      "relation": "ON",
+      "obj2": "Towel55"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer125",
+      "relation": "ON",
+      "obj2": "Closetdrawer128"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Fridge308",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Whippedcream323",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile414",
+      "relation": "ON",
+      "obj2": "Closetdrawer417"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Orchid262",
+      "relation": "ON",
+      "obj2": "Tvstand232"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plum451",
+      "relation": "ON",
+      "obj2": "Coffeetable378"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall357",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt132",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper328",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer246"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor14",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Plate280",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall90",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass272",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger117",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Barsoap68",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Washingmachine74",
+      "relation": "ON",
+      "obj2": "Floor16"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceilinglamp35",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger384",
+      "relation": "ON",
+      "obj2": "Clothespants385"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer411",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel455",
+      "relation": "FACING",
+      "obj2": "Tv433"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile416",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cpuscreen439",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tv266",
+      "relation": "ON",
+      "obj2": "Tvstand232"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Waterglass283",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall85",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tvstand376",
+      "relation": "ON",
+      "obj2": "Floor347"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile413",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cellphone457",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallphone265",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile170",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer127",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Plate275",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Powersocket264"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bookshelf251",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger397",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Computer440",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Lightswitch263",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Curtains431",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bench234",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryknife273",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Chair110"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mug454",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile152",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling99",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel455",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel56",
+      "relation": "ON",
+      "obj2": "Bathroomcounter50"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Sink249",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants138",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt387",
+      "relation": "ON",
+      "obj2": "Closetdrawer400"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall91",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cpuscreen439",
+      "relation": "ON",
+      "obj2": "Desk380"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pillow429",
+      "relation": "ON",
+      "obj2": "Sofa375"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Coffeepot310",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Lightswitch263",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Peach448",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Pie324"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile409",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pillow190",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Plate287",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor210",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger133",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling101",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryknife282",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Breadslice464",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling102",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger118",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper326",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe261",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer161",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cupcake463",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tvstand376",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile151",
+      "relation": "ON",
+      "obj2": "Closetdrawer157"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile154",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor15",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile162",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tv433",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer403",
+      "relation": "ON",
+      "obj2": "Closetdrawer405"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Dishwashingliquid269",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger145",
+      "relation": "ON",
+      "obj2": "Clothesshirt146"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Coffeetable114",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger143",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile412",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cupcake319",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor81",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall86",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryknife273",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Lightswitch263",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger382",
+      "relation": "ON",
+      "obj2": "Clothesshirt383"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate280",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mug454",
+      "relation": "ON",
+      "obj2": "Desk380"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger149",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile164",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile151",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Rug255",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer157",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger147",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants391",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants394",
+      "relation": "ON",
+      "obj2": "Clothespile402"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Chips334",
+      "relation": "ON",
+      "obj2": "Wallshelf252"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plum451",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book294",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Waterglass272",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book292",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Desk380",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Toothbrush67",
+      "relation": "ON",
+      "obj2": "Bathroomcounter50"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Photoframe453",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf377"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Powersocket264",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Garbagecan106"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryfork278",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Folder206",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe427",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt136",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer155",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate317",
+      "relation": "INSIDE",
+      "obj2": "Microwave316"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile164",
+      "relation": "ON",
+      "obj2": "Closetdrawer167"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book291",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Breadslice313",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel208",
+      "relation": "ON",
+      "obj2": "Coffeetable114"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile418",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Waterglass283",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Box442",
+      "relation": "ON",
+      "obj2": "Bookshelf377"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile162",
+      "relation": "ON",
+      "obj2": "Closetdrawer167"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Powersocket264",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Cupcake319"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Nightstand107",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Cutleryknife282"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryfork278",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Milk341",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cereal339",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile421",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall23",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Folder207",
+      "relation": "ON",
+      "obj2": "Bookshelf108"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Box197",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf108"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Cutleryfork281"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile410",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchentable233",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Curtains33",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Curtains430",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt383",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Coffeetable378",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Radio179",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallshelf252",
+      "relation": "ON",
+      "obj2": "Wall219"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Toilet46",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Toaster311",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer245"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer417",
+      "relation": "INSIDE",
+      "obj2": "Clothespile420"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling94",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor212",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Faucet250",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile401",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pie324",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Box289",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plum450",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Cutleryknife273"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceilinglamp372",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tvstand376",
+      "relation": "FACING",
+      "obj2": "Tv433"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Coffeemaker309",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger137",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Painkillers65",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book291",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Condimentbottle296",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger392",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger388",
+      "relation": "ON",
+      "obj2": "Clothespants389"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Remotecontrol460",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Whippedcream323",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt383",
+      "relation": "ON",
+      "obj2": "Closetdrawer400"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cupcake319",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper325",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryfork278",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate198",
+      "relation": "ON",
+      "obj2": "Desk111"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Coffeetable114",
+      "relation": "FACING",
+      "obj2": "Computer177"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Box289",
+      "relation": "ON",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mouse173",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel208",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger122",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Washingmachine74",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer157",
+      "relation": "ON",
+      "obj2": "Closetdrawer161"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile419",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger133",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger399",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Waterglass272",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer405",
+      "relation": "INSIDE",
+      "obj2": "Clothespile406"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Curtains34",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass283",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor350",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Box302",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book271",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencabinet239",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Lime447",
+      "relation": "ON",
+      "obj2": "Coffeetable378"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling362",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Window371",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Condimentbottle297",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Rug180",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryfork286",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants389",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger135",
+      "relation": "ON",
+      "obj2": "Clothesshirt136"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling224",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryfork278",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer400",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger117",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Milk341",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryknife285",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tablelamp104",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tvstand376",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryfork281",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile151",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate279",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile414",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile171",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger395",
+      "relation": "ON",
+      "obj2": "Clothesshirt396"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger382",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall358",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book441",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pie324",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants140",
+      "relation": "ON",
+      "obj2": "Closetdrawer150"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallshelf44",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate275",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer127",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile420",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling366",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Book271",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe258",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt136",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Curtains188",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Coffeetable378",
+      "relation": "FACING",
+      "obj2": "Tv433"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer155",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer403",
+      "relation": "INSIDE",
+      "obj2": "Clothespile404"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book293",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer246",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling361",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tablelamp105",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book271",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cellphone193",
+      "relation": "ON",
+      "obj2": "Coffeetable114"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Sofa375",
+      "relation": "ON",
+      "obj2": "Rug424"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile158",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Washingsponge268",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants389",
+      "relation": "ON",
+      "obj2": "Closetdrawer400"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plum451",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer407",
+      "relation": "INSIDE",
+      "obj2": "Clothespile409"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryfork281",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towelrack43",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass284",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceilinglamp230",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger398",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallphone265",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate279",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor346",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Chocolatesyrup336",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer243",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer244"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer411",
+      "relation": "ON",
+      "obj2": "Closetdrawer417"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling27",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Paper458",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer127",
+      "relation": "ON",
+      "obj2": "Closetdrawer129"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Photoframe303",
+      "relation": "ON",
+      "obj2": "Tvstand232"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Microwave316",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling30",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass66",
+      "relation": "ON",
+      "obj2": "Bathroomcounter50"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Coffeetable378",
+      "relation": "ON",
+      "obj2": "Rug424"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe425",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer244",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Deodorant59",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Bench235",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate275",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt387",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper327",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryfork286",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate287",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallshelf253",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towelrack42",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Toaster311",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bench235",
+      "relation": "ON",
+      "obj2": "Rug255"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Rug255"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile160",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger139",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Rug254",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Keyboard438",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Desk380",
+      "relation": "ON",
+      "obj2": "Floor349"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Waterglass284",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger145",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel57",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile166",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants391",
+      "relation": "ON",
+      "obj2": "Closetdrawer400"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Plate280"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer417",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Orchid262",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Condimentshaker298",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Powersocket264",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Dishbowl331",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cellphone456",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer124",
+      "relation": "ON",
+      "obj2": "Closetdrawer125"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Box197",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book443",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile401",
+      "relation": "ON",
+      "obj2": "Closetdrawer407"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger386",
+      "relation": "ON",
+      "obj2": "Clothesshirt387"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cellphone193",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Lime447",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate317",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall89",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass272",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants134",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling364",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Book271",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass276",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile169",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Lightswitch263",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounter240",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Window72",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mug199",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants144",
+      "relation": "ON",
+      "obj2": "Clothespile152"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Plate279",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Coffeemaker309",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer245"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cupcake319",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Salad318",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book292",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book195",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf108"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bench234",
+      "relation": "ON",
+      "obj2": "Rug255"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger133",
+      "relation": "ON",
+      "obj2": "Clothespants134"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Desk111",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Waterglass284"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants138",
+      "relation": "ON",
+      "obj2": "Clothespile152"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile402",
+      "relation": "ON",
+      "obj2": "Closetdrawer407"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer161",
+      "relation": "ON",
+      "obj2": "Closetdrawer167"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants394",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Toothpaste64",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Breadslice313",
+      "relation": "INSIDE",
+      "obj2": "Toaster311"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate462",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate462",
+      "relation": "ON",
+      "obj2": "Coffeetable378"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book195",
+      "relation": "ON",
+      "obj2": "Bookshelf108"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer407",
+      "relation": "ON",
+      "obj2": "Closetdrawer411"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe256",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer123",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate202",
+      "relation": "ON",
+      "obj2": "Coffeetable114"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger148",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Breadslice312",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer153",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel70",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tvstand232",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hairproduct61",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Chair379",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling365",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Waterglass284",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryfork274",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass276",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Walllamp36",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Folder207",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf108"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall359",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cupcake319",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryfork274",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer125",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bananas446",
+      "relation": "ON",
+      "obj2": "Coffeetable378"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceilinglamp103",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Milk341",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Salmon332",
+      "relation": "ON",
+      "obj2": "Microwave316"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bathroomcounter50",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger119",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Curtains48",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Crackers337",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Bench234",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book292",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer403",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel69",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Slippers203",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Perfume58",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper329",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger122",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel306",
+      "relation": "ON",
+      "obj2": "Tvstand232"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger390",
+      "relation": "ON",
+      "obj2": "Clothespants391"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall19",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryfork281",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tablelamp104",
+      "relation": "ON",
+      "obj2": "Nightstand107"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Fridge308",
+      "relation": "ON",
+      "obj2": "Floor210"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate202",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel55",
+      "relation": "ON",
+      "obj2": "Bathroomcounter50"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cupcake191",
+      "relation": "ON",
+      "obj2": "Desk111"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger390",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book294",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants140",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bookshelf108",
+      "relation": "ON",
+      "obj2": "Floor79"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall222",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Milk341",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger145",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Peach449",
+      "relation": "ON",
+      "obj2": "Coffeetable378"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger131",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Candle71",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Waterglass272"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book295",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Chair113",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger141",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile402",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall355",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe260",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe259",
+      "relation": "ON",
+      "obj2": "Wall221"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cpuscreen178",
+      "relation": "ON",
+      "obj2": "Desk111"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Wallpictureframe256"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Wallpictureframe256",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wineglass200",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Candybar335",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger384",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants385",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile416",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Rug255",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book271",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer126",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer407",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Peach448",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bananas320",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryknife282",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling29",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Whippedcream323",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mousemat174",
+      "relation": "ON",
+      "obj2": "Desk111"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate462",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer245",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants134",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Microwave316",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer246"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile169",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Pie324",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tv433",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Dishbowl322",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper328",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Nightstand109",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceilinglamp231",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants144",
+      "relation": "ON",
+      "obj2": "Closetdrawer150"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Lime447",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryfork281",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer415",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Rug254",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt396",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Waterglass284",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closet381",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile288",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor349",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants138",
+      "relation": "ON",
+      "obj2": "Closetdrawer150"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate275",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile409",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Powersocket264",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryknife282",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Apple444",
+      "relation": "ON",
+      "obj2": "Coffeetable378"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate287",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book295",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Sofa375",
+      "relation": "FACING",
+      "obj2": "Tv433"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Kitchentable233",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book443",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf377"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bananas446",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clock267",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor82",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer153",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor343",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger119",
+      "relation": "FACING",
+      "obj2": "Computer177"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Wallpictureframe258",
+      "relation": "ON",
+      "obj2": "Wallpictureframe256"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile168",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Nightstand107",
+      "relation": "ON",
+      "obj2": "Rug180"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Slippers203",
+      "relation": "ON",
+      "obj2": "Rug180"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bananas320",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger143",
+      "relation": "ON",
+      "obj2": "Clothespants144"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass283",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Plate287"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Remotecontrol460",
+      "relation": "ON",
+      "obj2": "Tvstand376"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling97",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Dishbowl322",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer123",
+      "relation": "ON",
+      "obj2": "Closetdrawer126"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants391",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile288",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Chair379",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling98",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Dishbowl290",
+      "relation": "ON",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Peach449",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling360",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Wallphone265",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Candybar335",
+      "relation": "ON",
+      "obj2": "Wallshelf252"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe258",
+      "relation": "ON",
+      "obj2": "Wallpictureframe256"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pillow428",
+      "relation": "FACING",
+      "obj2": "Tv433"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bench234",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger386",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Condimentshaker298",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Doorjamb54",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Doorjamb369",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor77",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer241",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger388",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel56",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate280",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate198",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Lightswitch73",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plum450",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryknife273",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Chair110",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Wallphone265",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer248",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer247"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile421",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Wallphone265"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Folder207",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger122",
+      "relation": "FACING",
+      "obj2": "Computer177"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Plate279"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Pie324",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer155",
+      "relation": "INSIDE",
+      "obj2": "Clothespile156"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Whippedcream323",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile404",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger137",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor76",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall356",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Chips333",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Dishbowl452",
+      "relation": "ON",
+      "obj2": "Coffeetable378"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor80",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper330",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Condimentshaker299",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass284",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Fryingpan270",
+      "relation": "ON",
+      "obj2": "Stove314"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Rug254",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt387",
+      "relation": "ON",
+      "obj2": "Clothespile401"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile163",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Coffeetable378",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Washingsponge268",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Apple444",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer157",
+      "relation": "INSIDE",
+      "obj2": "Clothespile159"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Chocolatesyrup336",
+      "relation": "ON",
+      "obj2": "Wallshelf252"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Photoframe194",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf108"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Breadslice312",
+      "relation": "INSIDE",
+      "obj2": "Toaster311"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book196",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf108"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Plate287",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Condimentshaker298",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wineglass300",
+      "relation": "ON",
+      "obj2": "Tvstand232"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Nightstand109",
+      "relation": "ON",
+      "obj2": "Rug180"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pillow428",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger392",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Keyboard175",
+      "relation": "ON",
+      "obj2": "Desk111"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger397",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Keyboard438",
+      "relation": "ON",
+      "obj2": "Desk380"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryknife282",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt146",
+      "relation": "ON",
+      "obj2": "Closetdrawer150"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Creamybuns338",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe423",
+      "relation": "FACING",
+      "obj2": "Tv433"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger119",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Garbagecan106",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Rug254",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Slippers203",
+      "relation": "ON",
+      "obj2": "Floor77"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe182",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Plate279",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Nightstand107",
+      "relation": "ON",
+      "obj2": "Floor76"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Curtains432",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Character1",
+      "relation": "FACING",
+      "obj2": "Computer177"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling228",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger399",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Paper459",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer242",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer241"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor84",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pillow189",
+      "relation": "ON",
+      "obj2": "Bed112"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Dishbowl331",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Milk341",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tv266",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wineglass301",
+      "relation": "ON",
+      "obj2": "Tvstand232"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Waterglass283",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Whippedcream323",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile168",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper325",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer246"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Plate275"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer155",
+      "relation": "ON",
+      "obj2": "Closetdrawer165"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile156",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile406",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants144",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Painkillers65",
+      "relation": "ON",
+      "obj2": "Bathroomcounter50"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile412",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer129",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Perfume58",
+      "relation": "ON",
+      "obj2": "Bathroomcounter50"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall20",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile158",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer126",
+      "relation": "ON",
+      "obj2": "Closetdrawer127"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Faucet52",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryfork278",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Slippers204",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Paper459",
+      "relation": "ON",
+      "obj2": "Desk380"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile414",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Door229",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Coffeepot310",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Whippedcream323",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryknife273",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger382",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Rug31",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Wallpictureframe257"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryknife285",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mousemat437",
+      "relation": "ON",
+      "obj2": "Desk380"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer150",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryfork274",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe423",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tvstand232",
+      "relation": "ON",
+      "obj2": "Floor215"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe181",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate63",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper326",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Rug255",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass283",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Condimentbottle296",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile408",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile154",
+      "relation": "ON",
+      "obj2": "Closetdrawer155"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt136",
+      "relation": "ON",
+      "obj2": "Closetdrawer150"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towelrack41",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe259",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger395",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe183",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mouse436",
+      "relation": "ON",
+      "obj2": "Mousemat437"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Bench234",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Facecream62",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book441",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf377"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Book271",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Dishbowl290",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall217",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall221",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer150",
+      "relation": "ON",
+      "obj2": "Closetdrawer157"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Dishbowl452",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Keyboard175",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Wallpictureframe258"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryknife282",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Peach449",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile166",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cellphone456",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Wallpictureframe257",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Condimentbottle297",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Bench234"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cupcake319",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall219",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer411",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate279",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt132",
+      "relation": "ON",
+      "obj2": "Closetdrawer150"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Stall45",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer405",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pie324",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe426",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Paper458",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf377"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Waterglass272",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor348",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling368",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Plate280",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Chicken340",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book293",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Apple445",
+      "relation": "ON",
+      "obj2": "Coffeetable378"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall21",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cupcake192",
+      "relation": "ON",
+      "obj2": "Desk111"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall352",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Desk111",
+      "relation": "ON",
+      "obj2": "Floor82"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer124",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallphone265",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Orchid185",
+      "relation": "ON",
+      "obj2": "Coffeetable114"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Coffeemaker309",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Condimentbottle296",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling96",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Nightstand109",
+      "relation": "ON",
+      "obj2": "Floor78"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Waterglass272",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Dishbowl290",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closet130",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor215",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Plate275",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile163",
+      "relation": "ON",
+      "obj2": "Closetdrawer167"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Character1",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Rug254",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Deodorant59",
+      "relation": "ON",
+      "obj2": "Bathroomcounter50"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bananas321",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass272",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallshelf253",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger131",
+      "relation": "ON",
+      "obj2": "Clothesshirt132"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallshelf252",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer411",
+      "relation": "INSIDE",
+      "obj2": "Clothespile413"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile419",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pie324",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Barsoap68",
+      "relation": "ON",
+      "obj2": "Bathroomcounter50"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Faucet250",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor351",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Photoframe194",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book196",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wineglass201",
+      "relation": "ON",
+      "obj2": "Coffeetable114"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cupcake191",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Walllamp373",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants394",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Salad318",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer245"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants389",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Book271"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book195",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants393",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Curtains32",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book293",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Breadslice464",
+      "relation": "ON",
+      "obj2": "Coffeetable378"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass284",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile156",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall87",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Sofa375",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cupcake463",
+      "relation": "ON",
+      "obj2": "Coffeetable378"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass272",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Lightswitch263",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor347",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mug199",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Creamybuns338",
+      "relation": "ON",
+      "obj2": "Wallshelf253"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Paper305",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall354",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass276",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Orchid185",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger139",
+      "relation": "ON",
+      "obj2": "Clothespants140"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Oventray315",
+      "relation": "INSIDE",
+      "obj2": "Stove314"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer150",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling223",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants394",
+      "relation": "ON",
+      "obj2": "Closetdrawer400"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cpuscreen178",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants389",
+      "relation": "ON",
+      "obj2": "Clothespile402"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor214",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mousemat174",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile420",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt136",
+      "relation": "ON",
+      "obj2": "Clothespile151"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cupcake319",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bananas321",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall216",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer245",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer243"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants140",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling26",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe261",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Paper304",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryknife285",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Toothpaste64",
+      "relation": "ON",
+      "obj2": "Bathroomcounter50"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Apple445",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger131",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tablelamp105",
+      "relation": "ON",
+      "obj2": "Nightstand109"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger141",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger398",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer123",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bathtub39",
+      "relation": "ON",
+      "obj2": "Floor14"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe427",
+      "relation": "ON",
+      "obj2": "Wall355"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bookshelf377",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger118",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper327",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryfork278",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Salmon332",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger390",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryfork274",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Creamybuns338",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Dishbowl452",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Crackers337",
+      "relation": "ON",
+      "obj2": "Wallshelf253"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile401",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile413",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bookshelf251",
+      "relation": "ON",
+      "obj2": "Floor214"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Paper305",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Box289",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Folder461",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Cutleryfork274"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Folder461",
+      "relation": "ON",
+      "obj2": "Cabinet422"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Photoframe303",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger121",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryknife285",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Box302",
+      "relation": "ON",
+      "obj2": "Tvstand232"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryfork281",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer129",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mousemat437",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor213",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger384",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger135",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer153",
+      "relation": "ON",
+      "obj2": "Closetdrawer155"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants385",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Fryingpan270",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling226",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cabinet422",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel57",
+      "relation": "ON",
+      "obj2": "Towel56"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pillow429",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Mug199"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cereal339",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Curtains186",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bananas446",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe259",
+      "relation": "ON",
+      "obj2": "Wallpictureframe261"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryfork278",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Orchid185",
+      "relation": "FACING",
+      "obj2": "Computer177"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Coffeepot310",
+      "relation": "INSIDE",
+      "obj2": "Coffeemaker309"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Milk341",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt396",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer246",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer153",
+      "relation": "INSIDE",
+      "obj2": "Clothespile154"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Chips333",
+      "relation": "ON",
+      "obj2": "Wallshelf252"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bed112",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Crackers337",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile152",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile412",
+      "relation": "ON",
+      "obj2": "Closetdrawer417"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Box442",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Salad318",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Cutleryfork278"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants138",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book271",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Lightswitch263"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling225",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor211",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Photoframe453",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencabinet238",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor78",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Waterglass283",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchentable233",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Microwave316",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate63",
+      "relation": "ON",
+      "obj2": "Wallshelf44"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer167",
+      "relation": "INSIDE",
+      "obj2": "Clothespile170"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bench235",
+      "relation": "ON",
+      "obj2": "Floor212"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryfork274",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Window93",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Folder206",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf108"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Whippedcream323",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wineglass300",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bookshelf108",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pillow189",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer124",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Stall47",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer161",
+      "relation": "INSIDE",
+      "obj2": "Clothespile163"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt396",
+      "relation": "ON",
+      "obj2": "Closetdrawer400"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Bench235"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants385",
+      "relation": "ON",
+      "obj2": "Closetdrawer400"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate275",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer128",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile418",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Sink51",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile164",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger147",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Walllamp374",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile410",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer165",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Radio179",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf108"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger116",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Bench235",
+      "relation": "ON",
+      "obj2": "Rug255"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling100",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass272",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Lightswitch434",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer400",
+      "relation": "ON",
+      "obj2": "Closetdrawer407"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryfork274",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel306",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt383",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Toaster311",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile163",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bench234",
+      "relation": "ON",
+      "obj2": "Floor212"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants142",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mouse436",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Stovefan307",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass283",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Apple444",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Cutleryknife285"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Chair110",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cupcake319",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Folder206",
+      "relation": "ON",
+      "obj2": "Bookshelf108"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bookshelf377",
+      "relation": "ON",
+      "obj2": "Floor343"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book271",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencabinet237",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mug199",
+      "relation": "ON",
+      "obj2": "Desk111"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Walllamp37",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile404",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencabinet236",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryknife277",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Garbagecan106",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Door53",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Dishwashingliquid269",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Clock267",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bench234",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall22",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate317",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger120",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger135",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bathtub39",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Wallpictureframe182"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer405",
+      "relation": "ON",
+      "obj2": "Closetdrawer415"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass66",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Plate275",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wineglass200",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towelrack40",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pillow428",
+      "relation": "ON",
+      "obj2": "Sofa375"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper329",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mouse436",
+      "relation": "ON",
+      "obj2": "Desk380"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Condimentbottle297",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cellphone457",
+      "relation": "ON",
+      "obj2": "Coffeetable378"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor79",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cellphone205",
+      "relation": "ON",
+      "obj2": "Coffeetable114"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor13",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Doorjamb172",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall353",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass276",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Chips334",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Candle184",
+      "relation": "ON",
+      "obj2": "Coffeetable114"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cellphone456",
+      "relation": "ON",
+      "obj2": "Tvstand376"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pillow190",
+      "relation": "ON",
+      "obj2": "Bed112"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Waterglass283"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closet115",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall218",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Stove314",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plum450",
+      "relation": "ON",
+      "obj2": "Coffeetable378"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Slippers204",
+      "relation": "ON",
+      "obj2": "Rug180"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Remotecontrol460",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor83",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer167",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cupcake319",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass284",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants144",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bed112",
+      "relation": "ON",
+      "obj2": "Rug180"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryknife277",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper328",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe182",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer400",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Condimentshaker299",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bookshelf251",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cupcake192",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Chicken340",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Rug254",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cereal339",
+      "relation": "ON",
+      "obj2": "Wallshelf253"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt146",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Paper304",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer245",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer243",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mouse173",
+      "relation": "ON",
+      "obj2": "Mousemat174"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer246",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer248"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling367",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryknife285",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Rug255",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall24",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer248",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper327",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer246"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile406",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger121",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Plate279",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wineglass201",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Mouse173",
+      "relation": "ON",
+      "obj2": "Desk111"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cellphone205",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer247",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Pie324",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book441",
+      "relation": "ON",
+      "obj2": "Book443"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Orchid262",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tv433",
+      "relation": "ON",
+      "obj2": "Tvstand376"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling95",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer403",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile171",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Milk341",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Box289",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer165",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Tv266",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Pie324",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Curtains187",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile159",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Candle184",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Cutleryknife273",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile408",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate280",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile413",
+      "relation": "ON",
+      "obj2": "Closetdrawer417"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Condimentshaker299",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger386",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass276",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger395",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper325",
+      "relation": "ON",
+      "obj2": "Kitchencounter240"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger120",
+      "relation": "FACING",
+      "obj2": "Computer177"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall220",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt387",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wineglass200",
+      "relation": "FACING",
+      "obj2": "Computer177"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Bench234",
+      "relation": "ON",
+      "obj2": "Rug255"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Lightswitch176",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Toothbrush67",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants142",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book294",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Wineglass200"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Paper304",
+      "relation": "INSIDE",
+      "obj2": "Bookshelf251"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cupcake319",
+      "relation": "ON",
+      "obj2": "Rug254"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Oventray315",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper326",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer246"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cellphone457",
+      "relation": "FACING",
+      "obj2": "Computer440"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt132",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile402",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer417",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor344",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book291",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer407",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Computer177",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Remotecontrol460",
+      "relation": "FACING",
+      "obj2": "Tv433"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closet115",
+      "relation": "FACING",
+      "obj2": "Computer177"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer405",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall92",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Slippers204",
+      "relation": "ON",
+      "obj2": "Floor77"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile170",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile160",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger139",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Faucet52",
+      "relation": "ON",
+      "obj2": "Bathroomcounter50"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Rug424",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate280",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger137",
+      "relation": "ON",
+      "obj2": "Clothespants138"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bed112",
+      "relation": "ON",
+      "obj2": "Floor77"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile152",
+      "relation": "ON",
+      "obj2": "Closetdrawer157"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryknife282",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer415",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling363",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer128",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Peach448",
+      "relation": "ON",
+      "obj2": "Coffeetable378"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants134",
+      "relation": "ON",
+      "obj2": "Closetdrawer150"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor16",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer125",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Waterglass283",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Walllamp38",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Cutleryfork274",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Powersocket435",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Character1",
+      "relation": "CLOSE",
+      "obj2": "Whippedcream323"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer167",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Wallpictureframe258",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Whippedcream323",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe259",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall88",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger116",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Book295",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bathroomcabinet49",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Pie324",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer161",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe257",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Candle71",
+      "relation": "ON",
+      "obj2": "Wallshelf44"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling25",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Rug254",
+      "relation": "ON",
+      "obj2": "Kitchentable233"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor345",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile154",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothesshirt146",
+      "relation": "INSIDE",
+      "obj2": "Closet130"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile162",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Doorjamb370",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor12",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel55",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate279",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bellpepper329",
+      "relation": "ON",
+      "obj2": "Kitchencounterdrawer246"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bench235",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Bathroomcabinet49",
+      "relation": "ON",
+      "obj2": "Wall21"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Whippedcream323",
+      "relation": "CLOSE",
+      "obj2": "Character1"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Kitchencounterdrawer242",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger143",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Dishbowl290",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Towel306",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespants393",
+      "relation": "INSIDE",
+      "obj2": "Closet381"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Floor17",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wineglass301",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wineglass201",
+      "relation": "FACING",
+      "obj2": "Computer177"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger149",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wineglass200",
+      "relation": "ON",
+      "obj2": "Coffeetable114"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling227",
+      "relation": "INSIDE",
+      "obj2": "Kitchen209"
+    },
+    {
+      "time_state": 1,
+      "obj1": "Book271",
+      "relation": "FACING",
+      "obj2": "Clock267"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger120",
+      "relation": "INSIDE",
+      "obj2": "Closet115"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer157",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wallpictureframe260",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hanger148",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Wall18",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Apple445",
+      "relation": "INSIDE",
+      "obj2": "Livingroom342"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Hairproduct60",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Ceiling28",
+      "relation": "INSIDE",
+      "obj2": "Bathroom11"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile288",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Closetdrawer126",
+      "relation": "INSIDE",
+      "obj2": "Bedroom75"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Plate287",
+      "relation": "FACING",
+      "obj2": "Tv266"
+    },
+    {
+      "time_state": 0,
+      "obj1": "Clothespile404",
+      "relation": "ON",
+      "obj2": "Closetdrawer405"
+    }
+  ]
+}

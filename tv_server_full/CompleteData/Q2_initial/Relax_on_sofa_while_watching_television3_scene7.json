@@ -1,0 +1,8 @@
+{
+    "walk": 4,
+    "switchOn": 1,
+    "grab": 1,
+    "sit": 1,
+    "stand": 1,
+    "switchOff": 1
+}

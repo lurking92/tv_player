@@ -1,0 +1,26 @@
+{
+    "name": "Test Test",
+    "senario": "scene3_Day3",
+    "answers": [
+        {
+            "name": "kitchen11_scene3",
+            "number": 2444
+        },
+        {
+            "name": "bedroom358_scene3",
+            "number": 864
+        },
+        {
+            "name": "bathroom297_scene3",
+            "number": 754
+        },
+        {
+            "name": "livingroom194_scene3",
+            "number": 719
+        },
+        {
+            "name": "bedroom253_scene3",
+            "number": 473
+        }
+    ]
+}

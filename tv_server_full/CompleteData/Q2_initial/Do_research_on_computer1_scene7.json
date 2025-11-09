@@ -1,0 +1,12 @@
+{
+    "walk": 9,
+    "sit": 3,
+    "stand": 2,
+    "put": 2,
+    "grab": 2,
+    "write": 1,
+    "switchOn": 1,
+    "type": 1,
+    "switchOff": 1,
+    "read": 1
+}

@@ -1,0 +1,11 @@
+{
+    "walk": 7,
+    "grab": 2,
+    "drink": 1,
+    "stand": 1,
+    "find": 1,
+    "put": 1,
+    "switchOff": 1,
+    "switchOn": 1,
+    "sit": 1
+}

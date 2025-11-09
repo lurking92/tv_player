@@ -1,0 +1,7 @@
+{
+    "walk": 5,
+    "close": 1,
+    "sit": 1,
+    "stand": 1,
+    "fall": 1
+}

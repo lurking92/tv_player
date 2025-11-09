@@ -384,10 +384,10 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
             log_message("步驟 0：影片下載完成。")
 
             # 1) 視覺分析
-            log_message("步驟 1：視覺分析（取樣每 2 秒）...")
+            log_message("步驟 1：視覺分析（取樣每 1 秒）...")
             cap = cv2.VideoCapture(local_video_path)
             fps = cap.get(cv2.CAP_PROP_FPS) or 25.0
-            step = max(int(fps * 2.0), 1)
+            step = max(int(fps * 1.0), 1)
             frame_analysis_results: List[Tuple[float, List[Dict]]] = []
             frame_index = 0
             first_frame_size = None

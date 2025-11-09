@@ -1,0 +1,7 @@
+{
+    "walk": 2,
+    "grab": 1,
+    "put": 1,
+    "climb": 1,
+    "fall": 1
+}

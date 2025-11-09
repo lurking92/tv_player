@@ -1,0 +1,7682 @@
+[
+    {
+        "sequence_id": "scene1_Day1_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Put_slippers_in_closet1",
+            "Walk_with_memory_loss6",
+            "Put_groceries_in_fridge13",
+            "Walk_with_memory_loss5"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day1_seq1",
+        "activities": [
+            "Put_slippers_in_closet1",
+            "Walk_with_memory_loss6",
+            "Put_groceries_in_fridge13",
+            "Walk_with_memory_loss5",
+            "Put_groceries_in_fridge21"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day1_seq2",
+        "activities": [
+            "Walk_with_memory_loss6",
+            "Put_groceries_in_fridge13",
+            "Walk_with_memory_loss5",
+            "Put_groceries_in_fridge21",
+            "Do_homework_on_paper1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day1_seq3",
+        "activities": [
+            "Put_groceries_in_fridge13",
+            "Walk_with_memory_loss5",
+            "Put_groceries_in_fridge21",
+            "Do_homework_on_paper1",
+            "Clean_kitchentable1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day1_seq4",
+        "activities": [
+            "Walk_with_memory_loss5",
+            "Put_groceries_in_fridge21",
+            "Do_homework_on_paper1",
+            "Clean_kitchentable1",
+            "Get_out_of_bed1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day1_seq5",
+        "activities": [
+            "Put_groceries_in_fridge21",
+            "Do_homework_on_paper1",
+            "Clean_kitchentable1",
+            "Get_out_of_bed1",
+            "Read_book1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day10_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Squats1",
+            "Pick_up_dirty_fork1",
+            "Social_media_checks1",
+            "Turn_off_light7"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day10_seq1",
+        "activities": [
+            "Squats1",
+            "Pick_up_dirty_fork1",
+            "Social_media_checks1",
+            "Turn_off_light7",
+            "Drink_milk_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day10_seq2",
+        "activities": [
+            "Pick_up_dirty_fork1",
+            "Social_media_checks1",
+            "Turn_off_light7",
+            "Drink_milk_while_watching_television3",
+            "Have_morning_beverage3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day10_seq3",
+        "activities": [
+            "Social_media_checks1",
+            "Turn_off_light7",
+            "Drink_milk_while_watching_television3",
+            "Have_morning_beverage3",
+            "Rinse_toothbrush1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day10_seq4",
+        "activities": [
+            "Turn_off_light7",
+            "Drink_milk_while_watching_television3",
+            "Have_morning_beverage3",
+            "Rinse_toothbrush1",
+            "Social_media_checks1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day10_seq5",
+        "activities": [
+            "Drink_milk_while_watching_television3",
+            "Have_morning_beverage3",
+            "Rinse_toothbrush1",
+            "Social_media_checks1",
+            "Clean_desk4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day10_seq6",
+        "activities": [
+            "Have_morning_beverage3",
+            "Rinse_toothbrush1",
+            "Social_media_checks1",
+            "Clean_desk4",
+            "Place_plate1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day10_seq7",
+        "activities": [
+            "Rinse_toothbrush1",
+            "Social_media_checks1",
+            "Clean_desk4",
+            "Place_plate1",
+            "Have_evening_beverage3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day10_seq8",
+        "activities": [
+            "Social_media_checks1",
+            "Clean_desk4",
+            "Place_plate1",
+            "Have_evening_beverage3",
+            "Relax_on_sofa_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day10_seq9",
+        "activities": [
+            "Clean_desk4",
+            "Place_plate1",
+            "Have_evening_beverage3",
+            "Relax_on_sofa_while_watching_television3",
+            "Make_bed1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day10_seq10",
+        "activities": [
+            "Place_plate1",
+            "Have_evening_beverage3",
+            "Relax_on_sofa_while_watching_television3",
+            "Make_bed1",
+            "Clean_desk3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day2_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Cook_fried_bread4",
+            "Turn_on_light5",
+            "Relax_on_bed1",
+            "Go_to_sleep1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day2_seq1",
+        "activities": [
+            "Cook_fried_bread4",
+            "Turn_on_light5",
+            "Relax_on_bed1",
+            "Go_to_sleep1",
+            "Clean_fridge1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day3_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Place_wineglass1",
+            "Clean_slippers",
+            "Clean_fridge1",
+            "Relax_on_sofa_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day3_seq1",
+        "activities": [
+            "Place_wineglass1",
+            "Clean_slippers",
+            "Clean_fridge1",
+            "Relax_on_sofa_while_watching_television3",
+            "Use_phone3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day3_seq2",
+        "activities": [
+            "Clean_slippers",
+            "Clean_fridge1",
+            "Relax_on_sofa_while_watching_television3",
+            "Use_phone3",
+            "Clean_slippers"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day3_seq3",
+        "activities": [
+            "Clean_fridge1",
+            "Relax_on_sofa_while_watching_television3",
+            "Use_phone3",
+            "Clean_slippers",
+            "Cook_potato_using_microwave1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day3_seq4",
+        "activities": [
+            "Relax_on_sofa_while_watching_television3",
+            "Use_phone3",
+            "Clean_slippers",
+            "Cook_potato_using_microwave1",
+            "Rinse_toothbrush1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day3_seq5",
+        "activities": [
+            "Use_phone3",
+            "Clean_slippers",
+            "Cook_potato_using_microwave1",
+            "Rinse_toothbrush1",
+            "Pick_up_dirty_wineglass1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day3_seq6",
+        "activities": [
+            "Clean_slippers",
+            "Cook_potato_using_microwave1",
+            "Rinse_toothbrush1",
+            "Pick_up_dirty_wineglass1",
+            "Place_knife1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day3_seq7",
+        "activities": [
+            "Cook_potato_using_microwave1",
+            "Rinse_toothbrush1",
+            "Pick_up_dirty_wineglass1",
+            "Place_knife1",
+            "Throw_trash3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day3_seq8",
+        "activities": [
+            "Rinse_toothbrush1",
+            "Pick_up_dirty_wineglass1",
+            "Place_knife1",
+            "Throw_trash3",
+            "Read_book1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day3_seq9",
+        "activities": [
+            "Pick_up_dirty_wineglass1",
+            "Place_knife1",
+            "Throw_trash3",
+            "Read_book1",
+            "Drink_milk1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day3_seq10",
+        "activities": [
+            "Place_knife1",
+            "Throw_trash3",
+            "Read_book1",
+            "Drink_milk1",
+            "Do_research_on_computer1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day4_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Clear_table1",
+            "Turn_off_light8",
+            "Make_bed1",
+            "Workout1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day4_seq1",
+        "activities": [
+            "Clear_table1",
+            "Turn_off_light8",
+            "Make_bed1",
+            "Workout1",
+            "Go_to_sleep1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day4_seq2",
+        "activities": [
+            "Turn_off_light8",
+            "Make_bed1",
+            "Workout1",
+            "Go_to_sleep1",
+            "Fall_while_walking_forward1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day4_seq3",
+        "activities": [
+            "Make_bed1",
+            "Workout1",
+            "Go_to_sleep1",
+            "Fall_while_walking_forward1",
+            "Turn_off_light8"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day4_seq4",
+        "activities": [
+            "Workout1",
+            "Go_to_sleep1",
+            "Fall_while_walking_forward1",
+            "Turn_off_light8",
+            "Cook_potato_using_stove1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day4_seq5",
+        "activities": [
+            "Go_to_sleep1",
+            "Fall_while_walking_forward1",
+            "Turn_off_light8",
+            "Cook_potato_using_stove1",
+            "Make_bed1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day4_seq6",
+        "activities": [
+            "Fall_while_walking_forward1",
+            "Turn_off_light8",
+            "Cook_potato_using_stove1",
+            "Make_bed1",
+            "Put_away_groceries_from_fridge1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day4_seq7",
+        "activities": [
+            "Turn_off_light8",
+            "Cook_potato_using_stove1",
+            "Make_bed1",
+            "Put_away_groceries_from_fridge1",
+            "Make_cold_cereal1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day4_seq8",
+        "activities": [
+            "Cook_potato_using_stove1",
+            "Make_bed1",
+            "Put_away_groceries_from_fridge1",
+            "Make_cold_cereal1",
+            "Fall_while_standing_and_turning1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day4_seq9",
+        "activities": [
+            "Make_bed1",
+            "Put_away_groceries_from_fridge1",
+            "Make_cold_cereal1",
+            "Fall_while_standing_and_turning1",
+            "Shoulder_stretch1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day4_seq10",
+        "activities": [
+            "Put_away_groceries_from_fridge1",
+            "Make_cold_cereal1",
+            "Fall_while_standing_and_turning1",
+            "Shoulder_stretch1",
+            "Throw_trash2"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day5_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Turn_on_light6",
+            "Clean_desk4",
+            "Drink_milk1",
+            "Turn_on_light5"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day5_seq1",
+        "activities": [
+            "Turn_on_light6",
+            "Clean_desk4",
+            "Drink_milk1",
+            "Turn_on_light5",
+            "Put_away_groceries_from_fridge1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day5_seq2",
+        "activities": [
+            "Clean_desk4",
+            "Drink_milk1",
+            "Turn_on_light5",
+            "Put_away_groceries_from_fridge1",
+            "Workout1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day5_seq3",
+        "activities": [
+            "Drink_milk1",
+            "Turn_on_light5",
+            "Put_away_groceries_from_fridge1",
+            "Workout1",
+            "Put_away_groceries_from_fridge3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day5_seq4",
+        "activities": [
+            "Turn_on_light5",
+            "Put_away_groceries_from_fridge1",
+            "Workout1",
+            "Put_away_groceries_from_fridge3",
+            "Fall_backward_while_walking_and_turning1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day5_seq5",
+        "activities": [
+            "Put_away_groceries_from_fridge1",
+            "Workout1",
+            "Put_away_groceries_from_fridge3",
+            "Fall_backward_while_walking_and_turning1",
+            "Put_groceries_in_fridge23"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day6_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Fold_clothesshirt1",
+            "Set_up_table1",
+            "Clean_sofa1",
+            "Get_out_of_bed1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day6_seq1",
+        "activities": [
+            "Fold_clothesshirt1",
+            "Set_up_table1",
+            "Clean_sofa1",
+            "Get_out_of_bed1",
+            "Put_groceries_in_fridge14"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day6_seq2",
+        "activities": [
+            "Set_up_table1",
+            "Clean_sofa1",
+            "Get_out_of_bed1",
+            "Put_groceries_in_fridge14",
+            "Eat_cupcake1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day7_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Drink_water1",
+            "Clean_television4",
+            "Drink_juice_while_watching_television3",
+            "Admire_art1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day7_seq1",
+        "activities": [
+            "Drink_water1",
+            "Clean_television4",
+            "Drink_juice_while_watching_television3",
+            "Admire_art1",
+            "Turn_off_light8"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day7_seq2",
+        "activities": [
+            "Clean_television4",
+            "Drink_juice_while_watching_television3",
+            "Admire_art1",
+            "Turn_off_light8",
+            "Clean_fridge1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day7_seq3",
+        "activities": [
+            "Drink_juice_while_watching_television3",
+            "Admire_art1",
+            "Turn_off_light8",
+            "Clean_fridge1",
+            "Drink_alcohol1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day7_seq4",
+        "activities": [
+            "Admire_art1",
+            "Turn_off_light8",
+            "Clean_fridge1",
+            "Drink_alcohol1",
+            "Prepare_for_brushing_teeth1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day7_seq5",
+        "activities": [
+            "Turn_off_light8",
+            "Clean_fridge1",
+            "Drink_alcohol1",
+            "Prepare_for_brushing_teeth1",
+            "Brush_teeth1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day7_seq6",
+        "activities": [
+            "Clean_fridge1",
+            "Drink_alcohol1",
+            "Prepare_for_brushing_teeth1",
+            "Brush_teeth1",
+            "Clear_table1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day7_seq7",
+        "activities": [
+            "Drink_alcohol1",
+            "Prepare_for_brushing_teeth1",
+            "Brush_teeth1",
+            "Clear_table1",
+            "Cook_carrot1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day7_seq8",
+        "activities": [
+            "Prepare_for_brushing_teeth1",
+            "Brush_teeth1",
+            "Clear_table1",
+            "Cook_carrot1",
+            "Use_phone4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day7_seq9",
+        "activities": [
+            "Brush_teeth1",
+            "Clear_table1",
+            "Cook_carrot1",
+            "Use_phone4",
+            "Shoulder_stretch1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day7_seq10",
+        "activities": [
+            "Clear_table1",
+            "Cook_carrot1",
+            "Use_phone4",
+            "Shoulder_stretch1",
+            "Put_away_groceries_from_fridge2"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day7_seq11",
+        "activities": [
+            "Cook_carrot1",
+            "Use_phone4",
+            "Shoulder_stretch1",
+            "Put_away_groceries_from_fridge2",
+            "Drink_wine1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day8_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Relax_on_sofa_while_watching_television3",
+            "Clean_stove1",
+            "Pick_up_dirty_knife1",
+            "Put_away_groceries_from_fridge2"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day8_seq1",
+        "activities": [
+            "Relax_on_sofa_while_watching_television3",
+            "Clean_stove1",
+            "Pick_up_dirty_knife1",
+            "Put_away_groceries_from_fridge2",
+            "Pick_up_dirty_fork1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day8_seq2",
+        "activities": [
+            "Clean_stove1",
+            "Pick_up_dirty_knife1",
+            "Put_away_groceries_from_fridge2",
+            "Pick_up_dirty_fork1",
+            "Turn_off_light6"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day8_seq3",
+        "activities": [
+            "Pick_up_dirty_knife1",
+            "Put_away_groceries_from_fridge2",
+            "Pick_up_dirty_fork1",
+            "Turn_off_light6",
+            "Hand_washing1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day8_seq4",
+        "activities": [
+            "Put_away_groceries_from_fridge2",
+            "Pick_up_dirty_fork1",
+            "Turn_off_light6",
+            "Hand_washing1",
+            "Watch_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day8_seq5",
+        "activities": [
+            "Pick_up_dirty_fork1",
+            "Turn_off_light6",
+            "Hand_washing1",
+            "Watch_television3",
+            "Put_groceries_in_fridge22"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day8_seq6",
+        "activities": [
+            "Turn_off_light6",
+            "Hand_washing1",
+            "Watch_television3",
+            "Put_groceries_in_fridge22",
+            "Clean_sink4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day8_seq7",
+        "activities": [
+            "Hand_washing1",
+            "Watch_television3",
+            "Put_groceries_in_fridge22",
+            "Clean_sink4",
+            "Have_morning_beverage3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day8_seq8",
+        "activities": [
+            "Watch_television3",
+            "Put_groceries_in_fridge22",
+            "Clean_sink4",
+            "Have_morning_beverage3",
+            "Clean_livingroom1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day8_seq9",
+        "activities": [
+            "Put_groceries_in_fridge22",
+            "Clean_sink4",
+            "Have_morning_beverage3",
+            "Clean_livingroom1",
+            "Turn_on_light5"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day9_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Drink_alcohol_while_watching_television3",
+            "Place_wineglass1",
+            "Make_hot_cereal1",
+            "Fall_while_during_getting_up_or_rising1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day9_seq1",
+        "activities": [
+            "Drink_alcohol_while_watching_television3",
+            "Place_wineglass1",
+            "Make_hot_cereal1",
+            "Fall_while_during_getting_up_or_rising1",
+            "Drink_juice1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene1_Day9_seq2",
+        "activities": [
+            "Place_wineglass1",
+            "Make_hot_cereal1",
+            "Fall_while_during_getting_up_or_rising1",
+            "Drink_juice1",
+            "Clean_livingroom1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day1_seq0",
+        "activities": [
+            "Use_phone3",
+            "Drink_milk_while_watching_television3",
+            "Clean_stove1",
+            "Drink_juice1",
+            "Turn_off_light5"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day1_seq1",
+        "activities": [
+            "Drink_milk_while_watching_television3",
+            "Clean_stove1",
+            "Drink_juice1",
+            "Turn_off_light5",
+            "Make_cold_cereal1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day1_seq2",
+        "activities": [
+            "Clean_stove1",
+            "Drink_juice1",
+            "Turn_off_light5",
+            "Make_cold_cereal1",
+            "Drink_juice1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day1_seq3",
+        "activities": [
+            "Drink_juice1",
+            "Turn_off_light5",
+            "Make_cold_cereal1",
+            "Drink_juice1",
+            "Fall_while_walking_forward1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day10_seq0",
+        "activities": [
+            "Walk_with_memory_loss5",
+            "Cook_carrot1",
+            "Fall_while_walking_forward1",
+            "Drink_wine1",
+            "Place_wineglass1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day10_seq1",
+        "activities": [
+            "Cook_carrot1",
+            "Fall_while_walking_forward1",
+            "Drink_wine1",
+            "Place_wineglass1",
+            "Drink_alcohol_while_watching_television3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day10_seq2",
+        "activities": [
+            "Fall_while_walking_forward1",
+            "Drink_wine1",
+            "Place_wineglass1",
+            "Drink_alcohol_while_watching_television3",
+            "Turn_off_light5"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day2_seq0",
+        "activities": [
+            "Place_wineglass1",
+            "Cook_fried_bread4",
+            "Walk_with_memory_loss5",
+            "Eat_bread_while_watching_television3",
+            "Cook_potato_using_stove1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day2_seq1",
+        "activities": [
+            "Cook_fried_bread4",
+            "Walk_with_memory_loss5",
+            "Eat_bread_while_watching_television3",
+            "Cook_potato_using_stove1",
+            "Do_work_on_computer1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day3_seq0",
+        "activities": [
+            "Drink_milk1",
+            "Make_bed1",
+            "Relax_on_sofa1",
+            "Put_groceries_in_fridge18",
+            "Put_groceries_in_fridge18"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day3_seq1",
+        "activities": [
+            "Make_bed1",
+            "Relax_on_sofa1",
+            "Put_groceries_in_fridge18",
+            "Put_groceries_in_fridge18",
+            "Place_waterglass1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day3_seq2",
+        "activities": [
+            "Relax_on_sofa1",
+            "Put_groceries_in_fridge18",
+            "Put_groceries_in_fridge18",
+            "Place_waterglass1",
+            "Make_bed1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day3_seq3",
+        "activities": [
+            "Put_groceries_in_fridge18",
+            "Put_groceries_in_fridge18",
+            "Place_waterglass1",
+            "Make_bed1",
+            "Use_phone4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day3_seq4",
+        "activities": [
+            "Put_groceries_in_fridge18",
+            "Place_waterglass1",
+            "Make_bed1",
+            "Use_phone4",
+            "Put_away_groceries_from_fridge1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day3_seq5",
+        "activities": [
+            "Place_waterglass1",
+            "Make_bed1",
+            "Use_phone4",
+            "Put_away_groceries_from_fridge1",
+            "Pick_up_dirty_waterglass1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day4_seq0",
+        "activities": [
+            "Put_groceries_in_fridge21",
+            "Put_groceries_in_fridge17",
+            "Make_bed1",
+            "Turn_on_light6",
+            "Place_knife1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day4_seq1",
+        "activities": [
+            "Put_groceries_in_fridge17",
+            "Make_bed1",
+            "Turn_on_light6",
+            "Place_knife1",
+            "Walk_with_memory_loss7"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day4_seq2",
+        "activities": [
+            "Make_bed1",
+            "Turn_on_light6",
+            "Place_knife1",
+            "Walk_with_memory_loss7",
+            "Make_hot_cereal1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day4_seq3",
+        "activities": [
+            "Turn_on_light6",
+            "Place_knife1",
+            "Walk_with_memory_loss7",
+            "Make_hot_cereal1",
+            "Drink_juice1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day4_seq4",
+        "activities": [
+            "Place_knife1",
+            "Walk_with_memory_loss7",
+            "Make_hot_cereal1",
+            "Drink_juice1",
+            "Cook_potato_using_stove1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day4_seq5",
+        "activities": [
+            "Walk_with_memory_loss7",
+            "Make_hot_cereal1",
+            "Drink_juice1",
+            "Cook_potato_using_stove1",
+            "Fall_while_standing_quietly1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day4_seq6",
+        "activities": [
+            "Make_hot_cereal1",
+            "Drink_juice1",
+            "Cook_potato_using_stove1",
+            "Fall_while_standing_quietly1",
+            "Make_hot_cereal1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day5_seq0",
+        "activities": [
+            "Cook_potato_using_microwave1",
+            "Do_research_on_computer1",
+            "Make_bed1",
+            "Cook_carrot1",
+            "Put_groceries_in_fridge16"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day5_seq1",
+        "activities": [
+            "Do_research_on_computer1",
+            "Make_bed1",
+            "Cook_carrot1",
+            "Put_groceries_in_fridge16",
+            "Set_up_table1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day5_seq2",
+        "activities": [
+            "Make_bed1",
+            "Cook_carrot1",
+            "Put_groceries_in_fridge16",
+            "Set_up_table1",
+            "Clean_fridge1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day5_seq3",
+        "activities": [
+            "Cook_carrot1",
+            "Put_groceries_in_fridge16",
+            "Set_up_table1",
+            "Clean_fridge1",
+            "Admire_art2"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day6_seq0",
+        "activities": [
+            "Eat_cupcake_while_watching_television3",
+            "Drink_wine1",
+            "Read_book1",
+            "Fall_while_initiation_of_walking2",
+            "Place_wineglass1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day6_seq1",
+        "activities": [
+            "Drink_wine1",
+            "Read_book1",
+            "Fall_while_initiation_of_walking2",
+            "Place_wineglass1",
+            "Throw_trash2"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day6_seq2",
+        "activities": [
+            "Read_book1",
+            "Fall_while_initiation_of_walking2",
+            "Place_wineglass1",
+            "Throw_trash2",
+            "Clean_stove1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day6_seq3",
+        "activities": [
+            "Fall_while_initiation_of_walking2",
+            "Place_wineglass1",
+            "Throw_trash2",
+            "Clean_stove1",
+            "Place_waterglass1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day6_seq4",
+        "activities": [
+            "Place_wineglass1",
+            "Throw_trash2",
+            "Clean_stove1",
+            "Place_waterglass1",
+            "Fall_while_standing_quietly1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day6_seq5",
+        "activities": [
+            "Throw_trash2",
+            "Clean_stove1",
+            "Place_waterglass1",
+            "Fall_while_standing_quietly1",
+            "Walk_with_memory_loss5"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day7_seq0",
+        "activities": [
+            "Eat_bread_while_watching_television3",
+            "Cook_salmon1",
+            "Set_up_table1",
+            "Make_hot_cereal1",
+            "Place_waterglass1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day7_seq1",
+        "activities": [
+            "Cook_salmon1",
+            "Set_up_table1",
+            "Make_hot_cereal1",
+            "Place_waterglass1",
+            "Relax_on_sofa1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day8_seq0",
+        "activities": [
+            "Fall_while_standing_and_turning1",
+            "Put_away_groceries_from_fridge3",
+            "Drink_wine1",
+            "Social_media_checks1",
+            "Pick_up_dirty_waterglass1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day8_seq1",
+        "activities": [
+            "Put_away_groceries_from_fridge3",
+            "Drink_wine1",
+            "Social_media_checks1",
+            "Pick_up_dirty_waterglass1",
+            "Drink_water1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day9_seq0",
+        "activities": [
+            "Drink_juice_while_watching_television3",
+            "Make_bed1",
+            "Turn_on_light6",
+            "Do_research_on_computer1",
+            "Cook_carrot1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day9_seq1",
+        "activities": [
+            "Make_bed1",
+            "Turn_on_light6",
+            "Do_research_on_computer1",
+            "Cook_carrot1",
+            "Drink_wine1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day9_seq2",
+        "activities": [
+            "Turn_on_light6",
+            "Do_research_on_computer1",
+            "Cook_carrot1",
+            "Drink_wine1",
+            "Relax_on_sofa_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day9_seq3",
+        "activities": [
+            "Do_research_on_computer1",
+            "Cook_carrot1",
+            "Drink_wine1",
+            "Relax_on_sofa_while_watching_television3",
+            "Turn_off_light5"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day9_seq4",
+        "activities": [
+            "Cook_carrot1",
+            "Drink_wine1",
+            "Relax_on_sofa_while_watching_television3",
+            "Turn_off_light5",
+            "Set_up_table1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day9_seq5",
+        "activities": [
+            "Drink_wine1",
+            "Relax_on_sofa_while_watching_television3",
+            "Turn_off_light5",
+            "Set_up_table1",
+            "Do_work_on_computer1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day9_seq6",
+        "activities": [
+            "Relax_on_sofa_while_watching_television3",
+            "Turn_off_light5",
+            "Set_up_table1",
+            "Do_work_on_computer1",
+            "Fall_while_standing_and_turning1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day9_seq7",
+        "activities": [
+            "Turn_off_light5",
+            "Set_up_table1",
+            "Do_work_on_computer1",
+            "Fall_while_standing_and_turning1",
+            "Walk_with_memory_loss6"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene2_Day9_seq8",
+        "activities": [
+            "Set_up_table1",
+            "Do_work_on_computer1",
+            "Fall_while_standing_and_turning1",
+            "Walk_with_memory_loss6",
+            "Place_wine1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day1_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Rinse_toothbrush1",
+            "Hand_washing1",
+            "Workout1",
+            "Use_phone4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day1_seq1",
+        "activities": [
+            "Rinse_toothbrush1",
+            "Hand_washing1",
+            "Workout1",
+            "Use_phone4",
+            "Clean_sofa1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day1_seq2",
+        "activities": [
+            "Hand_washing1",
+            "Workout1",
+            "Use_phone4",
+            "Clean_sofa1",
+            "Eat_cupcake_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day1_seq3",
+        "activities": [
+            "Workout1",
+            "Use_phone4",
+            "Clean_sofa1",
+            "Eat_cupcake_while_watching_television3",
+            "Walk_with_memory_loss7"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day1_seq4",
+        "activities": [
+            "Use_phone4",
+            "Clean_sofa1",
+            "Eat_cupcake_while_watching_television3",
+            "Walk_with_memory_loss7",
+            "Relax_on_sofa1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day1_seq5",
+        "activities": [
+            "Clean_sofa1",
+            "Eat_cupcake_while_watching_television3",
+            "Walk_with_memory_loss7",
+            "Relax_on_sofa1",
+            "Put_groceries_in_fridge17"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day1_seq6",
+        "activities": [
+            "Eat_cupcake_while_watching_television3",
+            "Walk_with_memory_loss7",
+            "Relax_on_sofa1",
+            "Put_groceries_in_fridge17",
+            "Put_away_groceries_from_fridge3"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day1_seq7",
+        "activities": [
+            "Walk_with_memory_loss7",
+            "Relax_on_sofa1",
+            "Put_groceries_in_fridge17",
+            "Put_away_groceries_from_fridge3",
+            "Fall_while_preparing_meal1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day10_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Put_groceries_in_fridge15",
+            "Straddle_splits1",
+            "Fall_while_sitting_down1",
+            "Fall_while_sitting_down_or_lowering1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day10_seq1",
+        "activities": [
+            "Put_groceries_in_fridge15",
+            "Straddle_splits1",
+            "Fall_while_sitting_down1",
+            "Fall_while_sitting_down_or_lowering1",
+            "Have_morning_beverage4"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day10_seq2",
+        "activities": [
+            "Straddle_splits1",
+            "Fall_while_sitting_down1",
+            "Fall_while_sitting_down_or_lowering1",
+            "Have_morning_beverage4",
+            "Make_cold_cereal1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day10_seq3",
+        "activities": [
+            "Fall_while_sitting_down1",
+            "Fall_while_sitting_down_or_lowering1",
+            "Have_morning_beverage4",
+            "Make_cold_cereal1",
+            "Prepare_for_brushing_teeth1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day10_seq4",
+        "activities": [
+            "Fall_while_sitting_down_or_lowering1",
+            "Have_morning_beverage4",
+            "Make_cold_cereal1",
+            "Prepare_for_brushing_teeth1",
+            "Do_research_on_computer1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day10_seq5",
+        "activities": [
+            "Have_morning_beverage4",
+            "Make_cold_cereal1",
+            "Prepare_for_brushing_teeth1",
+            "Do_research_on_computer1",
+            "Clean_stove1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day10_seq6",
+        "activities": [
+            "Make_cold_cereal1",
+            "Prepare_for_brushing_teeth1",
+            "Do_research_on_computer1",
+            "Clean_stove1",
+            "Read_textbook1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day10_seq7",
+        "activities": [
+            "Prepare_for_brushing_teeth1",
+            "Do_research_on_computer1",
+            "Clean_stove1",
+            "Read_textbook1",
+            "Put_groceries_in_fridge19"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day10_seq8",
+        "activities": [
+            "Do_research_on_computer1",
+            "Clean_stove1",
+            "Read_textbook1",
+            "Put_groceries_in_fridge19",
+            "Make_hot_cereal1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day2_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Place_knife1",
+            "Clean_stove1",
+            "Fall_while_sitting_down1",
+            "Walk_with_memory_loss8"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day2_seq1",
+        "activities": [
+            "Place_knife1",
+            "Clean_stove1",
+            "Fall_while_sitting_down1",
+            "Walk_with_memory_loss8",
+            "Put_away_groceries_from_fridge1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day2_seq2",
+        "activities": [
+            "Clean_stove1",
+            "Fall_while_sitting_down1",
+            "Walk_with_memory_loss8",
+            "Put_away_groceries_from_fridge1",
+            "Read_textbook1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day2_seq3",
+        "activities": [
+            "Fall_while_sitting_down1",
+            "Walk_with_memory_loss8",
+            "Put_away_groceries_from_fridge1",
+            "Read_textbook1",
+            "Put_groceries_in_fridge13"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day2_seq4",
+        "activities": [
+            "Walk_with_memory_loss8",
+            "Put_away_groceries_from_fridge1",
+            "Read_textbook1",
+            "Put_groceries_in_fridge13",
+            "Place_waterglass1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day2_seq5",
+        "activities": [
+            "Put_away_groceries_from_fridge1",
+            "Read_textbook1",
+            "Put_groceries_in_fridge13",
+            "Place_waterglass1",
+            "Fall_while_standing_quietly1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day2_seq6",
+        "activities": [
+            "Read_textbook1",
+            "Put_groceries_in_fridge13",
+            "Place_waterglass1",
+            "Fall_while_standing_quietly1",
+            "Clean_sink3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day3_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Clean_desk4",
+            "Watch_television3",
+            "Place_wine1",
+            "Throw_trash3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day3_seq1",
+        "activities": [
+            "Clean_desk4",
+            "Watch_television3",
+            "Place_wine1",
+            "Throw_trash3",
+            "Turn_on_light8"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day3_seq2",
+        "activities": [
+            "Watch_television3",
+            "Place_wine1",
+            "Throw_trash3",
+            "Turn_on_light8",
+            "Write_notes1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day3_seq3",
+        "activities": [
+            "Place_wine1",
+            "Throw_trash3",
+            "Turn_on_light8",
+            "Write_notes1",
+            "Drink_wine1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day3_seq4",
+        "activities": [
+            "Throw_trash3",
+            "Turn_on_light8",
+            "Write_notes1",
+            "Drink_wine1",
+            "Fall_in_bathroom1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day3_seq5",
+        "activities": [
+            "Turn_on_light8",
+            "Write_notes1",
+            "Drink_wine1",
+            "Fall_in_bathroom1",
+            "Turn_off_light8"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day3_seq6",
+        "activities": [
+            "Write_notes1",
+            "Drink_wine1",
+            "Fall_in_bathroom1",
+            "Turn_off_light8",
+            "Cook_potato_using_microwave1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day4_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Relax_on_sofa_while_watching_television3",
+            "Drink_juice1",
+            "Run_with_disorientation",
+            "Drink_juice1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day4_seq1",
+        "activities": [
+            "Relax_on_sofa_while_watching_television3",
+            "Drink_juice1",
+            "Run_with_disorientation",
+            "Drink_juice1",
+            "Cook_carrot1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day4_seq2",
+        "activities": [
+            "Drink_juice1",
+            "Run_with_disorientation",
+            "Drink_juice1",
+            "Cook_carrot1",
+            "Walk_with_memory_loss8"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day4_seq3",
+        "activities": [
+            "Run_with_disorientation",
+            "Drink_juice1",
+            "Cook_carrot1",
+            "Walk_with_memory_loss8",
+            "Put_away_groceries_from_fridge1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day4_seq4",
+        "activities": [
+            "Drink_juice1",
+            "Cook_carrot1",
+            "Walk_with_memory_loss8",
+            "Put_away_groceries_from_fridge1",
+            "Read_bedtime_story1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day4_seq5",
+        "activities": [
+            "Cook_carrot1",
+            "Walk_with_memory_loss8",
+            "Put_away_groceries_from_fridge1",
+            "Read_bedtime_story1",
+            "Squat_jumps1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day4_seq6",
+        "activities": [
+            "Walk_with_memory_loss8",
+            "Put_away_groceries_from_fridge1",
+            "Read_bedtime_story1",
+            "Squat_jumps1",
+            "Place_fork1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day4_seq7",
+        "activities": [
+            "Put_away_groceries_from_fridge1",
+            "Read_bedtime_story1",
+            "Squat_jumps1",
+            "Place_fork1",
+            "Run_with_disorientation"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day4_seq8",
+        "activities": [
+            "Read_bedtime_story1",
+            "Squat_jumps1",
+            "Place_fork1",
+            "Run_with_disorientation",
+            "Brush_teeth1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day4_seq9",
+        "activities": [
+            "Squat_jumps1",
+            "Place_fork1",
+            "Run_with_disorientation",
+            "Brush_teeth1",
+            "Put_groceries_in_fridge20"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day4_seq10",
+        "activities": [
+            "Place_fork1",
+            "Run_with_disorientation",
+            "Brush_teeth1",
+            "Put_groceries_in_fridge20",
+            "Cook_potato_using_stove1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day4_seq11",
+        "activities": [
+            "Run_with_disorientation",
+            "Brush_teeth1",
+            "Put_groceries_in_fridge20",
+            "Cook_potato_using_stove1",
+            "Cook_carrot1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day5_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Walk_with_memory_loss6",
+            "Drink_milk_while_watching_television3",
+            "Clean_sofa1",
+            "Fall_while_walking_forward1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day5_seq1",
+        "activities": [
+            "Walk_with_memory_loss6",
+            "Drink_milk_while_watching_television3",
+            "Clean_sofa1",
+            "Fall_while_walking_forward1",
+            "Have_evening_beverage3"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day5_seq2",
+        "activities": [
+            "Drink_milk_while_watching_television3",
+            "Clean_sofa1",
+            "Fall_while_walking_forward1",
+            "Have_evening_beverage3",
+            "Squats1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day5_seq3",
+        "activities": [
+            "Clean_sofa1",
+            "Fall_while_walking_forward1",
+            "Have_evening_beverage3",
+            "Squats1",
+            "Have_evening_beverage4"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day5_seq4",
+        "activities": [
+            "Fall_while_walking_forward1",
+            "Have_evening_beverage3",
+            "Squats1",
+            "Have_evening_beverage4",
+            "Place_plate1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day5_seq5",
+        "activities": [
+            "Have_evening_beverage3",
+            "Squats1",
+            "Have_evening_beverage4",
+            "Place_plate1",
+            "Workout1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day5_seq6",
+        "activities": [
+            "Squats1",
+            "Have_evening_beverage4",
+            "Place_plate1",
+            "Workout1",
+            "Use_phone4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day5_seq7",
+        "activities": [
+            "Have_evening_beverage4",
+            "Place_plate1",
+            "Workout1",
+            "Use_phone4",
+            "Fall_while_preparing_meal2"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day5_seq8",
+        "activities": [
+            "Place_plate1",
+            "Workout1",
+            "Use_phone4",
+            "Fall_while_preparing_meal2",
+            "Put_groceries_in_fridge19"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day5_seq9",
+        "activities": [
+            "Workout1",
+            "Use_phone4",
+            "Fall_while_preparing_meal2",
+            "Put_groceries_in_fridge19",
+            "Cook_fried_bread3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day5_seq10",
+        "activities": [
+            "Use_phone4",
+            "Fall_while_preparing_meal2",
+            "Put_groceries_in_fridge19",
+            "Cook_fried_bread3",
+            "Put_groceries_in_fridge19"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day5_seq11",
+        "activities": [
+            "Fall_while_preparing_meal2",
+            "Put_groceries_in_fridge19",
+            "Cook_fried_bread3",
+            "Put_groceries_in_fridge19",
+            "Eat_bread_while_watching_television3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day6_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Walk_with_memory_loss7",
+            "Put_groceries_in_fridge18",
+            "Turn_on_light6",
+            "Pet_cat1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day6_seq1",
+        "activities": [
+            "Walk_with_memory_loss7",
+            "Put_groceries_in_fridge18",
+            "Turn_on_light6",
+            "Pet_cat1",
+            "Clear_table1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day6_seq2",
+        "activities": [
+            "Put_groceries_in_fridge18",
+            "Turn_on_light6",
+            "Pet_cat1",
+            "Clear_table1",
+            "Rinse_toothbrush1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day6_seq3",
+        "activities": [
+            "Turn_on_light6",
+            "Pet_cat1",
+            "Clear_table1",
+            "Rinse_toothbrush1",
+            "Drink_water1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day6_seq4",
+        "activities": [
+            "Pet_cat1",
+            "Clear_table1",
+            "Rinse_toothbrush1",
+            "Drink_water1",
+            "Eat_cupcake_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day6_seq5",
+        "activities": [
+            "Clear_table1",
+            "Rinse_toothbrush1",
+            "Drink_water1",
+            "Eat_cupcake_while_watching_television3",
+            "Turn_off_light5"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day7_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Rinse_toothbrush1",
+            "Walk_with_memory_loss6",
+            "Clear_table1",
+            "Watch_television3"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day7_seq1",
+        "activities": [
+            "Rinse_toothbrush1",
+            "Walk_with_memory_loss6",
+            "Clear_table1",
+            "Watch_television3",
+            "Walk_with_memory_loss6"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day7_seq2",
+        "activities": [
+            "Walk_with_memory_loss6",
+            "Clear_table1",
+            "Watch_television3",
+            "Walk_with_memory_loss6",
+            "Cook_potato_using_stove1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day7_seq3",
+        "activities": [
+            "Clear_table1",
+            "Watch_television3",
+            "Walk_with_memory_loss6",
+            "Cook_potato_using_stove1",
+            "Drink_water1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day7_seq4",
+        "activities": [
+            "Watch_television3",
+            "Walk_with_memory_loss6",
+            "Cook_potato_using_stove1",
+            "Drink_water1",
+            "Use_phone3"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day8_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Cook_fried_bread4",
+            "Write_notes1",
+            "Cook_potato_using_microwave1",
+            "Drink_wine1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day8_seq1",
+        "activities": [
+            "Cook_fried_bread4",
+            "Write_notes1",
+            "Cook_potato_using_microwave1",
+            "Drink_wine1",
+            "Place_plate1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day8_seq2",
+        "activities": [
+            "Write_notes1",
+            "Cook_potato_using_microwave1",
+            "Drink_wine1",
+            "Place_plate1",
+            "Drink_alcohol1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day8_seq3",
+        "activities": [
+            "Cook_potato_using_microwave1",
+            "Drink_wine1",
+            "Place_plate1",
+            "Drink_alcohol1",
+            "Relax_on_sofa1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day8_seq4",
+        "activities": [
+            "Drink_wine1",
+            "Place_plate1",
+            "Drink_alcohol1",
+            "Relax_on_sofa1",
+            "Cook_potato_using_stove1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day8_seq5",
+        "activities": [
+            "Place_plate1",
+            "Drink_alcohol1",
+            "Relax_on_sofa1",
+            "Cook_potato_using_stove1",
+            "Brush_teeth1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day8_seq6",
+        "activities": [
+            "Drink_alcohol1",
+            "Relax_on_sofa1",
+            "Cook_potato_using_stove1",
+            "Brush_teeth1",
+            "Clean_sink3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day8_seq7",
+        "activities": [
+            "Relax_on_sofa1",
+            "Cook_potato_using_stove1",
+            "Brush_teeth1",
+            "Clean_sink3",
+            "Fall_backward_while_walking_and_turning1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day8_seq8",
+        "activities": [
+            "Cook_potato_using_stove1",
+            "Brush_teeth1",
+            "Clean_sink3",
+            "Fall_backward_while_walking_and_turning1",
+            "Pick_up_dirty_knife1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day8_seq9",
+        "activities": [
+            "Brush_teeth1",
+            "Clean_sink3",
+            "Fall_backward_while_walking_and_turning1",
+            "Pick_up_dirty_knife1",
+            "Eat_breadslice1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day8_seq10",
+        "activities": [
+            "Clean_sink3",
+            "Fall_backward_while_walking_and_turning1",
+            "Pick_up_dirty_knife1",
+            "Eat_breadslice1",
+            "Shoulder_stretch1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day9_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Turn_off_light5",
+            "Drink_juice1",
+            "Place_knife1",
+            "Cook_carrot1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day9_seq1",
+        "activities": [
+            "Turn_off_light5",
+            "Drink_juice1",
+            "Place_knife1",
+            "Cook_carrot1",
+            "Clean_sink4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day9_seq2",
+        "activities": [
+            "Drink_juice1",
+            "Place_knife1",
+            "Cook_carrot1",
+            "Clean_sink4",
+            "Fall_while_preparing_meal1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day9_seq3",
+        "activities": [
+            "Place_knife1",
+            "Cook_carrot1",
+            "Clean_sink4",
+            "Fall_while_preparing_meal1",
+            "Put_groceries_in_fridge19"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene3_Day9_seq4",
+        "activities": [
+            "Cook_carrot1",
+            "Clean_sink4",
+            "Fall_while_preparing_meal1",
+            "Put_groceries_in_fridge19",
+            "Do_research_on_computer1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day1_seq0",
+        "activities": [
+            "Turn_off_light7",
+            "Put_groceries_in_fridge23",
+            "Fall_while_standing_at_somewhere_height1",
+            "Put_groceries_in_fridge18",
+            "Put_groceries_in_fridge23"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day1_seq1",
+        "activities": [
+            "Put_groceries_in_fridge23",
+            "Fall_while_standing_at_somewhere_height1",
+            "Put_groceries_in_fridge18",
+            "Put_groceries_in_fridge23",
+            "Make_bed1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day1_seq2",
+        "activities": [
+            "Fall_while_standing_at_somewhere_height1",
+            "Put_groceries_in_fridge18",
+            "Put_groceries_in_fridge23",
+            "Make_bed1",
+            "Clean_desk4"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day1_seq3",
+        "activities": [
+            "Put_groceries_in_fridge18",
+            "Put_groceries_in_fridge23",
+            "Make_bed1",
+            "Clean_desk4",
+            "Put_groceries_in_fridge22"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day1_seq4",
+        "activities": [
+            "Put_groceries_in_fridge23",
+            "Make_bed1",
+            "Clean_desk4",
+            "Put_groceries_in_fridge22",
+            "Prepare_for_brushing_teeth1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day1_seq5",
+        "activities": [
+            "Make_bed1",
+            "Clean_desk4",
+            "Put_groceries_in_fridge22",
+            "Prepare_for_brushing_teeth1",
+            "Place_wine1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day1_seq6",
+        "activities": [
+            "Clean_desk4",
+            "Put_groceries_in_fridge22",
+            "Prepare_for_brushing_teeth1",
+            "Place_wine1",
+            "Prepare_for_brushing_teeth1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day10_seq0",
+        "activities": [
+            "Clean_stove1",
+            "Walk_with_memory_loss7",
+            "Pick_up_dirty_knife1",
+            "Walk_with_memory_loss8",
+            "Fall_while_during_getting_up_or_rising1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day10_seq1",
+        "activities": [
+            "Walk_with_memory_loss7",
+            "Pick_up_dirty_knife1",
+            "Walk_with_memory_loss8",
+            "Fall_while_during_getting_up_or_rising1",
+            "Put_groceries_in_fridge20"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day10_seq2",
+        "activities": [
+            "Pick_up_dirty_knife1",
+            "Walk_with_memory_loss8",
+            "Fall_while_during_getting_up_or_rising1",
+            "Put_groceries_in_fridge20",
+            "Make_bed1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day10_seq3",
+        "activities": [
+            "Walk_with_memory_loss8",
+            "Fall_while_during_getting_up_or_rising1",
+            "Put_groceries_in_fridge20",
+            "Make_bed1",
+            "Turn_on_light8"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day10_seq4",
+        "activities": [
+            "Fall_while_during_getting_up_or_rising1",
+            "Put_groceries_in_fridge20",
+            "Make_bed1",
+            "Turn_on_light8",
+            "Put_groceries_in_fridge15"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day10_seq5",
+        "activities": [
+            "Put_groceries_in_fridge20",
+            "Make_bed1",
+            "Turn_on_light8",
+            "Put_groceries_in_fridge15",
+            "Use_bathroom1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day10_seq6",
+        "activities": [
+            "Make_bed1",
+            "Turn_on_light8",
+            "Put_groceries_in_fridge15",
+            "Use_bathroom1",
+            "Put_away_groceries_from_fridge3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day2_seq0",
+        "activities": [
+            "Pick_up_dirty_wineglass1",
+            "Fall_while_initiation_of_walking1",
+            "Walk_with_memory_loss7",
+            "Turn_on_light8",
+            "Pick_up_dirty_waterglass1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day2_seq1",
+        "activities": [
+            "Fall_while_initiation_of_walking1",
+            "Walk_with_memory_loss7",
+            "Turn_on_light8",
+            "Pick_up_dirty_waterglass1",
+            "Throw_trash2"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day2_seq2",
+        "activities": [
+            "Walk_with_memory_loss7",
+            "Turn_on_light8",
+            "Pick_up_dirty_waterglass1",
+            "Throw_trash2",
+            "Throw_trash2"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day2_seq3",
+        "activities": [
+            "Turn_on_light8",
+            "Pick_up_dirty_waterglass1",
+            "Throw_trash2",
+            "Throw_trash2",
+            "Write_notes1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day3_seq0",
+        "activities": [
+            "Walk_with_memory_loss7",
+            "Put_away_groceries_from_fridge3",
+            "Place_knife1",
+            "Drink_juice1",
+            "Fall_while_during_getting_up_or_rising1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day3_seq1",
+        "activities": [
+            "Put_away_groceries_from_fridge3",
+            "Place_knife1",
+            "Drink_juice1",
+            "Fall_while_during_getting_up_or_rising1",
+            "Put_groceries_in_fridge13"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day3_seq2",
+        "activities": [
+            "Place_knife1",
+            "Drink_juice1",
+            "Fall_while_during_getting_up_or_rising1",
+            "Put_groceries_in_fridge13",
+            "Put_groceries_in_fridge13"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day3_seq3",
+        "activities": [
+            "Drink_juice1",
+            "Fall_while_during_getting_up_or_rising1",
+            "Put_groceries_in_fridge13",
+            "Put_groceries_in_fridge13",
+            "Rinse_toothbrush1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day3_seq4",
+        "activities": [
+            "Fall_while_during_getting_up_or_rising1",
+            "Put_groceries_in_fridge13",
+            "Put_groceries_in_fridge13",
+            "Rinse_toothbrush1",
+            "Fall_while_preparing_meal1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day3_seq5",
+        "activities": [
+            "Put_groceries_in_fridge13",
+            "Put_groceries_in_fridge13",
+            "Rinse_toothbrush1",
+            "Fall_while_preparing_meal1",
+            "Put_groceries_in_fridge24"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day3_seq6",
+        "activities": [
+            "Put_groceries_in_fridge13",
+            "Rinse_toothbrush1",
+            "Fall_while_preparing_meal1",
+            "Put_groceries_in_fridge24",
+            "Throw_trash3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day3_seq7",
+        "activities": [
+            "Rinse_toothbrush1",
+            "Fall_while_preparing_meal1",
+            "Put_groceries_in_fridge24",
+            "Throw_trash3",
+            "Read_textbook1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day3_seq8",
+        "activities": [
+            "Fall_while_preparing_meal1",
+            "Put_groceries_in_fridge24",
+            "Throw_trash3",
+            "Read_textbook1",
+            "Place_wine1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day4_seq0",
+        "activities": [
+            "Turn_off_light7",
+            "Pick_up_dirty_dishes1",
+            "Clean_kitchentable1",
+            "Fall_while_preparing_meal1",
+            "Read_bedtime_story1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day4_seq1",
+        "activities": [
+            "Pick_up_dirty_dishes1",
+            "Clean_kitchentable1",
+            "Fall_while_preparing_meal1",
+            "Read_bedtime_story1",
+            "Rinse_toothbrush1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day4_seq2",
+        "activities": [
+            "Clean_kitchentable1",
+            "Fall_while_preparing_meal1",
+            "Read_bedtime_story1",
+            "Rinse_toothbrush1",
+            "Throw_trash2"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day4_seq3",
+        "activities": [
+            "Fall_while_preparing_meal1",
+            "Read_bedtime_story1",
+            "Rinse_toothbrush1",
+            "Throw_trash2",
+            "Rinse_toothbrush1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day4_seq4",
+        "activities": [
+            "Read_bedtime_story1",
+            "Rinse_toothbrush1",
+            "Throw_trash2",
+            "Rinse_toothbrush1",
+            "Write_notes1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day4_seq5",
+        "activities": [
+            "Rinse_toothbrush1",
+            "Throw_trash2",
+            "Rinse_toothbrush1",
+            "Write_notes1",
+            "Make_bed1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day4_seq6",
+        "activities": [
+            "Throw_trash2",
+            "Rinse_toothbrush1",
+            "Write_notes1",
+            "Make_bed1",
+            "Walk_with_memory_loss5"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day4_seq7",
+        "activities": [
+            "Rinse_toothbrush1",
+            "Write_notes1",
+            "Make_bed1",
+            "Walk_with_memory_loss5",
+            "Pick_up_dirty_waterglass1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day4_seq8",
+        "activities": [
+            "Write_notes1",
+            "Make_bed1",
+            "Walk_with_memory_loss5",
+            "Pick_up_dirty_waterglass1",
+            "Fall_while_preparing_meal1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day5_seq0",
+        "activities": [
+            "Put_groceries_in_fridge19",
+            "Turn_off_light8",
+            "Pick_up_dirty_fork1",
+            "Fall_while_standing_quietly1",
+            "Put_groceries_in_fridge13"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day5_seq1",
+        "activities": [
+            "Turn_off_light8",
+            "Pick_up_dirty_fork1",
+            "Fall_while_standing_quietly1",
+            "Put_groceries_in_fridge13",
+            "Fall_while_standing_at_somewhere_height1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day5_seq2",
+        "activities": [
+            "Pick_up_dirty_fork1",
+            "Fall_while_standing_quietly1",
+            "Put_groceries_in_fridge13",
+            "Fall_while_standing_at_somewhere_height1",
+            "Prepare_for_brushing_teeth1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day6_seq0",
+        "activities": [
+            "Put_away_groceries_from_fridge2",
+            "Clean_fridge1",
+            "Turn_off_light8",
+            "Fall_while_standing_quietly1",
+            "Put_groceries_in_fridge20"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day6_seq1",
+        "activities": [
+            "Clean_fridge1",
+            "Turn_off_light8",
+            "Fall_while_standing_quietly1",
+            "Put_groceries_in_fridge20",
+            "Drink_water1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day6_seq2",
+        "activities": [
+            "Turn_off_light8",
+            "Fall_while_standing_quietly1",
+            "Put_groceries_in_fridge20",
+            "Drink_water1",
+            "Drink_juice1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day6_seq3",
+        "activities": [
+            "Fall_while_standing_quietly1",
+            "Put_groceries_in_fridge20",
+            "Drink_water1",
+            "Drink_juice1",
+            "Prepare_for_brushing_teeth1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day6_seq4",
+        "activities": [
+            "Put_groceries_in_fridge20",
+            "Drink_water1",
+            "Drink_juice1",
+            "Prepare_for_brushing_teeth1",
+            "Put_groceries_in_fridge22"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day7_seq0",
+        "activities": [
+            "Fall_while_standing_at_somewhere_height1",
+            "Write_notes1",
+            "Admire_art2",
+            "Turn_off_light8",
+            "Read_textbook1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day7_seq1",
+        "activities": [
+            "Write_notes1",
+            "Admire_art2",
+            "Turn_off_light8",
+            "Read_textbook1",
+            "Rinse_toothbrush1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day7_seq2",
+        "activities": [
+            "Admire_art2",
+            "Turn_off_light8",
+            "Read_textbook1",
+            "Rinse_toothbrush1",
+            "Admire_art2"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day7_seq3",
+        "activities": [
+            "Turn_off_light8",
+            "Read_textbook1",
+            "Rinse_toothbrush1",
+            "Admire_art2",
+            "Walk_with_memory_loss7"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day7_seq4",
+        "activities": [
+            "Read_textbook1",
+            "Rinse_toothbrush1",
+            "Admire_art2",
+            "Walk_with_memory_loss7",
+            "Hand_washing1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day7_seq5",
+        "activities": [
+            "Rinse_toothbrush1",
+            "Admire_art2",
+            "Walk_with_memory_loss7",
+            "Hand_washing1",
+            "Clean_fridge1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day7_seq6",
+        "activities": [
+            "Admire_art2",
+            "Walk_with_memory_loss7",
+            "Hand_washing1",
+            "Clean_fridge1",
+            "Read_bedtime_story1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day7_seq7",
+        "activities": [
+            "Walk_with_memory_loss7",
+            "Hand_washing1",
+            "Clean_fridge1",
+            "Read_bedtime_story1",
+            "Pick_up_dirty_wineglass1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day7_seq8",
+        "activities": [
+            "Hand_washing1",
+            "Clean_fridge1",
+            "Read_bedtime_story1",
+            "Pick_up_dirty_wineglass1",
+            "Eat_breadslice1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day7_seq9",
+        "activities": [
+            "Clean_fridge1",
+            "Read_bedtime_story1",
+            "Pick_up_dirty_wineglass1",
+            "Eat_breadslice1",
+            "Place_waterglass1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day8_seq0",
+        "activities": [
+            "Hand_washing1",
+            "Pick_up_dirty_fork1",
+            "Put_groceries_in_fridge18",
+            "Throw_trash3",
+            "Fall_while_standing_quietly1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day8_seq1",
+        "activities": [
+            "Pick_up_dirty_fork1",
+            "Put_groceries_in_fridge18",
+            "Throw_trash3",
+            "Fall_while_standing_quietly1",
+            "Put_away_groceries_from_fridge1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day8_seq2",
+        "activities": [
+            "Put_groceries_in_fridge18",
+            "Throw_trash3",
+            "Fall_while_standing_quietly1",
+            "Put_away_groceries_from_fridge1",
+            "Turn_off_light7"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day8_seq3",
+        "activities": [
+            "Throw_trash3",
+            "Fall_while_standing_quietly1",
+            "Put_away_groceries_from_fridge1",
+            "Turn_off_light7",
+            "Drink_juice1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day8_seq4",
+        "activities": [
+            "Fall_while_standing_quietly1",
+            "Put_away_groceries_from_fridge1",
+            "Turn_off_light7",
+            "Drink_juice1",
+            "Clean_kitchentable1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day8_seq5",
+        "activities": [
+            "Put_away_groceries_from_fridge1",
+            "Turn_off_light7",
+            "Drink_juice1",
+            "Clean_kitchentable1",
+            "Put_groceries_in_fridge17"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day8_seq6",
+        "activities": [
+            "Turn_off_light7",
+            "Drink_juice1",
+            "Clean_kitchentable1",
+            "Put_groceries_in_fridge17",
+            "Use_bathroom1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day8_seq7",
+        "activities": [
+            "Drink_juice1",
+            "Clean_kitchentable1",
+            "Put_groceries_in_fridge17",
+            "Use_bathroom1",
+            "Walk_with_memory_loss8"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day8_seq8",
+        "activities": [
+            "Clean_kitchentable1",
+            "Put_groceries_in_fridge17",
+            "Use_bathroom1",
+            "Walk_with_memory_loss8",
+            "Do_homework_on_paper1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day9_seq0",
+        "activities": [
+            "Pick_up_dirty_wineglass1",
+            "Fall_while_climbing_at_somewhere_height1",
+            "Walk_with_memory_loss8",
+            "Place_wine1",
+            "Place_waterglass1"
+        ],
+        "event_label": [
+            1,
+            1,
+            1,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day9_seq1",
+        "activities": [
+            "Fall_while_climbing_at_somewhere_height1",
+            "Walk_with_memory_loss8",
+            "Place_wine1",
+            "Place_waterglass1",
+            "Hand_washing1"
+        ],
+        "event_label": [
+            1,
+            1,
+            1,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day9_seq2",
+        "activities": [
+            "Walk_with_memory_loss8",
+            "Place_wine1",
+            "Place_waterglass1",
+            "Hand_washing1",
+            "Place_knife1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene4_Day9_seq3",
+        "activities": [
+            "Place_wine1",
+            "Place_waterglass1",
+            "Hand_washing1",
+            "Place_knife1",
+            "Pick_up_dirty_waterglass1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day1_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Eat_bread_while_watching_television3",
+            "Fold_clothesshirt1",
+            "Cook_potato_using_microwave1",
+            "Run_with_disorientation"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day1_seq1",
+        "activities": [
+            "Eat_bread_while_watching_television3",
+            "Fold_clothesshirt1",
+            "Cook_potato_using_microwave1",
+            "Run_with_disorientation",
+            "Relax_on_sofa_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day1_seq2",
+        "activities": [
+            "Fold_clothesshirt1",
+            "Cook_potato_using_microwave1",
+            "Run_with_disorientation",
+            "Relax_on_sofa_while_watching_television3",
+            "Workout1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day1_seq3",
+        "activities": [
+            "Cook_potato_using_microwave1",
+            "Run_with_disorientation",
+            "Relax_on_sofa_while_watching_television3",
+            "Workout1",
+            "Put_groceries_in_fridge24"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day1_seq4",
+        "activities": [
+            "Run_with_disorientation",
+            "Relax_on_sofa_while_watching_television3",
+            "Workout1",
+            "Put_groceries_in_fridge24",
+            "Fold_clothespants1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day1_seq5",
+        "activities": [
+            "Relax_on_sofa_while_watching_television3",
+            "Workout1",
+            "Put_groceries_in_fridge24",
+            "Fold_clothespants1",
+            "Relax_on_sofa1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day10_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Put_groceries_in_fridge14",
+            "Walk_with_memory_loss5",
+            "Put_groceries_in_fridge22",
+            "Fall_while_during_getting_up_or_rising2"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day10_seq1",
+        "activities": [
+            "Put_groceries_in_fridge14",
+            "Walk_with_memory_loss5",
+            "Put_groceries_in_fridge22",
+            "Fall_while_during_getting_up_or_rising2",
+            "Clean_sofa1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day10_seq2",
+        "activities": [
+            "Walk_with_memory_loss5",
+            "Put_groceries_in_fridge22",
+            "Fall_while_during_getting_up_or_rising2",
+            "Clean_sofa1",
+            "Brush_teeth1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day10_seq3",
+        "activities": [
+            "Put_groceries_in_fridge22",
+            "Fall_while_during_getting_up_or_rising2",
+            "Clean_sofa1",
+            "Brush_teeth1",
+            "Fold_clothespile1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day10_seq4",
+        "activities": [
+            "Fall_while_during_getting_up_or_rising2",
+            "Clean_sofa1",
+            "Brush_teeth1",
+            "Fold_clothespile1",
+            "Pick_up_dirty_dishes1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day10_seq5",
+        "activities": [
+            "Clean_sofa1",
+            "Brush_teeth1",
+            "Fold_clothespile1",
+            "Pick_up_dirty_dishes1",
+            "Read_bedtime_story1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day2_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Go_to_sleep1",
+            "Clean_kitchen1",
+            "Put_groceries_in_fridge13",
+            "Clean_desk3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day2_seq1",
+        "activities": [
+            "Go_to_sleep1",
+            "Clean_kitchen1",
+            "Put_groceries_in_fridge13",
+            "Clean_desk3",
+            "Get_out_of_bed1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day2_seq2",
+        "activities": [
+            "Clean_kitchen1",
+            "Put_groceries_in_fridge13",
+            "Clean_desk3",
+            "Get_out_of_bed1",
+            "Clean_sink4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day2_seq3",
+        "activities": [
+            "Put_groceries_in_fridge13",
+            "Clean_desk3",
+            "Get_out_of_bed1",
+            "Clean_sink4",
+            "Turn_off_light8"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day2_seq4",
+        "activities": [
+            "Clean_desk3",
+            "Get_out_of_bed1",
+            "Clean_sink4",
+            "Turn_off_light8",
+            "Turn_on_light7"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day2_seq5",
+        "activities": [
+            "Get_out_of_bed1",
+            "Clean_sink4",
+            "Turn_off_light8",
+            "Turn_on_light7",
+            "Use_phone3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day2_seq6",
+        "activities": [
+            "Clean_sink4",
+            "Turn_off_light8",
+            "Turn_on_light7",
+            "Use_phone3",
+            "Drink_juice1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day2_seq7",
+        "activities": [
+            "Turn_off_light8",
+            "Turn_on_light7",
+            "Use_phone3",
+            "Drink_juice1",
+            "Drink_alcohol1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day3_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Organize_closet1",
+            "Fall_while_during_getting_up_or_rising1",
+            "Turn_on_light7",
+            "Put_away_groceries_from_fridge3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day3_seq1",
+        "activities": [
+            "Organize_closet1",
+            "Fall_while_during_getting_up_or_rising1",
+            "Turn_on_light7",
+            "Put_away_groceries_from_fridge3",
+            "Put_groceries_in_fridge24"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day3_seq2",
+        "activities": [
+            "Fall_while_during_getting_up_or_rising1",
+            "Turn_on_light7",
+            "Put_away_groceries_from_fridge3",
+            "Put_groceries_in_fridge24",
+            "Place_plate1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day3_seq3",
+        "activities": [
+            "Turn_on_light7",
+            "Put_away_groceries_from_fridge3",
+            "Put_groceries_in_fridge24",
+            "Place_plate1",
+            "Fall_while_during_getting_up_or_rising1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day3_seq4",
+        "activities": [
+            "Put_away_groceries_from_fridge3",
+            "Put_groceries_in_fridge24",
+            "Place_plate1",
+            "Fall_while_during_getting_up_or_rising1",
+            "Relax_on_sofa1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day3_seq5",
+        "activities": [
+            "Put_groceries_in_fridge24",
+            "Place_plate1",
+            "Fall_while_during_getting_up_or_rising1",
+            "Relax_on_sofa1",
+            "Fall_while_walking_forward1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day3_seq6",
+        "activities": [
+            "Place_plate1",
+            "Fall_while_during_getting_up_or_rising1",
+            "Relax_on_sofa1",
+            "Fall_while_walking_forward1",
+            "Fall_in_bathroom1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day3_seq7",
+        "activities": [
+            "Fall_while_during_getting_up_or_rising1",
+            "Relax_on_sofa1",
+            "Fall_while_walking_forward1",
+            "Fall_in_bathroom1",
+            "Use_bathroom1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day3_seq8",
+        "activities": [
+            "Relax_on_sofa1",
+            "Fall_while_walking_forward1",
+            "Fall_in_bathroom1",
+            "Use_bathroom1",
+            "Walk_with_memory_loss8"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day4_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Put_groceries_in_fridge18",
+            "Clean_television3",
+            "Cook_potato_using_stove1",
+            "Drink_juice1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day4_seq1",
+        "activities": [
+            "Put_groceries_in_fridge18",
+            "Clean_television3",
+            "Cook_potato_using_stove1",
+            "Drink_juice1",
+            "Shoulder_stretch1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day4_seq2",
+        "activities": [
+            "Clean_television3",
+            "Cook_potato_using_stove1",
+            "Drink_juice1",
+            "Shoulder_stretch1",
+            "Clean_sofa1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day5_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Cook_potato_using_microwave1",
+            "Have_evening_beverage3",
+            "Shoulder_stretch1",
+            "Throw_trash2"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day5_seq1",
+        "activities": [
+            "Cook_potato_using_microwave1",
+            "Have_evening_beverage3",
+            "Shoulder_stretch1",
+            "Throw_trash2",
+            "Put_groceries_in_fridge23"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day5_seq2",
+        "activities": [
+            "Have_evening_beverage3",
+            "Shoulder_stretch1",
+            "Throw_trash2",
+            "Put_groceries_in_fridge23",
+            "Place_wine1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day5_seq3",
+        "activities": [
+            "Shoulder_stretch1",
+            "Throw_trash2",
+            "Put_groceries_in_fridge23",
+            "Place_wine1",
+            "LegOpp1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day5_seq4",
+        "activities": [
+            "Throw_trash2",
+            "Put_groceries_in_fridge23",
+            "Place_wine1",
+            "LegOpp1",
+            "Clean_television4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day5_seq5",
+        "activities": [
+            "Put_groceries_in_fridge23",
+            "Place_wine1",
+            "LegOpp1",
+            "Clean_television4",
+            "Watch_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day5_seq6",
+        "activities": [
+            "Place_wine1",
+            "LegOpp1",
+            "Clean_television4",
+            "Watch_television3",
+            "Clean_television4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day5_seq7",
+        "activities": [
+            "LegOpp1",
+            "Clean_television4",
+            "Watch_television3",
+            "Clean_television4",
+            "Walk_with_memory_loss7"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day5_seq8",
+        "activities": [
+            "Clean_television4",
+            "Watch_television3",
+            "Clean_television4",
+            "Walk_with_memory_loss7",
+            "Clean_kitchen1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day5_seq9",
+        "activities": [
+            "Watch_television3",
+            "Clean_television4",
+            "Walk_with_memory_loss7",
+            "Clean_kitchen1",
+            "Relax_on_bed1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day6_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Read_book1",
+            "Admire_art1",
+            "Eat_bread_while_watching_television3",
+            "Fold_clothespile1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day6_seq1",
+        "activities": [
+            "Read_book1",
+            "Admire_art1",
+            "Eat_bread_while_watching_television3",
+            "Fold_clothespile1",
+            "Clean_desk3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day6_seq2",
+        "activities": [
+            "Admire_art1",
+            "Eat_bread_while_watching_television3",
+            "Fold_clothespile1",
+            "Clean_desk3",
+            "Clean_sink4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day6_seq3",
+        "activities": [
+            "Eat_bread_while_watching_television3",
+            "Fold_clothespile1",
+            "Clean_desk3",
+            "Clean_sink4",
+            "Pick_up_dirty_wineglass1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day6_seq4",
+        "activities": [
+            "Fold_clothespile1",
+            "Clean_desk3",
+            "Clean_sink4",
+            "Pick_up_dirty_wineglass1",
+            "Put_groceries_in_fridge24"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day6_seq5",
+        "activities": [
+            "Clean_desk3",
+            "Clean_sink4",
+            "Pick_up_dirty_wineglass1",
+            "Put_groceries_in_fridge24",
+            "Fall_while_walking_forward1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day6_seq6",
+        "activities": [
+            "Clean_sink4",
+            "Pick_up_dirty_wineglass1",
+            "Put_groceries_in_fridge24",
+            "Fall_while_walking_forward1",
+            "Hand_washing1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day6_seq7",
+        "activities": [
+            "Pick_up_dirty_wineglass1",
+            "Put_groceries_in_fridge24",
+            "Fall_while_walking_forward1",
+            "Hand_washing1",
+            "Put_away_groceries_from_fridge2"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day6_seq8",
+        "activities": [
+            "Put_groceries_in_fridge24",
+            "Fall_while_walking_forward1",
+            "Hand_washing1",
+            "Put_away_groceries_from_fridge2",
+            "Rinse_toothbrush1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day6_seq9",
+        "activities": [
+            "Fall_while_walking_forward1",
+            "Hand_washing1",
+            "Put_away_groceries_from_fridge2",
+            "Rinse_toothbrush1",
+            "Put_away_groceries_from_fridge3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day6_seq10",
+        "activities": [
+            "Hand_washing1",
+            "Put_away_groceries_from_fridge2",
+            "Rinse_toothbrush1",
+            "Put_away_groceries_from_fridge3",
+            "Clean_desk3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day6_seq11",
+        "activities": [
+            "Put_away_groceries_from_fridge2",
+            "Rinse_toothbrush1",
+            "Put_away_groceries_from_fridge3",
+            "Clean_desk3",
+            "Turn_off_light6"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day7_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Put_groceries_in_fridge17",
+            "Fall_while_sitting_down_or_lowering1",
+            "Put_groceries_in_fridge18",
+            "Fold_clothespile1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day7_seq1",
+        "activities": [
+            "Put_groceries_in_fridge17",
+            "Fall_while_sitting_down_or_lowering1",
+            "Put_groceries_in_fridge18",
+            "Fold_clothespile1",
+            "Fold_clothespants1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day7_seq2",
+        "activities": [
+            "Fall_while_sitting_down_or_lowering1",
+            "Put_groceries_in_fridge18",
+            "Fold_clothespile1",
+            "Fold_clothespants1",
+            "Squat_jumps1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day7_seq3",
+        "activities": [
+            "Put_groceries_in_fridge18",
+            "Fold_clothespile1",
+            "Fold_clothespants1",
+            "Squat_jumps1",
+            "Relax_on_sofa1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day7_seq4",
+        "activities": [
+            "Fold_clothespile1",
+            "Fold_clothespants1",
+            "Squat_jumps1",
+            "Relax_on_sofa1",
+            "Pick_up_dirty_knife1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day7_seq5",
+        "activities": [
+            "Fold_clothespants1",
+            "Squat_jumps1",
+            "Relax_on_sofa1",
+            "Pick_up_dirty_knife1",
+            "Place_plate1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day7_seq6",
+        "activities": [
+            "Squat_jumps1",
+            "Relax_on_sofa1",
+            "Pick_up_dirty_knife1",
+            "Place_plate1",
+            "Drink_water1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day7_seq7",
+        "activities": [
+            "Relax_on_sofa1",
+            "Pick_up_dirty_knife1",
+            "Place_plate1",
+            "Drink_water1",
+            "LegOpp1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day7_seq8",
+        "activities": [
+            "Pick_up_dirty_knife1",
+            "Place_plate1",
+            "Drink_water1",
+            "LegOpp1",
+            "Turn_on_light8"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day7_seq9",
+        "activities": [
+            "Place_plate1",
+            "Drink_water1",
+            "LegOpp1",
+            "Turn_on_light8",
+            "Put_groceries_in_fridge13"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day7_seq10",
+        "activities": [
+            "Drink_water1",
+            "LegOpp1",
+            "Turn_on_light8",
+            "Put_groceries_in_fridge13",
+            "Place_waterglass1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day8_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Place_plate1",
+            "Turn_off_light5",
+            "Read_book1",
+            "Go_to_sleep1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day8_seq1",
+        "activities": [
+            "Place_plate1",
+            "Turn_off_light5",
+            "Read_book1",
+            "Go_to_sleep1",
+            "Drink_milk1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day8_seq2",
+        "activities": [
+            "Turn_off_light5",
+            "Read_book1",
+            "Go_to_sleep1",
+            "Drink_milk1",
+            "Fall_while_initiation_of_walking2"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day8_seq3",
+        "activities": [
+            "Read_book1",
+            "Go_to_sleep1",
+            "Drink_milk1",
+            "Fall_while_initiation_of_walking2",
+            "Use_phone3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day8_seq4",
+        "activities": [
+            "Go_to_sleep1",
+            "Drink_milk1",
+            "Fall_while_initiation_of_walking2",
+            "Use_phone3",
+            "Drink_juice_while_watching_television3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day8_seq5",
+        "activities": [
+            "Drink_milk1",
+            "Fall_while_initiation_of_walking2",
+            "Use_phone3",
+            "Drink_juice_while_watching_television3",
+            "Drink_water1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day8_seq6",
+        "activities": [
+            "Fall_while_initiation_of_walking2",
+            "Use_phone3",
+            "Drink_juice_while_watching_television3",
+            "Drink_water1",
+            "Turn_off_light5"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day8_seq7",
+        "activities": [
+            "Use_phone3",
+            "Drink_juice_while_watching_television3",
+            "Drink_water1",
+            "Turn_off_light5",
+            "Read_bedtime_story1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day8_seq8",
+        "activities": [
+            "Drink_juice_while_watching_television3",
+            "Drink_water1",
+            "Turn_off_light5",
+            "Read_bedtime_story1",
+            "Put_groceries_in_fridge17"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day8_seq9",
+        "activities": [
+            "Drink_water1",
+            "Turn_off_light5",
+            "Read_bedtime_story1",
+            "Put_groceries_in_fridge17",
+            "Put_slippers_in_closet1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day8_seq10",
+        "activities": [
+            "Turn_off_light5",
+            "Read_bedtime_story1",
+            "Put_groceries_in_fridge17",
+            "Put_slippers_in_closet1",
+            "Have_evening_beverage4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day8_seq11",
+        "activities": [
+            "Read_bedtime_story1",
+            "Put_groceries_in_fridge17",
+            "Put_slippers_in_closet1",
+            "Have_evening_beverage4",
+            "Put_groceries_in_fridge14"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day9_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Turn_off_light8",
+            "Fold_clothesshirt1",
+            "Put_groceries_in_fridge18",
+            "Clean_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day9_seq1",
+        "activities": [
+            "Turn_off_light8",
+            "Fold_clothesshirt1",
+            "Put_groceries_in_fridge18",
+            "Clean_television3",
+            "Drink_alcohol1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day9_seq2",
+        "activities": [
+            "Fold_clothesshirt1",
+            "Put_groceries_in_fridge18",
+            "Clean_television3",
+            "Drink_alcohol1",
+            "Cook_fried_bread4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day9_seq3",
+        "activities": [
+            "Put_groceries_in_fridge18",
+            "Clean_television3",
+            "Drink_alcohol1",
+            "Cook_fried_bread4",
+            "Drink_water1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day9_seq4",
+        "activities": [
+            "Clean_television3",
+            "Drink_alcohol1",
+            "Cook_fried_bread4",
+            "Drink_water1",
+            "Drink_milk_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day9_seq5",
+        "activities": [
+            "Drink_alcohol1",
+            "Cook_fried_bread4",
+            "Drink_water1",
+            "Drink_milk_while_watching_television3",
+            "Organize_closet1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day9_seq6",
+        "activities": [
+            "Cook_fried_bread4",
+            "Drink_water1",
+            "Drink_milk_while_watching_television3",
+            "Organize_closet1",
+            "Make_cold_cereal1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day9_seq7",
+        "activities": [
+            "Drink_water1",
+            "Drink_milk_while_watching_television3",
+            "Organize_closet1",
+            "Make_cold_cereal1",
+            "Use_bathroom1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day9_seq8",
+        "activities": [
+            "Drink_milk_while_watching_television3",
+            "Organize_closet1",
+            "Make_cold_cereal1",
+            "Use_bathroom1",
+            "Turn_off_light7"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene5_Day9_seq9",
+        "activities": [
+            "Organize_closet1",
+            "Make_cold_cereal1",
+            "Use_bathroom1",
+            "Turn_off_light7",
+            "Drink_water1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day1_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Make_bed1",
+            "Eat_breadslice1",
+            "Clean_desk3",
+            "Have_morning_beverage3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day1_seq1",
+        "activities": [
+            "Make_bed1",
+            "Eat_breadslice1",
+            "Clean_desk3",
+            "Have_morning_beverage3",
+            "Clean_kitchen1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day1_seq2",
+        "activities": [
+            "Eat_breadslice1",
+            "Clean_desk3",
+            "Have_morning_beverage3",
+            "Clean_kitchen1",
+            "Clean_kitchentable1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day1_seq3",
+        "activities": [
+            "Clean_desk3",
+            "Have_morning_beverage3",
+            "Clean_kitchen1",
+            "Clean_kitchentable1",
+            "Relax_on_sofa1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day1_seq4",
+        "activities": [
+            "Have_morning_beverage3",
+            "Clean_kitchen1",
+            "Clean_kitchentable1",
+            "Relax_on_sofa1",
+            "Walk_with_memory_loss5"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day1_seq5",
+        "activities": [
+            "Clean_kitchen1",
+            "Clean_kitchentable1",
+            "Relax_on_sofa1",
+            "Walk_with_memory_loss5",
+            "Do_homework_on_paper1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day1_seq6",
+        "activities": [
+            "Clean_kitchentable1",
+            "Relax_on_sofa1",
+            "Walk_with_memory_loss5",
+            "Do_homework_on_paper1",
+            "Cook_fried_bread3"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day1_seq7",
+        "activities": [
+            "Relax_on_sofa1",
+            "Walk_with_memory_loss5",
+            "Do_homework_on_paper1",
+            "Cook_fried_bread3",
+            "Rinse_toothbrush1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day10_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Throw_trash3",
+            "Drink_alcohol1",
+            "Put_groceries_in_fridge16",
+            "Brush_teeth1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day10_seq1",
+        "activities": [
+            "Throw_trash3",
+            "Drink_alcohol1",
+            "Put_groceries_in_fridge16",
+            "Brush_teeth1",
+            "Rinse_toothbrush1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day10_seq2",
+        "activities": [
+            "Drink_alcohol1",
+            "Put_groceries_in_fridge16",
+            "Brush_teeth1",
+            "Rinse_toothbrush1",
+            "Get_out_of_bed1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day10_seq3",
+        "activities": [
+            "Put_groceries_in_fridge16",
+            "Brush_teeth1",
+            "Rinse_toothbrush1",
+            "Get_out_of_bed1",
+            "Fall_while_preparing_meal2"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day10_seq4",
+        "activities": [
+            "Brush_teeth1",
+            "Rinse_toothbrush1",
+            "Get_out_of_bed1",
+            "Fall_while_preparing_meal2",
+            "Make_bed1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day10_seq5",
+        "activities": [
+            "Rinse_toothbrush1",
+            "Get_out_of_bed1",
+            "Fall_while_preparing_meal2",
+            "Make_bed1",
+            "Walk_with_memory_loss8"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day10_seq6",
+        "activities": [
+            "Get_out_of_bed1",
+            "Fall_while_preparing_meal2",
+            "Make_bed1",
+            "Walk_with_memory_loss8",
+            "Put_groceries_in_fridge14"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day10_seq7",
+        "activities": [
+            "Fall_while_preparing_meal2",
+            "Make_bed1",
+            "Walk_with_memory_loss8",
+            "Put_groceries_in_fridge14",
+            "Fall_while_walking_forward1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day10_seq8",
+        "activities": [
+            "Make_bed1",
+            "Walk_with_memory_loss8",
+            "Put_groceries_in_fridge14",
+            "Fall_while_walking_forward1",
+            "Cook_carrot1"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day10_seq9",
+        "activities": [
+            "Walk_with_memory_loss8",
+            "Put_groceries_in_fridge14",
+            "Fall_while_walking_forward1",
+            "Cook_carrot1",
+            "Cook_fried_bread4"
+        ],
+        "event_label": [
+            1,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day10_seq10",
+        "activities": [
+            "Put_groceries_in_fridge14",
+            "Fall_while_walking_forward1",
+            "Cook_carrot1",
+            "Cook_fried_bread4",
+            "Turn_on_light6"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day2_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Clean_television4",
+            "Throw_trash2",
+            "Clean_sink4",
+            "Drink_milk1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day2_seq1",
+        "activities": [
+            "Clean_television4",
+            "Throw_trash2",
+            "Clean_sink4",
+            "Drink_milk1",
+            "Clean_desk3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day2_seq2",
+        "activities": [
+            "Throw_trash2",
+            "Clean_sink4",
+            "Drink_milk1",
+            "Clean_desk3",
+            "Fall_in_bathroom1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day2_seq3",
+        "activities": [
+            "Clean_sink4",
+            "Drink_milk1",
+            "Clean_desk3",
+            "Fall_in_bathroom1",
+            "Relax_on_bed1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day2_seq4",
+        "activities": [
+            "Drink_milk1",
+            "Clean_desk3",
+            "Fall_in_bathroom1",
+            "Relax_on_bed1",
+            "Put_away_groceries_from_fridge3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day2_seq5",
+        "activities": [
+            "Clean_desk3",
+            "Fall_in_bathroom1",
+            "Relax_on_bed1",
+            "Put_away_groceries_from_fridge3",
+            "Clean_television4"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day3_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Put_slippers_in_closet2",
+            "LegOpp1",
+            "Have_morning_beverage3",
+            "Throw_trash2"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day3_seq1",
+        "activities": [
+            "Put_slippers_in_closet2",
+            "LegOpp1",
+            "Have_morning_beverage3",
+            "Throw_trash2",
+            "Place_wine1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day3_seq2",
+        "activities": [
+            "LegOpp1",
+            "Have_morning_beverage3",
+            "Throw_trash2",
+            "Place_wine1",
+            "Social_media_checks1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day4_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Throw_trash2",
+            "Fall_while_during_getting_up_or_rising1",
+            "Workout1",
+            "Fall_backward_while_walking_and_turning1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day4_seq1",
+        "activities": [
+            "Throw_trash2",
+            "Fall_while_during_getting_up_or_rising1",
+            "Workout1",
+            "Fall_backward_while_walking_and_turning1",
+            "Straddle_splits1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day4_seq2",
+        "activities": [
+            "Fall_while_during_getting_up_or_rising1",
+            "Workout1",
+            "Fall_backward_while_walking_and_turning1",
+            "Straddle_splits1",
+            "Eat_bread_while_watching_television3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day4_seq3",
+        "activities": [
+            "Workout1",
+            "Fall_backward_while_walking_and_turning1",
+            "Straddle_splits1",
+            "Eat_bread_while_watching_television3",
+            "Clean_desk3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day4_seq4",
+        "activities": [
+            "Fall_backward_while_walking_and_turning1",
+            "Straddle_splits1",
+            "Eat_bread_while_watching_television3",
+            "Clean_desk3",
+            "Run_with_disorientation"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day4_seq5",
+        "activities": [
+            "Straddle_splits1",
+            "Eat_bread_while_watching_television3",
+            "Clean_desk3",
+            "Run_with_disorientation",
+            "Clean_desk3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day4_seq6",
+        "activities": [
+            "Eat_bread_while_watching_television3",
+            "Clean_desk3",
+            "Run_with_disorientation",
+            "Clean_desk3",
+            "Drink_juice1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day5_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Fall_while_standing_and_turning1",
+            "Fall_backward_while_walking_and_turning1",
+            "Turn_off_light7",
+            "Put_groceries_in_fridge13"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day5_seq1",
+        "activities": [
+            "Fall_while_standing_and_turning1",
+            "Fall_backward_while_walking_and_turning1",
+            "Turn_off_light7",
+            "Put_groceries_in_fridge13",
+            "Throw_trash3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day5_seq2",
+        "activities": [
+            "Fall_backward_while_walking_and_turning1",
+            "Turn_off_light7",
+            "Put_groceries_in_fridge13",
+            "Throw_trash3",
+            "Place_wine1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day5_seq3",
+        "activities": [
+            "Turn_off_light7",
+            "Put_groceries_in_fridge13",
+            "Throw_trash3",
+            "Place_wine1",
+            "Fall_while_during_getting_up_or_rising1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day5_seq4",
+        "activities": [
+            "Put_groceries_in_fridge13",
+            "Throw_trash3",
+            "Place_wine1",
+            "Fall_while_during_getting_up_or_rising1",
+            "Put_groceries_in_fridge17"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day6_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Turn_off_light6",
+            "Clean_sofa1",
+            "Brush_teeth1",
+            "Turn_on_light8"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day6_seq1",
+        "activities": [
+            "Turn_off_light6",
+            "Clean_sofa1",
+            "Brush_teeth1",
+            "Turn_on_light8",
+            "Clean_livingroom1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day6_seq2",
+        "activities": [
+            "Clean_sofa1",
+            "Brush_teeth1",
+            "Turn_on_light8",
+            "Clean_livingroom1",
+            "Put_groceries_in_fridge17"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day6_seq3",
+        "activities": [
+            "Brush_teeth1",
+            "Turn_on_light8",
+            "Clean_livingroom1",
+            "Put_groceries_in_fridge17",
+            "Clean_sofa1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day6_seq4",
+        "activities": [
+            "Turn_on_light8",
+            "Clean_livingroom1",
+            "Put_groceries_in_fridge17",
+            "Clean_sofa1",
+            "Drink_milk1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day6_seq5",
+        "activities": [
+            "Clean_livingroom1",
+            "Put_groceries_in_fridge17",
+            "Clean_sofa1",
+            "Drink_milk1",
+            "Put_groceries_in_fridge24"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day6_seq6",
+        "activities": [
+            "Put_groceries_in_fridge17",
+            "Clean_sofa1",
+            "Drink_milk1",
+            "Put_groceries_in_fridge24",
+            "Pet_cat1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day7_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Put_groceries_in_fridge19",
+            "Pick_up_dirty_waterglass1",
+            "Relax_on_sofa_while_watching_television3",
+            "Make_bed1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day7_seq1",
+        "activities": [
+            "Put_groceries_in_fridge19",
+            "Pick_up_dirty_waterglass1",
+            "Relax_on_sofa_while_watching_television3",
+            "Make_bed1",
+            "Run_with_disorientation"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day8_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Use_toilet1",
+            "Cook_salmon1",
+            "Squats1",
+            "Eat_cupcake_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day8_seq1",
+        "activities": [
+            "Use_toilet1",
+            "Cook_salmon1",
+            "Squats1",
+            "Eat_cupcake_while_watching_television3",
+            "Drink_milk1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day8_seq2",
+        "activities": [
+            "Cook_salmon1",
+            "Squats1",
+            "Eat_cupcake_while_watching_television3",
+            "Drink_milk1",
+            "Turn_off_light6"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day8_seq3",
+        "activities": [
+            "Squats1",
+            "Eat_cupcake_while_watching_television3",
+            "Drink_milk1",
+            "Turn_off_light6",
+            "Cook_salmon1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day8_seq4",
+        "activities": [
+            "Eat_cupcake_while_watching_television3",
+            "Drink_milk1",
+            "Turn_off_light6",
+            "Cook_salmon1",
+            "Eat_bread_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day9_seq0",
+        "activities": [
+            "Get_out_of_bed1",
+            "Fall_in_bathroom1",
+            "Eat_bread_while_watching_television3",
+            "Social_media_checks1",
+            "Pick_up_dirty_knife1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day9_seq1",
+        "activities": [
+            "Fall_in_bathroom1",
+            "Eat_bread_while_watching_television3",
+            "Social_media_checks1",
+            "Pick_up_dirty_knife1",
+            "Hand_washing1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day9_seq2",
+        "activities": [
+            "Eat_bread_while_watching_television3",
+            "Social_media_checks1",
+            "Pick_up_dirty_knife1",
+            "Hand_washing1",
+            "Fall_while_preparing_meal1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day9_seq3",
+        "activities": [
+            "Social_media_checks1",
+            "Pick_up_dirty_knife1",
+            "Hand_washing1",
+            "Fall_while_preparing_meal1",
+            "Eat_cupcake_while_watching_television3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene6_Day9_seq4",
+        "activities": [
+            "Pick_up_dirty_knife1",
+            "Hand_washing1",
+            "Fall_while_preparing_meal1",
+            "Eat_cupcake_while_watching_television3",
+            "Squats1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day1_seq0",
+        "activities": [
+            "Pick_up_dirty_wineglass1",
+            "Walk_with_memory_loss6",
+            "Cook_salmon1",
+            "Pick_up_dirty_dishes1",
+            "Put_away_groceries_from_fridge2"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day1_seq1",
+        "activities": [
+            "Walk_with_memory_loss6",
+            "Cook_salmon1",
+            "Pick_up_dirty_dishes1",
+            "Put_away_groceries_from_fridge2",
+            "Cook_potato_using_microwave1"
+        ],
+        "event_label": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day1_seq2",
+        "activities": [
+            "Cook_salmon1",
+            "Pick_up_dirty_dishes1",
+            "Put_away_groceries_from_fridge2",
+            "Cook_potato_using_microwave1",
+            "Social_media_checks1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day10_seq0",
+        "activities": [
+            "Relax_on_sofa1",
+            "Place_wine1",
+            "Set_up_table1",
+            "Pick_up_dirty_wineglass1",
+            "Drink_wine_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day10_seq1",
+        "activities": [
+            "Place_wine1",
+            "Set_up_table1",
+            "Pick_up_dirty_wineglass1",
+            "Drink_wine_while_watching_television3",
+            "Do_work_on_computer1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day10_seq2",
+        "activities": [
+            "Set_up_table1",
+            "Pick_up_dirty_wineglass1",
+            "Drink_wine_while_watching_television3",
+            "Do_work_on_computer1",
+            "Do_work_on_computer1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day10_seq3",
+        "activities": [
+            "Pick_up_dirty_wineglass1",
+            "Drink_wine_while_watching_television3",
+            "Do_work_on_computer1",
+            "Do_work_on_computer1",
+            "Relax_on_sofa_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day10_seq4",
+        "activities": [
+            "Drink_wine_while_watching_television3",
+            "Do_work_on_computer1",
+            "Do_work_on_computer1",
+            "Relax_on_sofa_while_watching_television3",
+            "Place_knife1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day10_seq5",
+        "activities": [
+            "Do_work_on_computer1",
+            "Do_work_on_computer1",
+            "Relax_on_sofa_while_watching_television3",
+            "Place_knife1",
+            "Cook_potato_using_microwave1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day10_seq6",
+        "activities": [
+            "Do_work_on_computer1",
+            "Relax_on_sofa_while_watching_television3",
+            "Place_knife1",
+            "Cook_potato_using_microwave1",
+            "Fall_while_standing_quietly1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day10_seq7",
+        "activities": [
+            "Relax_on_sofa_while_watching_television3",
+            "Place_knife1",
+            "Cook_potato_using_microwave1",
+            "Fall_while_standing_quietly1",
+            "Put_groceries_in_fridge20"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day10_seq8",
+        "activities": [
+            "Place_knife1",
+            "Cook_potato_using_microwave1",
+            "Fall_while_standing_quietly1",
+            "Put_groceries_in_fridge20",
+            "Cook_potato_using_stove1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day2_seq0",
+        "activities": [
+            "Pick_up_dirty_wineglass1",
+            "Use_phone4",
+            "Drink_wine_while_watching_television3",
+            "Fall_while_walking_forward1",
+            "Use_phone4"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day2_seq1",
+        "activities": [
+            "Use_phone4",
+            "Drink_wine_while_watching_television3",
+            "Fall_while_walking_forward1",
+            "Use_phone4",
+            "Cook_potato_using_microwave1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day2_seq2",
+        "activities": [
+            "Drink_wine_while_watching_television3",
+            "Fall_while_walking_forward1",
+            "Use_phone4",
+            "Cook_potato_using_microwave1",
+            "Social_media_checks1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day2_seq3",
+        "activities": [
+            "Fall_while_walking_forward1",
+            "Use_phone4",
+            "Cook_potato_using_microwave1",
+            "Social_media_checks1",
+            "Pick_up_dirty_dishes1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day2_seq4",
+        "activities": [
+            "Use_phone4",
+            "Cook_potato_using_microwave1",
+            "Social_media_checks1",
+            "Pick_up_dirty_dishes1",
+            "Drink_juice_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day3_seq0",
+        "activities": [
+            "Place_fork1",
+            "Make_hot_cereal1",
+            "Clean_kitchentable1",
+            "Fall_while_initiation_of_walking2",
+            "Cook_fried_bread3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day3_seq1",
+        "activities": [
+            "Make_hot_cereal1",
+            "Clean_kitchentable1",
+            "Fall_while_initiation_of_walking2",
+            "Cook_fried_bread3",
+            "Eat_bread_while_watching_television3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day3_seq2",
+        "activities": [
+            "Clean_kitchentable1",
+            "Fall_while_initiation_of_walking2",
+            "Cook_fried_bread3",
+            "Eat_bread_while_watching_television3",
+            "Cook_fried_bread4"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day3_seq3",
+        "activities": [
+            "Fall_while_initiation_of_walking2",
+            "Cook_fried_bread3",
+            "Eat_bread_while_watching_television3",
+            "Cook_fried_bread4",
+            "Do_research_on_computer1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day3_seq4",
+        "activities": [
+            "Cook_fried_bread3",
+            "Eat_bread_while_watching_television3",
+            "Cook_fried_bread4",
+            "Do_research_on_computer1",
+            "Place_waterglass1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day3_seq5",
+        "activities": [
+            "Eat_bread_while_watching_television3",
+            "Cook_fried_bread4",
+            "Do_research_on_computer1",
+            "Place_waterglass1",
+            "Throw_trash2"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day3_seq6",
+        "activities": [
+            "Cook_fried_bread4",
+            "Do_research_on_computer1",
+            "Place_waterglass1",
+            "Throw_trash2",
+            "Put_groceries_in_fridge16"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day3_seq7",
+        "activities": [
+            "Do_research_on_computer1",
+            "Place_waterglass1",
+            "Throw_trash2",
+            "Put_groceries_in_fridge16",
+            "Drink_alcohol_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day4_seq0",
+        "activities": [
+            "Drink_juice_while_watching_television3",
+            "Fall_while_walking_forward1",
+            "Pick_up_dirty_wineglass1",
+            "Pick_up_dirty_fork1",
+            "Put_groceries_in_fridge20"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day4_seq1",
+        "activities": [
+            "Fall_while_walking_forward1",
+            "Pick_up_dirty_wineglass1",
+            "Pick_up_dirty_fork1",
+            "Put_groceries_in_fridge20",
+            "Drink_milk_while_watching_television3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day4_seq2",
+        "activities": [
+            "Pick_up_dirty_wineglass1",
+            "Pick_up_dirty_fork1",
+            "Put_groceries_in_fridge20",
+            "Drink_milk_while_watching_television3",
+            "Pick_up_dirty_waterglass1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day4_seq3",
+        "activities": [
+            "Pick_up_dirty_fork1",
+            "Put_groceries_in_fridge20",
+            "Drink_milk_while_watching_television3",
+            "Pick_up_dirty_waterglass1",
+            "Throw_trash2"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day4_seq4",
+        "activities": [
+            "Put_groceries_in_fridge20",
+            "Drink_milk_while_watching_television3",
+            "Pick_up_dirty_waterglass1",
+            "Throw_trash2",
+            "Fall_while_initiation_of_walking1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day4_seq5",
+        "activities": [
+            "Drink_milk_while_watching_television3",
+            "Pick_up_dirty_waterglass1",
+            "Throw_trash2",
+            "Fall_while_initiation_of_walking1",
+            "Put_away_groceries_from_fridge3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day4_seq6",
+        "activities": [
+            "Pick_up_dirty_waterglass1",
+            "Throw_trash2",
+            "Fall_while_initiation_of_walking1",
+            "Put_away_groceries_from_fridge3",
+            "Pick_up_dirty_knife1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day4_seq7",
+        "activities": [
+            "Throw_trash2",
+            "Fall_while_initiation_of_walking1",
+            "Put_away_groceries_from_fridge3",
+            "Pick_up_dirty_knife1",
+            "Drink_wine1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day4_seq8",
+        "activities": [
+            "Fall_while_initiation_of_walking1",
+            "Put_away_groceries_from_fridge3",
+            "Pick_up_dirty_knife1",
+            "Drink_wine1",
+            "Place_wine1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day4_seq9",
+        "activities": [
+            "Put_away_groceries_from_fridge3",
+            "Pick_up_dirty_knife1",
+            "Drink_wine1",
+            "Place_wine1",
+            "Cook_potato_using_microwave1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day5_seq0",
+        "activities": [
+            "Place_wineglass1",
+            "Fall_while_preparing_meal2",
+            "Cook_fried_bread4",
+            "Fall_sideways_while_walking_forward1",
+            "Fall_while_walking_forward1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day5_seq1",
+        "activities": [
+            "Fall_while_preparing_meal2",
+            "Cook_fried_bread4",
+            "Fall_sideways_while_walking_forward1",
+            "Fall_while_walking_forward1",
+            "Do_homework_on_paper1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day5_seq2",
+        "activities": [
+            "Cook_fried_bread4",
+            "Fall_sideways_while_walking_forward1",
+            "Fall_while_walking_forward1",
+            "Do_homework_on_paper1",
+            "Cook_fried_bread3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day6_seq0",
+        "activities": [
+            "Clean_kitchentable1",
+            "Put_groceries_in_fridge15",
+            "Use_phone4",
+            "Drink_milk_while_watching_television3",
+            "Cook_potato_using_microwave1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day6_seq1",
+        "activities": [
+            "Put_groceries_in_fridge15",
+            "Use_phone4",
+            "Drink_milk_while_watching_television3",
+            "Cook_potato_using_microwave1",
+            "Eat_bread_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day6_seq2",
+        "activities": [
+            "Use_phone4",
+            "Drink_milk_while_watching_television3",
+            "Cook_potato_using_microwave1",
+            "Eat_bread_while_watching_television3",
+            "Do_research_on_computer1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day6_seq3",
+        "activities": [
+            "Drink_milk_while_watching_television3",
+            "Cook_potato_using_microwave1",
+            "Eat_bread_while_watching_television3",
+            "Do_research_on_computer1",
+            "Turn_off_light5"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day6_seq4",
+        "activities": [
+            "Cook_potato_using_microwave1",
+            "Eat_bread_while_watching_television3",
+            "Do_research_on_computer1",
+            "Turn_off_light5",
+            "Drink_wine_while_watching_television3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day6_seq5",
+        "activities": [
+            "Eat_bread_while_watching_television3",
+            "Do_research_on_computer1",
+            "Turn_off_light5",
+            "Drink_wine_while_watching_television3",
+            "Put_groceries_in_fridge16"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day6_seq6",
+        "activities": [
+            "Do_research_on_computer1",
+            "Turn_off_light5",
+            "Drink_wine_while_watching_television3",
+            "Put_groceries_in_fridge16",
+            "Use_phone4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day7_seq0",
+        "activities": [
+            "Put_groceries_in_fridge16",
+            "Clean_sink3",
+            "Place_wineglass1",
+            "Put_groceries_in_fridge19",
+            "Cook_salmon1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day7_seq1",
+        "activities": [
+            "Clean_sink3",
+            "Place_wineglass1",
+            "Put_groceries_in_fridge19",
+            "Cook_salmon1",
+            "Do_work_on_computer1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day7_seq2",
+        "activities": [
+            "Place_wineglass1",
+            "Put_groceries_in_fridge19",
+            "Cook_salmon1",
+            "Do_work_on_computer1",
+            "Cook_carrot1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day7_seq3",
+        "activities": [
+            "Put_groceries_in_fridge19",
+            "Cook_salmon1",
+            "Do_work_on_computer1",
+            "Cook_carrot1",
+            "Cook_salmon1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day8_seq0",
+        "activities": [
+            "Cook_salmon1",
+            "Put_away_groceries_from_fridge2",
+            "Relax_on_sofa_while_watching_television3",
+            "Fall_while_initiation_of_walking2",
+            "Pick_up_dirty_knife1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day8_seq1",
+        "activities": [
+            "Put_away_groceries_from_fridge2",
+            "Relax_on_sofa_while_watching_television3",
+            "Fall_while_initiation_of_walking2",
+            "Pick_up_dirty_knife1",
+            "Relax_on_sofa1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day8_seq2",
+        "activities": [
+            "Relax_on_sofa_while_watching_television3",
+            "Fall_while_initiation_of_walking2",
+            "Pick_up_dirty_knife1",
+            "Relax_on_sofa1",
+            "Put_away_groceries_from_fridge1"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day8_seq3",
+        "activities": [
+            "Fall_while_initiation_of_walking2",
+            "Pick_up_dirty_knife1",
+            "Relax_on_sofa1",
+            "Put_away_groceries_from_fridge1",
+            "Throw_trash3"
+        ],
+        "event_label": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day8_seq4",
+        "activities": [
+            "Pick_up_dirty_knife1",
+            "Relax_on_sofa1",
+            "Put_away_groceries_from_fridge1",
+            "Throw_trash3",
+            "Cook_carrot1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day8_seq5",
+        "activities": [
+            "Relax_on_sofa1",
+            "Put_away_groceries_from_fridge1",
+            "Throw_trash3",
+            "Cook_carrot1",
+            "Clean_kitchentable1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day8_seq6",
+        "activities": [
+            "Put_away_groceries_from_fridge1",
+            "Throw_trash3",
+            "Cook_carrot1",
+            "Clean_kitchentable1",
+            "Put_groceries_in_fridge19"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day8_seq7",
+        "activities": [
+            "Throw_trash3",
+            "Cook_carrot1",
+            "Clean_kitchentable1",
+            "Put_groceries_in_fridge19",
+            "Pick_up_dirty_dishes1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day8_seq8",
+        "activities": [
+            "Cook_carrot1",
+            "Clean_kitchentable1",
+            "Put_groceries_in_fridge19",
+            "Pick_up_dirty_dishes1",
+            "Read_book1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day9_seq0",
+        "activities": [
+            "Place_wineglass1",
+            "Use_phone4",
+            "Pick_up_dirty_fork1",
+            "Use_phone4",
+            "Cook_fried_bread3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day9_seq1",
+        "activities": [
+            "Use_phone4",
+            "Pick_up_dirty_fork1",
+            "Use_phone4",
+            "Cook_fried_bread3",
+            "Put_away_groceries_from_fridge3"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day9_seq2",
+        "activities": [
+            "Pick_up_dirty_fork1",
+            "Use_phone4",
+            "Cook_fried_bread3",
+            "Put_away_groceries_from_fridge3",
+            "Put_away_groceries_from_fridge2"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day9_seq3",
+        "activities": [
+            "Use_phone4",
+            "Cook_fried_bread3",
+            "Put_away_groceries_from_fridge3",
+            "Put_away_groceries_from_fridge2",
+            "Do_research_on_computer1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day9_seq4",
+        "activities": [
+            "Cook_fried_bread3",
+            "Put_away_groceries_from_fridge3",
+            "Put_away_groceries_from_fridge2",
+            "Do_research_on_computer1",
+            "Clean_fridge1"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day9_seq5",
+        "activities": [
+            "Put_away_groceries_from_fridge3",
+            "Put_away_groceries_from_fridge2",
+            "Do_research_on_computer1",
+            "Clean_fridge1",
+            "Throw_trash2"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "sequence_id": "scene7_Day9_seq6",
+        "activities": [
+            "Put_away_groceries_from_fridge2",
+            "Do_research_on_computer1",
+            "Clean_fridge1",
+            "Throw_trash2",
+            "Cook_fried_bread4"
+        ],
+        "event_label": [
+            0,
+            0,
+            0,
+            0
+        ]
+    }
+]

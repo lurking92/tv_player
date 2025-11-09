@@ -1,0 +1,8 @@
+{
+    "walk": 4,
+    "put": 2,
+    "find": 2,
+    "grab": 2,
+    "open": 1,
+    "close": 1
+}

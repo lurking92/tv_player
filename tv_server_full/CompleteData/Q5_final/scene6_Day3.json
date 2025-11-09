@@ -1,0 +1,46 @@
+{
+    "name": "Test Test",
+    "senario": "scene6_Day3",
+    "answers": [
+        {
+            "time": "00h-00m-22s",
+            "room": "bedroom",
+            "object": "PILLOW"
+        },
+        {
+            "time": "00h-00m-53s",
+            "room": "bedroom",
+            "object": "SLIPPERS"
+        },
+        {
+            "time": "00h-03m-46s",
+            "room": "kitchen",
+            "object": "MILK"
+        },
+        {
+            "time": "00h-04m-12s",
+            "room": "kitchen",
+            "object": "WATERGLASS"
+        },
+        {
+            "time": "00h-04m-27s",
+            "room": "kitchen",
+            "object": "POTATO"
+        },
+        {
+            "time": "00h-04m-35s",
+            "room": "kitchen",
+            "object": "SALAD"
+        },
+        {
+            "time": "00h-04m-55s",
+            "room": "kitchen",
+            "object": "WINE"
+        },
+        {
+            "time": "00h-06m-40s",
+            "room": "kitchen",
+            "object": "BREADSLICE"
+        }
+    ]
+}

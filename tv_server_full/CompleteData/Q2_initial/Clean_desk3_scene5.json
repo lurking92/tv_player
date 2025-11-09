@@ -1,0 +1,7 @@
+{
+    "walk": 7,
+    "grab": 3,
+    "put": 2,
+    "turnTo": 2,
+    "wipe": 2
+}

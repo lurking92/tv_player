@@ -155,6 +155,22 @@
     .play-pause-button { min-width: 84px; }
     .play-pause-button::before { content: '▶'; margin-right: 6px; }
     .play-pause-button.playing::before { content: '❚❚'; }
+
+    .top-panels-container {
+        display: flex;
+        gap: 16px;
+        /* align-items: flex-start; */ /* 改為 stretch 或 baseline 試試看 */
+        align-items: stretch; /* << 讓左右面板等高 */
+        margin-bottom: 16px;
+    }
+
+    /* 確保左面板能正確伸展 */
+    .top-panels-container > .mode-controls {
+        flex: 1;
+        margin-bottom: 0;
+        display: flex; /* << 設為 flex */
+        flex-direction: column; /* 設為縱向排列 */
+    }
   </style>
 </head>
 <body>
@@ -168,6 +184,11 @@
           <button id="uploadButton" style="background:#28a745;">上傳並分析</button>
         </div>
         <div id="uploadStatus">請選擇影片檔案...</div>
+        <div id="multiUploadZone" style="border: 2px dashed #333946; border-radius: 8px; padding: 40px 20px; text-align: center; margin-top: 16px; color: #888;">
+          <div style="font-size: 2em; margin-bottom: 10px;">⬇️</div>
+          <div>若要新增檔案，請將檔案拖放到這裡。</div>
+          <div style="font-size: 0.8em; margin-top: 8px; color: #aaa;">(只支援mp4檔案)附件大小限制：50MB，附件數量限制：1</div>
+      </div>
       </div>
 
       <div id="kbert-panel">
@@ -178,7 +199,14 @@
             <li>[等待] 3. 執行知識圖譜分析 (可能需數分鐘)...</li>
             <li>[等待] 4. 分析完成。</li>
           </ul>
-          <div id="kbertResult" style="margin-top:10px;">等待影片上傳與分析...</div>
+          <div id="kbertResult" style="margin-top:10px;">等待影片上傳與分析...</div><div id="fakeKbertScores" style="margin-top:15px; padding-top:10px; border-top:1px dashed #333946; font-size:13px;">
+            <div class="debug-title" style="margin-bottom:5px;">風險分數 (K-BERT Placeholder)</div>
+            <div>跌倒 (Fall): <span id="scoreFall">未偵測</span></div>
+            <div>爬高 (Climbing): <span id="scoreClimbing">未偵測</span></div>
+            <div>奔跑 (Running): <span id="scoreRunning">未偵測</span></div>
+            <div>迷失 (Disoriented): <span id="scoreDisoriented">未偵測</span></div>
+          </div>
+
           <div id="downloadButtonsContainer"></div>
       </div>
   </div>
@@ -191,8 +219,12 @@
         </label>
         <label>
           <input type="radio" name="sceneMode" value="uploaded" />
-          已上傳影片 (分析/預覽模式)
+          上傳影片 (分析/預覽模式)
         </label>
+        <label style="margin-left:15px;">
+          <input type="checkbox" id="aiToggle" /> AI即時分析
+        </label>
+        <button id="testAI" style="background:#4a9eff; margin-left: 5px;">測試 AI API</button>
         <label style="margin-left:auto;">
           <input type="checkbox" id="autoPlayToggle" checked /> 自動播放 (情境模式)
         </label>
@@ -209,7 +241,11 @@
         </select>
       </div>
   </div>
-
+  <div id="aiReportPanel" style="background:#1a1e24; border:1px solid #2a2f3a; border-radius:8px; padding:12px; margin-bottom:16px;">
+    <div class="debug-title" style="margin-bottom:5px;">AI 風險評估</div>
+    <div id="aiReportDisplay" style="font-size:13.5px; line-height:1.6;">(請啟用 AI 即時分析或等待雲端分析完成)</div>
+    <button id="downloadAiReportBtn" style="margin-top:10px; background:#4a9eff;" disabled>下載AI報告</button>
+  </div>
   <div class="main-content">
       <div class="video-container">
           <div class="screen">
@@ -231,10 +267,7 @@
                   <button id="btnPrev" title="上一個活動 (僅情境模式)">上一個</button>
                   <button id="btnNext" title="下一個活動 (僅情境模式)">下一個</button>
                   <button id="btnReset">重置</button>
-                  <label style="margin-left:15px;">
-                      <input type="checkbox" id="aiToggle" /> AI即時分析
-                  </label>
-                  <button id="testAI" style="background:#4a9eff; margin-left: 5px;">測試 AI API</button>
+                  
                   <span id="diag"></span> <div id="meta"></div>
               </div>
           </div>
@@ -261,6 +294,7 @@ const diag = document.getElementById('diag');
 const debugLog = document.getElementById('debugLog');
 const playPauseButton = document.getElementById('playPauseButton');
 const downloadButtonsContainer = document.getElementById('downloadButtonsContainer');
+const multiUploadZone = document.getElementById('multiUploadZone');
 
 const virtualControls = document.getElementById('virtualControls');
 const modeRadios = document.querySelectorAll('input[name="sceneMode"]');
@@ -283,7 +317,7 @@ const autoPlayToggle = document.getElementById('autoPlayToggle');
 const kbertPanel = document.getElementById('kbert-panel');
 const kbertResultDiv = document.getElementById('kbertResult');
 
-// --- 全域variables ---
+// 全域variables
 let manifest = null;
 let playlist = [];
 let intervalSec = 2.5;
@@ -296,7 +330,7 @@ let uploadedVideoInfo = null;
 let currentAnalysisReport = null; // 儲存雲端分析報告
 
 
-// --- 除錯輸出（prepend + scroll） ---
+// 除錯輸出（prepend + scroll）
 function addDebugLog(message, type = 'info') {
   if (!debugLog) return;
   const timestamp = new Date().toLocaleTimeString([], { hour12: false });
@@ -377,16 +411,6 @@ function switchMode(mode) {
 }
 modeRadios.forEach(radio => radio.addEventListener('change', e => switchMode(e.target.value)));
 
-// --- 播放控制 ---
-function togglePlayPause() {
-  if (!player.src) return;
-  if (player.paused || player.ended) {
-    pausedForDanger = false;
-    player.play().catch(e => addDebugLog(`播放失敗: ${e.message}`, 'error'));
-  } else {
-    player.pause();
-  }
-}
 function updatePlayPauseButton() {
   const playing = !player.paused && !player.ended && player.currentTime > 0;
   playPauseButton.classList.toggle('playing', playing);
@@ -476,6 +500,13 @@ async function loadManifest() {
     intervalSec = manifest?.config?.defaultIntervalSec ?? 2.5;
     initSceneDropdown();
     const initialMode = document.querySelector('input[name="sceneMode"]:checked').value;
+    sceneSel.removeEventListener('change', buildPlaylistFromManifest);
+    angleSel.removeEventListener('change', buildPlaylistFromManifest);
+    vsel.removeEventListener('change', handleVideoSelectChange);
+
+    sceneSel.addEventListener('change', buildPlaylistFromManifest);
+    angleSel.addEventListener('change', buildPlaylistFromManifest);
+    vsel.addEventListener('change', handleVideoSelectChange);
     switchMode(initialMode);
   } catch (e) {
     addDebugLog(`載入 manifest.json 失敗: ${e.message}`, 'error');
@@ -483,6 +514,12 @@ async function loadManifest() {
     switchMode(document.querySelector('input[name="sceneMode"]:checked').value || 'virtual');
   }
 }
+
+function handleVideoSelectChange(e) {
+  const idx = e.target.value;
+  loadVideoByIndex(idx);
+}
+
 function initSceneDropdown() {
   sceneSel.innerHTML = '';
   const scenes = manifest?.virtualScenes || manifest?.scenes || [];
@@ -554,63 +591,240 @@ function loadVideoByIndex(i) {
     return;
   }
   const v = playlist[index];
-  if (!v || !v.src) { addDebugLog(`索引 ${index} 缺少影片來源`, 'error'); meta.textContent = '影片來源錯誤'; return; }
-  player.src = v.src;
+  if (!v || !v.src) {
+    addDebugLog(`索引 ${index} 缺少影片來源`, 'error');
+    meta.textContent = '影片來源錯誤';
+    return;
+  }
+  addDebugLog(`準備載入影片索引 ${index}: ${v.title}`, 'info');
+  player.src = v.src;   // << 關鍵：換 src
+  player.load();        // << 關鍵：強制載入
   player.currentTime = 0;
-  player.load();
   meta.textContent = v.title || `影片 ${index + 1}`;
-  addDebugLog(`載入影片: ${v.title}`, 'info');
-  if (alertOverlay) { alertOverlay.style.display = 'none'; alertOverlay.textContent = ''; }
-  pausedForDanger = false;
   progressFilled.style.width = '0%';
   currentTimeDisplay.textContent = '0:00';
   durationDisplay.textContent = '0:00';
-  // 這裡不自動播放，由 ended 事件統一處理自動播放下一個
-  player.pause();
+  alertOverlay.style.display = 'none';
+  pausedForDanger = false;
+  player.pause();       // 載入後預設暫停
   updatePlayPauseButton();
 }
-player.addEventListener('ended', () => {
+
+
+player.addEventListener('ended', async () => {
+  // 停止 AI 迴圈，防止它在我們處理時繼續觸發
+  if (aiTimer) {
+    clearInterval(aiTimer);
+    aiTimer = null;
+    addDebugLog('Video ended. Stopped interval timer.', 'info');
+  }
+
+  // --- 1. 處理 "內建測試虛擬影片" 模式 ---
   if (currentMode === 'virtual' && autoPlayToggle.checked && !pausedForDanger) {
+    
+    addDebugLog('影片播畢，準備執行最後一幀 AI 分析...', 'info');
+
+    // --- A. 執行最後一幀分析 ---
+    if (aiToggle.checked) {
+      try {
+        // 等待任何可能正在執行的 AI 任務完成
+        while (aiBusy) {
+          addDebugLog('... 等待目前 AI 分析任務完成 ...', 'info');
+          await new Promise(r => setTimeout(r, 100));
+        }
+        
+        addDebugLog('... 執行最後一幀分析 ...', 'success');
+        await captureAndAnalyze(true); // 強制執行最後一次
+        addDebugLog('... 最後一幀分析完成 ...', 'success');
+      
+      } catch (e) {
+        addDebugLog(`最後一幀分析失敗: ${e.message}`, 'error');
+      }
+    } else {
+      addDebugLog('AI 未啟用，跳過最後一幀分析', 'info');
+    }
+
+    // --- B. 等待 5 秒後切換 ---
+    const DELAY_MS = 5000; // 這裡保留 5 秒延遲
+    addDebugLog(`等待 ${DELAY_MS / 1000} 秒後切換下個影片...`, 'info');
+    await new Promise(r => setTimeout(r, DELAY_MS));
+
+    // --- C. 再次檢查狀態 (防止使用者在等待時切換模式) ---
+    if (currentMode !== 'virtual' || !autoPlayToggle.checked || pausedForDanger) {
+      addDebugLog('延遲切換已取消 (狀態變更)', 'info');
+      return; 
+    }
+    if (player.currentTime < player.duration) {
+       addDebugLog('延遲切換已取消 (影片已非結束狀態)', 'info');
+       return;
+    }
+
+    // --- D. 切換到下一個影片 ---
     const i = vsel.selectedIndex;
     const next = i + 1;
     if (next < playlist.length) {
-      addDebugLog('影片播畢，自動播放下一個...', 'info');
+      addDebugLog(`... ${DELAY_MS / 1000} 秒結束，自動播放下一個...`, 'info');
       vsel.selectedIndex = next;
       loadVideoByIndex(next); // 載入但不立刻播放
+      
       setTimeout(() => {
         if (currentMode === 'virtual' && autoPlayToggle.checked && !pausedForDanger) {
           player.play().catch(e => addDebugLog(`自動播放下一個失敗: ${e.message}`, 'warning'));
+          // player.play() 會自動觸發 'play' 事件，並重新啟動 AI 迴圈
         }
-      }, 150);
+      }, 150); 
+    
     } else {
       addDebugLog('已播完播放列表中的所有影片', 'info');
     }
+    // --- 結束切換 ---
+
   } else if (currentMode === 'uploaded') {
+    // --- 2. 處理 "上傳影片" 模式 (也幫它加上最後一幀分析) ---
     addDebugLog('上傳的影片播畢', 'info');
+    if (aiToggle.checked) {
+       addDebugLog('... 上傳影片播畢，執行最後一幀分析 ...', 'info');
+       while (aiBusy) {
+          addDebugLog('... 等待目前 AI 分析任務完成 ...', 'info');
+          await new Promise(r => setTimeout(r, 100));
+        }
+       await captureAndAnalyze(true); // 強制執行最後一次
+       addDebugLog('... 最後一幀分析完成 ...', 'success');
+    }
   }
+  // 影片播畢時更新按鈕
+  updatePlayPauseButton();
 });
 
-// --- AI 即時分析 ---
+// AI 即時分析 
 function startAIAnalysis() {
   if (!aiToggle || !aiToggle.checked) return;
   if (!frameCtx) { addDebugLog('Canvas context 無法初始化', 'error'); return; }
   if (aiTimer) return;
-  addDebugLog('啟動 AI 分析 (每 1.5 秒)', 'info');
-  aiTimer = setInterval(captureAndAnalyze, 1500);
+  addDebugLog('啟動 AI 分析 (每 1.0 秒)', 'info');
+  aiTimer = setInterval(() => captureAndAnalyze(false), 1000);
 }
+
+// 模擬 K-BERT 分數
+let fakeKbertInterval = null;
+let spikeTime = null;              // 在第 10 秒附近飆高
+let spikeFeature = 'climbing';       // 飆高哪個：'fall' | 'climbing' | 'running' | 'disoriented'
+let highFeature = 'disoriented';     // 平時較高者
+
+function updateFakeKbertScores() {
+  if (!player || player.paused || player.ended) { 
+    stopFakeKbertScores(); 
+    return; 
+  }
+
+  const t = player.currentTime;
+  const features = ['fall','climbing','running','disoriented'];
+  const scores = { fall:0, climbing:0, running:0, disoriented:0 };
+
+  features.forEach(f => {
+    if (f === highFeature) {
+      // 平常較高：0.3 ~ 0.6
+      scores[f] = Math.random() * 0.3 + 0.3;
+    } else if (f !== spikeFeature || Math.abs(t - spikeTime) >= 0.6) {
+      // 其他特徵更低（將 0.4 改成 0.3；想更保守可改 0.2）
+      scores[f] = Math.random() * 0.3;
+    }
+  });
+
+  // spike 時間點：只有 spikeFeature 拉高到 0.9~1.0
+  if (Math.abs(t - spikeTime) < 0.6) {
+    if (spikeFeature in scores) {
+      scores[spikeFeature] = Math.random() * 0.1 + 0.8;
+      if (!pausedForDanger && !player.paused) {
+        player.pause();
+        pausedForDanger = true;
+        alertOverlay.style.display = 'block';
+        alertOverlay.textContent = `K-BERT：偵測到 ${spikeFeature} 高風險！`;
+        addDebugLog(`K-BERT：在 ${spikeTime}s 偵測到 ${spikeFeature} 高風險，影片已暫停`, 'warning');
+      }
+    }
+  }
+
+  (document.getElementById('scoreFall')||{}).textContent        = scores.fall.toFixed(2);
+  (document.getElementById('scoreClimbing')||{}).textContent    = scores.climbing.toFixed(2);
+  (document.getElementById('scoreRunning')||{}).textContent     = scores.running.toFixed(2);
+  (document.getElementById('scoreDisoriented')||{}).textContent = scores.disoriented.toFixed(2);
+}
+
+function startFakeKbertScores() {
+  if (fakeKbertInterval) return;
+  addDebugLog('啟動 K-BERT 分數更新 (每秒)', 'info');
+  fakeKbertInterval = setInterval(updateFakeKbertScores, 1000);
+}
+function stopFakeKbertScores() {
+  if (!fakeKbertInterval) return;
+  clearInterval(fakeKbertInterval);
+  fakeKbertInterval = null;
+  addDebugLog('停止 K-BERT 分數更新', 'info');
+}
+
+// 掛在播放器事件
+player.addEventListener('play',   () => { startFakeKbertScores(); });
+player.addEventListener('pause',  () => { stopFakeKbertScores(); });
+player.addEventListener('ended',  () => { stopFakeKbertScores(); });
+player.addEventListener('emptied',() => { stopFakeKbertScores(); });
+player.addEventListener('error',  () => { stopFakeKbertScores(); });
+
+// 按下播放時，解除危險鎖
+function togglePlayPause() {
+  if (!player.src) return;
+  if (player.paused || player.ended) {
+    pausedForDanger = false;
+    alertOverlay.style.display = 'none';
+    player.play().catch(e => addDebugLog(`播放失敗: ${e.message}`, 'error'));
+  } else {
+    player.pause();
+  }
+}
+playPauseButton.onclick = togglePlayPause;
+player.removeEventListener('click', togglePlayPause); 
+player.addEventListener('click', togglePlayPause);
+
 function stopAIAnalysis() {
   if (aiTimer) {
     clearInterval(aiTimer);
     aiTimer = null;
-    aiBusy = false;
+    aiBusy  = false;
     addDebugLog('停止 AI 即時分析', 'info');
+
+    const reportDisplay = document.getElementById('aiReportDisplay');
+    const downloadBtn   = document.getElementById('downloadAiReportBtn');
+
+    // 若雲端報告已載入，顯示雲端報告並可下載；否則顯示提示且禁用
+    const cloudReport = currentAnalysisReport?.analysis?.overall_risk_report;
+    if (cloudReport) {
+      if (reportDisplay) reportDisplay.innerHTML = cloudReport.replace(/\n/g, '<br>');
+      if (downloadBtn)   { downloadBtn.disabled = false; downloadBtn.dataset.reportContent = cloudReport; }
+    } else {
+      if (reportDisplay) reportDisplay.innerHTML = '(AI 即時分析已停用)';
+      if (downloadBtn)   downloadBtn.disabled = true;
+    }
   }
 }
-async function captureAndAnalyze() {
-  if (aiBusy || player.paused || player.ended || !frameCtx || !aiToggle.checked) return;
+async function captureAndAnalyze(force = false) {
+  // 1. 基礎檢查 (AI忙碌中, Canvas未準備好, AI開關未開)
+  if (aiBusy || !frameCtx || !aiToggle.checked) {
+    if (force && !aiBusy) addDebugLog('Final analysis skipped (toggle off)', 'warning');
+    return;
+  }
+  // 2. 播放狀態檢查 (只有在 "正常" 呼叫時才檢查)
+  if (!force && (player.paused || player.ended)) {
+    return;
+  }
+  // 3. 影片畫面檢查 (必須有畫面才能擷取)
   const vw = player.videoWidth || 0;
   const vh = player.videoHeight || 0;
-  if (vw === 0 || vh === 0) return;
+  if (vw === 0 || vh === 0) {
+    if (force) addDebugLog('Final analysis skipped (no video frame data)', 'warning');
+    return;
+  }
+
+  // --- 通過所有檢查，開始執行 ---
   aiBusy = true;
   try {
     const MAX_W = 256;
@@ -619,6 +833,7 @@ async function captureAndAnalyze() {
     frameCanvas.height = Math.round(vh * scale);
     frameCtx.drawImage(player, 0, 0, frameCanvas.width, frameCanvas.height);
     const dataUrl = frameCanvas.toDataURL('image/jpeg', 0.6);
+    
     // 準備要傳送的 context
     let analysisContext = null;
     if (currentAnalysisReport) {
@@ -641,18 +856,29 @@ async function captureAndAnalyze() {
     const out = await res.json();
     if (out.error) throw new Error(`API returned error: ${out.error}`);
     updateAIUI(out);
+
   } catch (e) {
     addDebugLog(`AI 分析失敗: ${e.message}`, 'error');
-    stopAIAnalysis();
+    stopAIAnalysis(); // 發生錯誤時停止
   } finally {
     aiBusy = false;
   }
 }
 function updateAIUI(out) {
+  // 固定抓元素
+  const reportDisplay = document.getElementById('aiReportDisplay');
+  const downloadBtn   = document.getElementById('downloadAiReportBtn');
+
   try {
-    const result = out?.result;              
-    const reportText = out?.report || "(無分析報告)"; 
-    if (!result) return;
+    const result     = out?.result;
+    const reportText = out?.report || "(無分析報告)";
+
+    if (!result) {
+      if (diag) diag.textContent = '[AI分析錯誤]';
+      if (reportDisplay) reportDisplay.innerHTML = '(AI分析錯誤)';
+      if (downloadBtn)   downloadBtn.disabled = true;   // 無效 -> 禁用
+      return;
+    }
 
     const stats = [];
     if (result.fall)        stats.push("跌倒");
@@ -660,16 +886,26 @@ function updateAIUI(out) {
     if (result.running)     stats.push("奔跑");
     if (result.disoriented) stats.push("迷失方向");
 
-    // 將 diag 顯示狀態與簡報告
-    const statusText = stats.length > 0
+    const statusText = stats.length
       ? `<span style="color:#ef4444;">${stats.join(' / ')}</span>`
       : '<span style="color:#4ade80;">正常</span>';
-    if (diag) diag.innerHTML = `[狀態: ${statusText}] [AI報告: ${reportText}]`;
 
+    // 狀態燈號仍顯示在 diag
+    if (diag) diag.innerHTML = `[狀態: ${statusText}]`;
+
+    // 更新 AI 報告區
+    if (reportDisplay && downloadBtn) {
+      reportDisplay.innerHTML     = reportText.replace(/\n/g, '<br>');
+      downloadBtn.disabled        = false;                 // 有回應 -> 解鎖下載
+      downloadBtn.dataset.reportContent = reportText;      // 存給下載用
+      downloadBtn.onclick         = downloadCurrentAIReport;
+    }
+
+    // 危險暫停/提示
     const danger = stats.length > 0;
     if (danger) {
       alertOverlay.style.display = 'block';
-      alertOverlay.textContent = '警告：偵測到 ' + stats.join(' / ');
+      alertOverlay.textContent   = '警告：偵測到 ' + stats.join(' / ');
       if (!pausedForDanger) {
         player.pause();
         pausedForDanger = true;
@@ -677,12 +913,73 @@ function updateAIUI(out) {
       }
     } else {
       alertOverlay.style.display = 'none';
-      alertOverlay.textContent = '';
+      alertOverlay.textContent   = '';
     }
   } catch (e) {
     addDebugLog(`更新 AI 狀態 UI 時出錯: ${e.message}`, 'error');
+    if (diag) diag.textContent = '[UI 更新錯誤]';
+    if (reportDisplay) reportDisplay.innerHTML = '(UI 更新錯誤)';
+    if (downloadBtn)   downloadBtn.disabled    = true;
   }
 }
+
+
+// 下載 AI 報告
+async function downloadCurrentAIReport() {
+  const btn = document.getElementById('downloadAiReportBtn');
+  const reportText = btn ? btn.dataset.reportContent : null;
+
+  if (!reportText || reportText === "(無分析報告)") {
+    addDebugLog('沒有可下載的 AI 報告內容', 'warning');
+    alert('沒有可下載的 AI 報告內容');
+    return;
+  }
+
+  addDebugLog('準備下載目前的 AI 分析報告...', 'info');
+  if (btn) btn.disabled = true;
+
+  try {
+    const res = await fetch('/api/download/ai_report', {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: reportText
+    });
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      throw new Error(`下載失敗: ${res.status} ${errorText}`);
+    }
+
+    const blob = await res.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+
+    // 從回應標頭帶出的檔名（若無則使用預設）
+    const disposition = res.headers.get('Content-Disposition');
+    let filename = 'ai_risk_report.txt';
+    if (disposition && disposition.indexOf('attachment') !== -1) {
+      const filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+      const matches = filenameRegex.exec(disposition);
+      if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+    }
+    a.download = filename;
+
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    a.remove();
+    addDebugLog('AI 報告下載成功', 'success');
+  } catch (error) {
+    addDebugLog(`下載 AI 報告時出錯: ${error.message}`, 'error');
+    alert(`下載 AI 報告失敗: ${error.message}`);
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
+
 
 aiToggle.addEventListener('change', () => {
   if (aiToggle.checked) {
@@ -696,11 +993,10 @@ aiToggle.addEventListener('change', () => {
   }
 });
 player.addEventListener('play', () => { if (aiToggle.checked) startAIAnalysis(); });
-player.addEventListener('pause', stopAIAnalysis);
 player.addEventListener('emptied', stopAIAnalysis);
 player.addEventListener('error', stopAIAnalysis);
 
-// --- 測試 AI API 按鈕 ---
+// 測試 AI API 按鈕
 document.getElementById('testAI').onclick = async () => {
   addDebugLog('開始測試 AI API 連線...', 'info');
   const btn = document.getElementById('testAI');
@@ -725,21 +1021,28 @@ document.getElementById('testAI').onclick = async () => {
   }
 };
 
-// --- K-BERT 進度面板 ---
+// K-BERT 進度面板
 function resetKbertPanel() {
+  
   kbertResultDiv.innerHTML = '等待影片上傳與分析...';
   downloadButtonsContainer.innerHTML = '';
-  const existingButton = document.getElementById('downloadButton');
-  if (existingButton) existingButton.remove();
-  currentAnalysisReport = null; 
 
+  // 同步重置 AI 報告區提示與下載鈕
+  const reportDisplay = document.getElementById('aiReportDisplay');
+  const downloadBtn   = document.getElementById('downloadAiReportBtn');
+  if (reportDisplay) reportDisplay.innerHTML = '(請啟用 AI 即時分析或等待雲端分析完成)';
+  if (downloadBtn)   { downloadBtn.disabled = true; downloadBtn.dataset.reportContent = ''; }
+
+  currentAnalysisReport = null;
 }
 function updateAnalysisStatusUI(stage, message = '') {
   if (!kbertPanel) return;
+
   let uploading = '<li>[等待] 1. 上傳影片至 GCS...</li>';
   let pending   = '<li>[等待] 2. 觸發雲端分析管線...</li>';
   let processing= '<li>[等待] 3. 執行知識圖譜分析 (可能需數分鐘)...</li>';
   let complete  = '<li>[等待] 4. 分析完成。</li>';
+
   if (stage === 'uploading') {
     uploading = '<li><span class="debug-info">[執行中] 1. 上傳影片至 GCS...</span></li>';
   } else if (stage === 'pending') {
@@ -748,13 +1051,14 @@ function updateAnalysisStatusUI(stage, message = '') {
   } else if (stage === 'processing') {
     uploading  = '<li><span class="debug-success">[完成] 1. 上傳影片至 GCS。</span></li>';
     pending    = '<li><span class="debug-success">[完成] 2. 雲端分析已觸發。</span></li>';
-    processing = '<li><span class="debug-info">[執行中] 3. 執行知識圖譜分析 (可能需數分鐘)...</li>';
+    processing = '<li><span class="debug-info">[執行中] 3. 執行知識圖譜分析 (可能需數分鐘)...</span></li>';
   } else if (stage === 'complete') {
     uploading  = '<li><span class="debug-success">[完成] 1. 上傳影片至 GCS。</span></li>';
     pending    = '<li><span class="debug-success">[完成] 2. 雲端分析已觸發。</span></li>';
     processing = '<li><span class="debug-success">[完成] 3. 知識圖譜分析完畢。</span></li>';
     complete   = '<li><span class="debug-success">[完成] 4. 分析報告已載入！</span></li>';
   } else if (stage === 'error') {
+    
     if (kbertPanel.innerHTML.includes('[執行中] 1.')) {
       uploading = `<li><span class="debug-error">[錯誤] 1. 上傳失敗: ${message}</span></li>`;
     } else if (kbertPanel.innerHTML.includes('[執行中] 2.')) {
@@ -766,14 +1070,38 @@ function updateAnalysisStatusUI(stage, message = '') {
       processing = `<li><span class="debug-error">[錯誤] 3. 分析失敗: ${message}</span></li>`;
     }
   }
-  const currentResultHTML = (stage !== 'complete' && stage !== 'error') ? kbertResultDiv.innerHTML : '等待分析結果...';
-  document.getElementById('kbert-panel').innerHTML = `
+
+  // 盡量保留既有結果與下載按鈕（除非是 complete/error 就重置）
+  const prevResultEl = document.getElementById('kbertResult');
+  const prevButtonsEl = document.getElementById('downloadButtonsContainer');
+  const currentResultHTML =
+    (stage !== 'complete' && stage !== 'error' && prevResultEl)
+      ? prevResultEl.innerHTML
+      : '等待分析結果...';
+  const currentButtonsHTML =
+    (stage === 'complete' && prevButtonsEl)
+      ? prevButtonsEl.innerHTML
+      : '';
+
+  // 重新渲染整個面板（把 fakeKbertScores 插回正確位置）
+  kbertPanel.innerHTML = `
     <div class="debug-title">後端分析進度</div>
     <ul class="status-list">${uploading}${pending}${processing}${complete}</ul>
+
     <div id="kbertResult" style="margin-top:10px;">${currentResultHTML}</div>
-    <div id="downloadButtonsContainer" style="margin-top:10px;"></div>
+
+    <div id="fakeKbertScores" style="margin-top:15px; padding-top:10px; border-top:1px dashed #333946; font-size:13px;">
+      <div class="debug-title" style="margin-bottom:5px;">風險分數 (K-BERT Placeholder)</div>
+      <div>跌倒 (Fall): <span id="scoreFall">未偵測</span></div>
+      <div>爬高 (Climbing): <span id="scoreClimbing">未偵測</span></div>
+      <div>奔跑 (Running): <span id="scoreRunning">未偵測</span></div>
+      <div>迷失 (Disoriented): <span id="scoreDisoriented">未偵測</span></div>
+    </div>
+
+    <div id="downloadButtonsContainer" style="margin-top:10px;">${currentButtonsHTML}</div>
   `;
 }
+
 function stopPolling() {
   if (pollingInterval) {
     clearInterval(pollingInterval);
@@ -841,96 +1169,84 @@ function startPollingForResult(fileName) {
 }
 
 function displayResults(fileName, data) {
-  currentAnalysisReport = data; // 儲存雲端分析報告，供 AI context 使用
-  updateAnalysisStatusUI('complete');
+  currentAnalysisReport = data;        
+  updateAnalysisStatusUI('complete');   
+
+  // K-BERT 區塊
   const kbert_analysis = data?.analysis?.kbert_analysis || { summary: "(無 K-BERT 分析結果)", contains_danger: false };
-  const panel = document.getElementById('kbertResult');
-  panel.innerHTML = `
-      <div class="debug-title" style="border-top:1px solid #2a2f3a; padding-top:10px;">分析結果</div>
+  const kbertResultDivEl = document.getElementById('kbertResult');
+  if (kbertResultDivEl) {
+    kbertResultDivEl.innerHTML = `
+      <div class="debug-title" style="border-top:1px solid #2a2f3a; padding-top:10px;">分析結果 (模擬)</div>
       <div><strong>分析摘要:</strong> ${kbert_analysis.summary || "(無摘要)"}</div>
-      <div><strong>偵測到危險:</strong> <span style="color: ${kbert_analysis.contains_danger ? '#ef4444' : '#4ade80'}; font-weight: bold;">${kbert_analysis.contains_danger ? '是' : '否'}</span></div>
-  `;
+      <div><strong>偵測到危險:</strong> <span style="color:${kbert_analysis.contains_danger ? '#ef4444' : '#4ade80'}; font-weight:bold;">${kbert_analysis.contains_danger ? '是' : '否'}</span></div>
+    `;
+  }
   if (kbert_analysis.contains_danger) {
     alertOverlay.style.display = 'block';
-    alertOverlay.textContent = '警告：分析偵測到潛在危險！';
-    addDebugLog('K-BERT 分析偵測到危險行為。', 'warning');
+    alertOverlay.textContent   = '警告：分析偵測到潛在危險！';
   } else {
     alertOverlay.style.display = 'none';
   }
-  // 下載按鈕容器
+
+  // 同步更新 AI 報告區
+  const reportDisplay = document.getElementById('aiReportDisplay');
+  const downloadBtn   = document.getElementById('downloadAiReportBtn');
+  const overallReportText = data?.analysis?.overall_risk_report || "(雲端分析未包含 AI 評估報告)";
+  if (reportDisplay && downloadBtn) {
+    reportDisplay.innerHTML = overallReportText.replace(/\n/g, '<br>');
+    downloadBtn.disabled    = !data?.analysis?.overall_risk_report;
+    downloadBtn.dataset.reportContent = overallReportText;
+    downloadBtn.onclick     = downloadCurrentAIReport;
+  }
+
+  // 下載按鈕列
   const container = document.getElementById('downloadButtonsContainer');
   container.innerHTML = '';
   const baseName = fileName.split('.')[0];
 
-  // 1) 報告 JSON（保留現有）
   const reportBtn = document.createElement('button');
   reportBtn.id = 'downloadReportButton';
   reportBtn.textContent = `下載分析報告 (${baseName}_report.json)`;
-  reportBtn.onclick = () => {
-    window.location.href = `/api/download/${fileName}`;
-    addDebugLog(`觸發下載報告 JSON: ${fileName}`, 'info');
-  };
+  reportBtn.onclick = () => { window.location.href = `/api/download/${fileName}`; addDebugLog(`觸發下載報告 JSON: ${fileName}`, 'info'); };
   container.appendChild(reportBtn);
 
-  // 2) TTL
   const ttlBtn = document.createElement('button');
   ttlBtn.id = 'downloadTtlButton';
   ttlBtn.textContent = `下載知識圖譜 (${baseName}.ttl)`;
   ttlBtn.style.marginLeft = '10px';
-  ttlBtn.onclick = () => {
-    window.location.href = `/api/download/ttl/${fileName}`;
-    addDebugLog(`觸發下載知識圖譜: ${fileName}`, 'info');
-  };
+  ttlBtn.onclick = () => { window.location.href = `/api/download/ttl/${fileName}`; addDebugLog(`觸發下載 TTL: ${fileName}`, 'info'); };
   container.appendChild(ttlBtn);
 
-  // 3) DINO TXT
   const dinoTxtBtn = document.createElement('button');
   dinoTxtBtn.id = 'downloadDinoTxtButton';
   dinoTxtBtn.textContent = `下載偵測摘要 (${baseName}_dino.txt)`;
   dinoTxtBtn.style.marginLeft = '10px';
-  dinoTxtBtn.onclick = () => {
-    window.location.href = `/api/download/dino_txt/${fileName}`;
-    addDebugLog(`觸發下載 DINO TXT: ${fileName}`, 'info');
-  };
+  dinoTxtBtn.onclick = () => { window.location.href = `/api/download/dino_txt/${fileName}`; addDebugLog(`觸發下載 DINO TXT: ${fileName}`, 'info'); };
   container.appendChild(dinoTxtBtn);
 
-  // 4) DINO ZIP
   const dinoZipBtn = document.createElement('button');
   dinoZipBtn.id = 'downloadDinoZipButton';
   dinoZipBtn.textContent = `下載偵測圖片 (${baseName}_dino_images.zip)`;
   dinoZipBtn.style.marginLeft = '10px';
-  dinoZipBtn.onclick = () => {
-    window.location.href = `/api/download/dino_zip/${fileName}`;
-    addDebugLog(`觸發下載 DINO ZIP: ${fileName}`, 'info');
-  };
+  dinoZipBtn.onclick = () => { window.location.href = `/api/download/dino_zip/${fileName}`; addDebugLog(`觸發下載 DINO ZIP: ${fileName}`, 'info'); };
   container.appendChild(dinoZipBtn);
 
   meta.textContent = `分析完成：${fileName}`;
   addDebugLog(`分析完成，已顯示結果。影片 ${fileName} 為本地預覽。`, 'success');
 }
 
+
 // --- 上傳與等待 ---
-videoUploader.addEventListener('change', () => {
-  const file = videoUploader.files[0];
-  if (file) {
-    if (uploadedVideoInfo && uploadedVideoInfo.url && uploadedVideoInfo.url.startsWith('blob:')) {
-      URL.revokeObjectURL(uploadedVideoInfo.url);
-    }
-    const objectURL = URL.createObjectURL(file);
-    uploadedVideoInfo = { name: file.name, url: objectURL, file };
-    addDebugLog(`已選擇檔案: ${file.name}`, 'info');
-    if (currentMode === 'uploaded') {
-      player.src = uploadedVideoInfo.url;
-      player.load();
-      meta.textContent = `預覽檔案：${uploadedVideoInfo.name}`;
-      updateProgress();
-    }
-    uploadStatus.textContent = `已選擇檔案：${file.name}，點擊「上傳並分析」開始。`;
-    resetKbertPanel();
-    updateAnalysisStatusUI('initial');
-    stopPolling();
-    currentAnalysisReport = null; // <<< 選擇新檔案時清除
-  } else {
+// --- 上傳與等待 ---
+
+/**
+ * 處理單一檔案選擇的核心函式 (無論是點擊或拖放)
+ * @param {File | null} file 
+ */
+function handleFileSelect(file) {
+  // 1. 如果檔案為空 (例如取消選擇)
+  if (!file) {
     if (uploadedVideoInfo && uploadedVideoInfo.url && uploadedVideoInfo.url.startsWith('blob:')) {
       URL.revokeObjectURL(uploadedVideoInfo.url);
     }
@@ -940,9 +1256,96 @@ videoUploader.addEventListener('change', () => {
       meta.textContent = '請選擇影片檔案';
     }
     uploadStatus.textContent = '請選擇影片檔案...';
+    return;
+  }
+
+  // 2. 驗證檔案 (根據 UI 上的提示)
+  const MAX_SIZE = 50 * 1024 * 1024; // 50MB
+  if (file.type !== 'video/mp4') {
+     addDebugLog(`檔案格式不符: ${file.name} (${file.type})`, 'warning');
+     uploadStatus.textContent = `錯誤：只支援 mp4 檔案。`;
+     uploadStatus.style.color = '#ef4444';
+     return;
+  }
+  if (file.size > MAX_SIZE) {
+     addDebugLog(`檔案過大: ${file.name} (${(file.size / 1024 / 1024).toFixed(1)}MB)`, 'warning');
+     uploadStatus.textContent = `錯誤：檔案大小超過 50MB 限制。`;
+     uploadStatus.style.color = '#ef4444';
+     return;
+  }
+
+  // 3. 處理有效檔案
+  if (uploadedVideoInfo && uploadedVideoInfo.url && uploadedVideoInfo.url.startsWith('blob:')) {
+    URL.revokeObjectURL(uploadedVideoInfo.url);
+  }
+  const objectURL = URL.createObjectURL(file);
+  uploadedVideoInfo = { name: file.name, url: objectURL, file };
+  
+  addDebugLog(`已選擇檔案: ${file.name}`, 'info');
+  
+  if (currentMode === 'uploaded') {
+    player.src = uploadedVideoInfo.url;
+    player.load();
+    meta.textContent = `預覽檔案：${uploadedVideoInfo.name}`;
+    updateProgress();
+  }
+  
+  uploadStatus.textContent = `已選擇檔案：${file.name}，點擊「上傳並分析」開始。`;
+  uploadStatus.style.color = '#eaeaea'; // 恢復正常顏色
+  resetKbertPanel();
+  updateAnalysisStatusUI('initial');
+  stopPolling();
+  currentAnalysisReport = null; // 選擇新檔案時清除
+}
+
+// (原有的) 檔案上傳 <input> 的事件
+videoUploader.addEventListener('change', () => {
+  const file = videoUploader.files[0];
+  handleFileSelect(file);
+  // 清空 input value，這樣才能重複上傳同一個檔案
+  videoUploader.value = ''; 
+});
+
+// (新增的) 拖放區事件
+multiUploadZone.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  // (可選的 UX 優化) 顯示高亮邊框
+  multiUploadZone.style.borderColor = '#4a9eff'; 
+  multiUploadZone.style.backgroundColor = '#1a1e24';
+});
+
+multiUploadZone.addEventListener('dragleave', (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  // (可選的 UX 優化) 恢復邊框
+  multiUploadZone.style.borderColor = '#333946';
+  multiUploadZone.style.backgroundColor = 'transparent';
+});
+
+multiUploadZone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  // (可選的 UX 優化) 恢復邊框
+  multiUploadZone.style.borderColor = '#333946';
+  multiUploadZone.style.backgroundColor = 'transparent';
+  
+  addDebugLog('偵測到檔案拖放', 'info');
+  const files = e.dataTransfer.files;
+  
+  if (files && files.length > 0) {
+    if (files.length > 1) {
+      addDebugLog(`你拖放了 ${files.length} 個檔案，目前只會處理第一個。`, 'warning');
+    }
+    // 只處理拖放的第一個檔案，來匹配 input 的行為
+    const file = files[0]; 
+    handleFileSelect(file);
+  } else {
+    addDebugLog('拖放事件未包含檔案', 'warning');
   }
 });
 
+// (原有的) 上傳按鈕事件 (這一段請保持原樣，不要動)
 uploadButton.onclick = async () => {
   if (!uploadedVideoInfo || !uploadedVideoInfo.file) {
     uploadStatus.textContent = '錯誤：請先選擇一個影片檔案！';

@@ -1,0 +1,10 @@
+{
+    "walk": 4,
+    "eat": 1,
+    "switchOn": 1,
+    "sit": 1,
+    "type": 1,
+    "stand": 1,
+    "switchOff": 1,
+    "grab": 1
+}

@@ -1,0 +1,12 @@
+{
+    "walk": 3,
+    "putIn": 1,
+    "close": 1,
+    "grab": 1,
+    "switchOn": 1,
+    "soak": 1,
+    "rinse": 1,
+    "switchOff": 1,
+    "open": 1,
+    "turnTo": 1
+}

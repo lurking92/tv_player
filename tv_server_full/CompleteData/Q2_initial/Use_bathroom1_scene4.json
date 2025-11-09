@@ -1,0 +1,13 @@
+{
+    "walk": 8,
+    "soak": 3,
+    "put": 3,
+    "grab": 3,
+    "rinse": 2,
+    "switchOff": 2,
+    "switchOn": 2,
+    "squeeze": 1,
+    "brush": 1,
+    "sit": 1,
+    "stand": 1
+}

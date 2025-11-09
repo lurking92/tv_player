@@ -1,0 +1,8 @@
+{
+    "walk": 5,
+    "grab": 2,
+    "switchOff": 1,
+    "put": 1,
+    "switchOn": 1,
+    "pour": 1
+}

@@ -1,0 +1,7 @@
+{
+    "walk": 6,
+    "sit": 2,
+    "fallsit": 1,
+    "stand": 1,
+    "switchOff": 1
+}

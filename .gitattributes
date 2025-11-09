@@ -1,0 +1,2 @@
+*.safetensors filter=lfs diff=lfs merge=lfs -text
+k-bert_training/kbert_train_data.jsonl filter=lfs diff=lfs merge=lfs -text

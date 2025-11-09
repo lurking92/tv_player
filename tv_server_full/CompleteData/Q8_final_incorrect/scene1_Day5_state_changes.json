@@ -1,0 +1,256 @@
+{
+    "name": "Test Test",
+    "senario": "scene1_Day5",
+    "answers": [
+        {
+            "name": "towel55_scene1",
+            "change": {
+                "first": {
+                    "pos": [
+                        -8.482,
+                        1.018073,
+                        -0.4000001
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                },
+                "later": {
+                    "pos": [
+                        -5.131705,
+                        0.7139375,
+                        -8.346909
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "milk341_scene1",
+            "change": {
+                "first": {
+                    "pos": [
+                        -0.3721665,
+                        1.072861,
+                        -5.464913
+                    ],
+                    "state": [
+                        "CLOSED"
+                    ]
+                },
+                "later": {
+                    "pos": [
+                        0.3040351,
+                        0.734202,
+                        -5.416871
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "waterglass272_scene1",
+            "change": {
+                "first": {
+                    "pos": [
+                        -1.05969,
+                        0.7366602,
+                        -6.731602
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                },
+                "later": {
+                    "pos": [
+                        0.3530783,
+                        0.7188571,
+                        -5.097597
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "alcohol465_scene1",
+            "change": {
+                "first": {
+                    "pos": [
+                        -3.437009,
+                        0.733306,
+                        -3.245264
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                },
+                "later": {
+                    "pos": [
+                        0.158002,
+                        0.7329368,
+                        -5.435712
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "wine466_scene1",
+            "change": {
+                "first": {
+                    "pos": [
+                        -3.378392,
+                        0.7402624,
+                        -3.42731
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                },
+                "later": {
+                    "pos": [
+                        0.1777347,
+                        0.7317526,
+                        -5.42883
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "carrot465_scene1",
+            "change": {
+                "first": {
+                    "pos": [
+                        -3.375153,
+                        0.737372,
+                        -3.338625
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                },
+                "later": {
+                    "pos": [
+                        0.154122,
+                        0.7373037,
+                        -5.233225
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "potato466_scene1",
+            "change": {
+                "first": {
+                    "pos": [
+                        -3.320915,
+                        0.7174494,
+                        -3.491839
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                },
+                "later": {
+                    "pos": [
+                        0.1465116,
+                        0.7391357,
+                        -5.431236
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "cat465_scene1",
+            "change": {
+                "first": {
+                    "pos": [
+                        -7.238778,
+                        0.4764718,
+                        -5.241318
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                },
+                "later": {
+                    "pos": [
+                        7.860725,
+                        -0.2166012,
+                        -8.473168
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "milk341_scene1",
+            "change": {
+                "first": {
+                    "pos": [
+                        -0.3721665,
+                        1.072861,
+                        -5.464913
+                    ],
+                    "state": [
+                        "CLOSED"
+                    ]
+                },
+                "later": {
+                    "pos": [
+                        0.2364078,
+                        0.7316526,
+                        -5.179056
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "towel55_scene1",
+            "change": {
+                "first": {
+                    "pos": [
+                        -8.369152,
+                        0.7322131,
+                        -1.206768
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                },
+                "later": {
+                    "pos": [
+                        0.1209724,
+                        0.7351807,
+                        -5.219479
+                    ],
+                    "state": [
+                        "GRABED"
+                    ]
+                }
+            }
+        }
+    ]
+}
