@@ -7,6 +7,7 @@ tv_server_full/node_modules/
 #debug pyhton
 tv_server_full/public/find_danger_list.py
 tv_server_full/list.txt
+tv_server_full/count_ttl_mp4_json.py
 
 # 影片、圖片
 *.mp4

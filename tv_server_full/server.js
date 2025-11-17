@@ -77,6 +77,98 @@ app.post("/api/upload", upload.single("video"), async (req, res) => {
   }
 });
 
+// API：Gemini 即時影像風險偵測（快速通道，僅回傳布林值）
+app.post("/api/check-risk", async (req, res) => {
+  try {
+    const { dataUrl } = req.body || {};
+    if (!dataUrl || typeof dataUrl !== "string") {
+      return res.status(400).json({ error: "missing dataUrl" });
+    }
+
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      return res
+        .status(500)
+        .json({ error: "server missing GEMINI_API_KEY in .env file" });
+    }
+
+    // 關鍵：使用 Flash 模型並強制 JSON 輸出，以求最快速度
+    const model = "gemini-2.5-flash";
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+    const base64Data = dataUrl.split(",")[1];
+    if (!base64Data) {
+      return res.status(400).json({ error: "Invalid dataUrl format" });
+    }
+
+    // 關鍵：Prompt 大幅簡化，只要求 JSON，不要求報告！
+    const prompt = `
+    你是一位 AI 安全助手。請只根據這張即時影像，判斷是否有以下四種立即性風險 (fall, climbing, running, disoriented)。
+    
+    請嚴格以 JSON 格式回應，只包含四個布林值：
+    {
+      "fall": boolean,
+      "climbing": boolean,
+      "running": boolean,
+      "disoriented": boolean
+    }`;
+
+    const payload = {
+      contents: [
+        {
+          parts: [
+            { text: prompt },
+            { inline_data: { mime_type: "image/jpeg", data: base64Data } },
+          ],
+        },
+      ],
+      // 關鍵：強制 API 回傳 JSON
+      generationConfig: { responseMimeType: "application/json" },
+    };
+
+    const resp = await fetch(apiUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (!resp.ok) {
+      const errorText = await resp.text();
+      console.error(`[AI-Fast] Google Gemini API 錯誤: ${resp.status}`);
+      return res
+        .status(resp.status)
+        .json({ error: `Google Gemini API error`, details: errorText });
+    }
+
+    const data = await resp.json();
+    const content = data?.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
+
+    // 解析 JSON
+    let parsed = {};
+    try {
+      parsed = JSON.parse(content || "{}");
+    } catch (e) {
+      console.error("[AI-Fast] JSON 解析失敗:", e.message);
+      parsed = {};
+    }
+
+    // 確保回傳的 JSON 格式正確
+    const finalAnalysis = {
+      fall: !!parsed?.fall,
+      climbing: !!parsed?.climbing,
+      running: !!parsed?.running,
+      disoriented: !!parsed?.disoriented,
+    };
+
+    return res.json({ result: finalAnalysis });
+  } catch (e) {
+    console.error("[AI-Fast] check-risk error:", e);
+    return res.status(500).json({
+      error: String(e?.message || e),
+      timestamp: new Date().toISOString(),
+    });
+  }
+});
 // API：Gemini 即時影像分析（單張影像 dataURL + 背景知識，"以當前畫面為主"）
 app.post("/api/analyze", async (req, res) => {
   try {

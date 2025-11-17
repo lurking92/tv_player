@@ -1,0 +1,17 @@
+# 忽略所有檔案
+*
+
+# [!!] 但「不要」忽略 Dockerfile 需要的檔案 [!!]
+!Dockerfile
+!run_kbert_pipeline.py
+!ttl_to_json_converter_6.py
+!json_risk_detector_7.py
+
+# (忽略不必要的檔案)
+*.zip
+*.jsonl
+/kbert_model_output/
+
+# [!!] 但「不要」忽略「新」模型資料夾和裡面的所有檔案 [!!]
+!/kbert_model_output_multilabel/
+!/kbert_model_output_multilabel/*

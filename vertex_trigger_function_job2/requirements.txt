@@ -1,3 +1,5 @@
+# requirements.txt (for Job 2 Cloud Function)
 functions-framework==3.*
 google-cloud-aiplatform>=1.25.0
+google-cloud-storage>=2.0.0
 google-cloud-secret-manager>=2.16.0

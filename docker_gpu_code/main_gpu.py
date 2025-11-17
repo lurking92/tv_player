@@ -542,7 +542,7 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
             log_message("步驟 6：K-BERT 分析（預留）...")
             kbert_result = analyze_with_kbert(visual_triples, [], []) # 傳入空列表
             report["analysis"]["kbert_analysis"] = kbert_result
-            report["status"] = "completed"
+            # report["status"] = "completed"
             log_message("步驟 6：完成。")
             
             # 建立 DINO 圖片 ZIP 檔 
