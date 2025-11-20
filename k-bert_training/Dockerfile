@@ -15,7 +15,6 @@ SHELL ["/bin/bash", "-lc"]
 RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj -C /usr/local/bin --strip-components=1 bin/micromamba
 RUN micromamba create -y -n app -c conda-forge python=3.10 && micromamba clean -a -y
 
-# --- [!! 關鍵修正 !!] ---
 # 鎖定 NumPy 版本 < 2.0，以解決與 PyTorch 2.1.0 的衝突
 RUN micromamba run -n app python -m pip install --no-cache-dir \
     torch==2.1.0 \

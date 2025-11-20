@@ -50,7 +50,7 @@ def main():
     args = parser.parse_args()
 
     try:
-        # (步驟 1: 剖析路徑 ... 保持不變 ...)
+        # (步驟 1: 剖析路徑)
         try:
             ttl_bucket_name = args.gcs_input_ttl.split('/')[2]
             ttl_blob_name = '/'.join(args.gcs_input_ttl.split('/')[3:])
@@ -63,12 +63,12 @@ def main():
         except Exception as e:
             raise Exception(f"解析 GCS 路徑失敗: {e}")
 
-        # (步驟 2: 下載檔案 ... 保持不變 ...)
+        # (步驟 2: 下載檔案)
         print(f"\n[步驟 2a] 下載 Job 1 產生的 .ttl 和 _report.json...")
         download_from_gcs(ttl_bucket_name, ttl_blob_name, local_ttl_path)
         download_from_gcs(json_bucket_name, json_blob_name, local_json_path)
 
-        # (步驟 3: 執行轉換 ... 保持不變 ...)
+        # (步驟 3: 執行轉換)
         print(f"\n[步驟 2b] 開始執行 ttl_to_json_converter_6...")
         output_json_file = convert_observation_ttl_to_action_json(
             ttl_path=local_ttl_path, 
@@ -79,7 +79,7 @@ def main():
         print(f"步驟 2b 完成。推論的動作 JSON 位於: {output_json_file}")
         local_inferred_actions_path = output_json_file
 
-        # (步驟 4: 執行預測 ... 保持不變 ...)
+        # (步驟 4: 執行預測)
         print(f"\n[步驟 2c] 開始執行 json_risk_detector_7...")
         initialize_kbert_model()
         kbert_results = analyze_json_for_risk(local_inferred_actions_path)
@@ -87,7 +87,7 @@ def main():
             raise Exception("json_risk_detector_7 未回傳有效的分析結果。")
         print(f"步驟 2c 完成。K-BERT 分析結果: {kbert_results.get('summary')}")
 
-        # (步驟 5: 合併報告 ... 保持不變 ...)
+        # (步驟 5: 合併報告)
         print(f"\n[步驟 2d] 合併 K-BERT 結果到 _report.json...")
         with open(local_json_path, 'r', encoding='utf-8') as f:
             report_data = json.load(f)
@@ -97,7 +97,7 @@ def main():
             json.dump(report_data, f, indent=4, ensure_ascii=False)
         print("步驟 2d 完成。JSON 報告已在本地合併。")
 
-        # (步驟 6: 上傳 ... 保持不變 ...)
+        # (步驟 6: 上傳)
         print(f"\n[步驟 3] 上傳最終的 _report.json...")
         upload_to_gcs(json_bucket_name, local_json_path, json_blob_name)
         

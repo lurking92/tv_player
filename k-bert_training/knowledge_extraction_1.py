@@ -88,7 +88,7 @@ try:
         # 使用 json.dump 儲存，設置 indent=4 方便閱讀
         json.dump(serializable_knowledge, f, ensure_ascii=False, indent=4)
         
-    print(f"\n✅ 成功將 {len(serializable_knowledge)} 條知識三元組儲存到：{OUTPUT_PATH}")
+    print(f"\n 成功將 {len(serializable_knowledge)} 條知識三元組儲存到：{OUTPUT_PATH}")
 
 except Exception as e:
     print(f"寫入檔案時發生錯誤，請檢查路徑權限或磁碟：{e}")

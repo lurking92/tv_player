@@ -1,10 +1,6 @@
 # =================================================================
-# main_gpu.py - 適用於 Vertex AI Job 的腳本 (v2.5-mod-notrans-fix2)
-# Cloud Secret Manager 讀取 Gemini API Key
-# BLIP + Grounding DINO -> 三元組 -> TTL
-# 徹底移除 faster-whisper (import 和使用)
-# 修正 DINO post_process 函數 (使用 .ipynb 邏輯)
-# 防禦性修正 KeyError: 'artifacts' 
+# main_gpu.py - 適用於 Vertex AI Job 的腳本 (v3-Final-Fix)
+# 整合 BLIP 語意來輔助判斷跌倒 (Lying/Fall)
 # =================================================================
 
 # 1) 基本匯入
@@ -125,7 +121,7 @@ DEFAULT_PROMPT = (
 )
 
 # =========================
-# 外部工具輔助 (不變)
+# 外部工具輔助
 # =========================
 def run_ffmpeg_cmd(cmd_list) -> Tuple[int, str, str]:
     try:
@@ -164,7 +160,7 @@ def edge_event_id(key: str) -> str:
 def format_timestamp_for_log(seconds: float) -> str:
     s = int(seconds); return f"[{s//60:02d}:{s%60:02d}]"
 
-# 視覺標註繪製（OpenCV）(不變)
+# 視覺標註繪製（OpenCV）
 def draw_dino_predictions(frame: np.ndarray, detections: List[Dict]) -> np.ndarray:
     img_bgr = frame.copy()
     def color_for(label: str):
@@ -185,13 +181,12 @@ def draw_dino_predictions(frame: np.ndarray, detections: List[Dict]) -> np.ndarr
             log_message(f"警告：繪製標註框失敗: {e}")
     return img_bgr
 
-# 模型初始化與推論
+# 模型初始化
 def initialize_models():
     global blip_processor, blip_model
     global g_dino_processor, g_dino_model, converter
     log_message(f"開始初始化模型... (使用裝置: {DEVICE})")
 
-    # log_message("警告：Whisper 模型已暫時移除 (避開 cuDNN 錯誤)。")
     global whisper_model
     whisper_model = None
 
@@ -211,9 +206,7 @@ def initialize_models():
         log_message("Grounding DINO 已載入。")
 
     if converter is None:
-        # log_message("載入 OpenCC (簡轉繁)...")
         converter = OpenCC("s2t")
-        # log_message("OpenCC 已載入。")
     log_message("所有 AI 模型已完成初始化 (Whisper 已移除)。")
 
 @torch.no_grad()
@@ -227,38 +220,33 @@ def generate_visual_description(image_pil: Image.Image) -> str:
     except Exception as e:
         log_message(f"錯誤：BLIP 生成描述失敗: {e}"); return ""
 
-# --- DINO 後處理輔助函數 (來自 .ipynb 檔案) ---
-def _dino_post_process(
-    outputs,
-    input_ids,
-    image_size_hw: Tuple[int, int],
-    box_threshold: float,
-    text_threshold: float,
-) -> List[Dict]:
+# --- DINO 後處理輔助函數 ---
+def _dino_post_process(outputs, input_ids, image_size_hw, box_threshold, text_threshold) -> List[Dict]:
     global g_dino_processor
     h, w = image_size_hw
     try:
         processed = g_dino_processor.post_process_grounded_object_detection(
-            outputs=outputs,
-            input_ids=input_ids,
-            box_threshold=box_threshold,
-            text_threshold=text_threshold,
-            target_sizes=[(h, w)],
+            outputs=outputs, input_ids=input_ids, box_threshold=box_threshold, text_threshold=text_threshold, target_sizes=[(h, w)]
         )[0]
     except TypeError:
-        log_message("  (DINO: 偵測到 TypeError，退回使用位置參數 post_process)")
         processed = g_dino_processor.post_process_grounded_object_detection(
             outputs, input_ids, box_threshold, text_threshold, [(h, w)]
         )[0]
-    text_labels = processed.get("text_labels", None)
-    raw_labels = processed.get("labels", [])
-    labels_out = [str(x) for x in text_labels] if text_labels is not None else [str(x) for x in raw_labels]
-    boxes = processed.get("boxes", [])
-    scores = processed.get("scores", [])
-    dets: List[Dict] = []
+        
+    text_labels = processed.get("text_labels")
+    raw_labels = processed.get("labels")
+    labels_out = [str(x) for x in text_labels] if text_labels else [str(x) for x in raw_labels] if raw_labels is not None else []
+    
+    boxes = processed.get("boxes", []).tolist()
+    scores = processed.get("scores", []).tolist()
+    
+    # 防禦性檢查：確保標籤和方框數量一致，避免當機
+    if len(labels_out) != len(boxes): 
+        labels_out = ["unknown"] * len(boxes)
+
+    dets = []
     for b, s, lab in zip(boxes, scores, labels_out):
-        x0, y0, x1, y2 = map(float, getattr(b, "tolist", lambda: b)())
-        dets.append({"label": lab, "score": float(s), "bbox": [x0, y0, x1, y2]})
+        dets.append({"label": lab, "score": float(s), "bbox": b})
     return dets
 
 @torch.no_grad()
@@ -284,10 +272,9 @@ def detect_objects_with_dino(image_pil: Image.Image, text_prompt: str) -> List[D
         traceback.print_exc()
         return []
 
-# 語意抽取（Gemini）(不變)
+# 語意抽取（Gemini）
 @retry(tries=3, delay=4)
 def ie_chunk(text: str) -> str:
-    # ... (程式碼不變) ...
     if not gemini_model:
         log_message("警告：Gemini 模型未設定，跳過語意抽取。"); return '{"entities":[],"relationships":[]}'
     SYSTEM = "You are an expert system designed to extract domain-agnostic knowledge graphs."
@@ -305,11 +292,10 @@ def ie_chunk(text: str) -> str:
     except Exception as e:
         log_message(f"錯誤：Gemini API 失敗: {e}"); return '{"entities":[],"relationships":[]}'
 
-
 # K-BERT（預留）
 def analyze_with_kbert(visual_triples: List[Dict], text_triples: List[Dict], transcript: List[Dict]) -> Dict:
-    log_message("資訊：K-BERT 分析（未實作），回傳略過。")
-    return { "status": "skipped", "summary": "K-BERT analysis not yet implemented.", "contains_danger": False, "details": {} }
+    log_message("資訊：K-BERT 分析（由 Job 2 接手處理）。")
+    return { "status": "pending", "summary": "Waiting for Job 2..." }
 
 # GCS 上傳輔助 
 def upload_file_to_results(
@@ -333,15 +319,13 @@ def upload_file_to_results(
         log_message(f"資訊：已上傳到 gs://{results_bucket_name}/{gcs_file_path}")
     except Exception as e:
         log_message(f"錯誤：上傳 {gcs_file_path} 失敗: {e}")
-        # 如果上傳失敗，重新拋出錯誤 
-        raise e # 確保上傳失敗時外層能捕捉到
+        raise e
 
 # 主處理流程
 def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
     log_message(f"背景任務開始: gs://{video_bucket_name}/{video_file_name}")
     video_base_name = os.path.splitext(video_file_name)[0]
 
-    # 修正 KeyError:將 report 移到 try...except 外部
     report = {
         "source_video": f"gs://{video_bucket_name}/{video_file_name}",
         "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -388,7 +372,10 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
             cap = cv2.VideoCapture(local_video_path)
             fps = cap.get(cv2.CAP_PROP_FPS) or 25.0
             step = max(int(fps * 1.0), 1)
-            frame_analysis_results: List[Tuple[float, List[Dict]]] = []
+            
+            # 這裡的 list 結構改為 (ts, detections, caption)
+            frame_analysis_results: List[Tuple[float, List[Dict], str]] = []
+            
             frame_index = 0
             first_frame_size = None
 
@@ -400,25 +387,24 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
                     if not ok: break
                     log_message(f"  影格 {frame_index} @ {timestamp:.2f}s")
                     
-                    # 修正 KeyError:將 try...except 範圍縮小
-                    detections = [] # 預設為空
+                    detections = []
+                    blip_caption = "" # 預設為空字串
+
                     try:
                         image_pil = Image.fromarray(cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB))
                         if first_frame_size is None: first_frame_size = image_pil.size
                         blip_caption = generate_visual_description(image_pil)
                         full_prompt = (blip_caption + " . " + DEFAULT_PROMPT).strip(". ")
                         
-                        detections = detect_objects_with_dino(image_pil, full_prompt) # 呼叫修正後的 DINO
+                        detections = detect_objects_with_dino(image_pil, full_prompt)
                     
                     except Exception as fe:
-                        # 如果 DINO 或 BLIP 失敗
                         log_message(f"錯誤：影格 {frame_index} AI分析失敗：{fe}")
                         report["errors"].append(f"Frame {frame_index} analysis error: {str(fe)}")
                     
-                    # 無論 AI 是否成功，都儲存frame分析結果 (可能是空 list)
-                    frame_analysis_results.append((timestamp, detections))
+                    # 無論 AI 是否成功，都儲存 (ts, dets, caption)
+                    frame_analysis_results.append((timestamp, detections, blip_caption))
                     
-                    # 嘗試記錄日誌和儲存圖片 (現在 report['artifacts'] 必定存在)
                     try:
                         log_time = format_timestamp_for_log(timestamp)
                         log_dets = ", ".join([f"{d['label']}({d['score']:.2f})" for d in detections])
@@ -431,12 +417,11 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
                         
                         report["analysis"]["visual_analysis"]["object_detections_log"].append({
                             "timestamp": round(timestamp, 2),
-                            "blip_caption": locals().get("blip_caption", ""), # 使用 locals().get 避免 blip_caption 未定義
+                            "blip_caption": blip_caption, 
                             "detections_count": len(detections),
                             "annotated_image_path": f"{report['artifacts']['dino_images_dir']}{frame_filename}",
                         })
                     except Exception as log_e:
-                         # 即使日誌記錄失敗，也不要讓迴圈崩潰
                         log_message(f"錯誤：影格 {frame_index} 日誌或存圖失敗：{log_e}")
                         report["errors"].append(f"Frame {frame_index} logging/saving error: {str(log_e)}")
                     
@@ -446,33 +431,58 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
             report["analysis"]["visual_analysis"]["status"] = "completed"
             log_message(f"步驟 1：完成（總frame {frame_index}，featuring {len(frame_analysis_results)} 次）。")
 
-            # 2) 視覺三元組 (現在應該會有結果了)
+            # 2) 視覺三元組 (強化版 - 整合 BLIP 語意與人物篩選)
             log_message("步驟 2：生成視覺三元組...")
             if first_frame_size: W, H = first_frame_size
             else: W, H = 1, 1
             max_dim = float(max(W, H))
             visual_triples: List[Dict] = []
-            for ts, dets in frame_analysis_results: # 這裡的 dets 可能是 DINO 成功或失敗回傳的空 list
-                persons = [d for d in dets if "person" in str(d.get("label", "")).lower() and d.get("score", 0) >= 0.35]
-                objs = [d for d in dets if "person" not in str(d.get("label", "")).lower() and d.get("score", 0) >= 0.40]
+            
+            # 定義哪些 DINO 標籤算是「人」 (解決 DINO 看到 man 卻不認得是 person 的問題)
+            PERSON_LABELS = {"person", "man", "woman", "elderly", "child", "baby", "boy", "girl"}
+
+            # 解包時多拿出 caption
+            for ts, dets, caption in frame_analysis_results: 
+                
+                # 1. 篩選人 (只要標籤包含 PERSON_LABELS 中的任一詞就算)
+                persons = [d for d in dets if any(p in str(d.get("label", "")).lower() for p in PERSON_LABELS) and d.get("score", 0) >= 0.35]
+                
+                # 2. 篩選物 (排除人)
+                objs = [d for d in dets if not any(p in str(d.get("label", "")).lower() for p in PERSON_LABELS) and d.get("score", 0) >= 0.35]
+
+                # 3. BLIP 跌倒關鍵字檢查 (如果 BLIP 描述裡有這些字，極大機率是跌倒)
+                caption_lower = caption.lower()
+                is_blip_falling = any(w in caption_lower for w in ["lying", "laying", "fall", "ground", "floor", "collapse", "down"])
+
                 for i, p in enumerate(persons, start=1):
+                    # DINO 姿態判斷 (基於方框形狀)
                     x1, y1, x2, y2 = p["bbox"]
                     w, h = x2 - x1, y2 - y1
-                    state = "lying_or_fall" if (h / (w + 1e-6) < 0.8 and w > h) else "upright"
+                    is_shape_lying = (h / (w + 1e-6) < 0.8 and w > h)
+                    
+                    # 結合 DINO 形狀 OR BLIP 語意來判定狀態
+                    state = "lying_or_fall" if (is_shape_lying or is_blip_falling) else "upright"
+                    
                     visual_triples.append({ "head": f"person#{i}", "relation": "has_state", "tail": state, "time": round(ts, 2) })
-                for i, p in enumerate(persons, start=1):
-                    pb = p["bbox"]; px = (pb[0] + pb[2]) / 2.0; py = (pb[1] + pb[3]) / 2.0
+                    
+                    # 如果 BLIP 說倒地，額外加入 'near floor' 關係，讓 K-BERT 更容易抓到
+                    if is_blip_falling:
+                         visual_triples.append({ "head": f"person#{i}", "relation": "near", "tail": "floor", "time": round(ts, 2) })
+
+                    # 物件關係 (near) - 保持不變
+                    pb = p["bbox"]
+                    px, py = (pb[0]+pb[2])/2, (pb[1]+pb[3])/2
                     for o in objs:
-                        ob = o["bbox"]; ox = (ob[0] + ob[2]) / 2.0; oy = (ob[1] + ob[3]) / 2.0
-                        dist = math.hypot(px - ox, py - oy) / max_dim
+                        ob = o["bbox"]
+                        ox, oy = (ob[0]+ob[2])/2, (ob[1]+ob[3])/2
+                        dist = math.hypot(px-ox, py-oy) / max_dim
                         if iou(pb, ob) > 0.01 or dist < 0.2:
                             visual_triples.append({ "head": f"person#{i}", "relation": "near", "tail": str(o["label"]), "time": round(ts, 2) })
+                            
             report["analysis"]["visual_analysis"]["visual_triples"] = visual_triples
             log_message(f"步驟 2：完成（共 {len(visual_triples)} 條）。")
 
-
             # 3) 音訊分析 (已移除)
-            # log_message("步驟 3：音訊分析（Whisper 已移除），略過。")
             report["analysis"]["audio_analysis"]["status"] = "skipped"
             report["analysis"]["audio_analysis"]["transcript"] = []
             report["analysis"]["audio_analysis"]["text_sections"] = []
@@ -488,15 +498,13 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
                 log_message("警告：Gemini 未初始化，略過語意分析。")
                 report["errors"].append("Gemini model not initialized.")
             else:
-                for i, sec in enumerate(sections, start=1):
-                    # Gemini 分析迴圈
-                    pass 
+                pass 
             report["analysis"]["semantic_analysis"]["entities"] = all_entities
             report["analysis"]["semantic_analysis"]["relationships"] = all_relationships
             report["analysis"]["semantic_analysis"]["status"] = "skipped"
             log_message(f"步驟 4：完成（實體 0、關係 0）。")
 
-            # 5) 產生 TTL (只含視覺)
+            # 5) 產生 TTL
             log_message("步驟 5：生成 TTL...")
             def norm_person(n: str):
                 m = re.search(r"person[#\s_]*([0-9]+)", n, re.I)
@@ -504,7 +512,7 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
                 return (slug(n), None, n)
             people, objects, postures = {}, {}, {}
             events = []
-            for r in visual_triples: # 只會有視覺
+            for r in visual_triples:
                 nid, tid, lbl = norm_person(r["head"])
                 people[nid] = {"label": lbl, **({"trackId": tid} if tid else {})}
                 tail = r["tail"]
@@ -540,12 +548,12 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
 
             # 6) K-BERT（預留）
             log_message("步驟 6：K-BERT 分析（預留）...")
-            kbert_result = analyze_with_kbert(visual_triples, [], []) # 傳入空列表
+            kbert_result = analyze_with_kbert(visual_triples, [], [])
             report["analysis"]["kbert_analysis"] = kbert_result
-            # report["status"] = "completed"
+            # report["status"] = "completed" # <--- [修正] 已移除此行，避免過早標記完成
             log_message("步驟 6：完成。")
             
-            # 建立 DINO 圖片 ZIP 檔 
+            # 建立 DINO 圖片 ZIP
             dino_zip_filename = f"{video_base_name}_dino_images.zip"
             dino_zip_path_local = Path(tmpdir) / dino_zip_filename
             print(f"[DEBUG] 開始壓縮 DINO 圖片到 {dino_zip_path_local}...")
@@ -561,24 +569,16 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
                         zipf.writestr("empty.txt", "No DINO images generated.")
             except Exception as e:
                 print(f"[錯誤] 壓縮 DINO 圖片時失敗: {e}")
-                dino_zip_path_local = None  # 讓後面上傳時略過
+                dino_zip_path_local = None 
 
 
             # 7) 上傳所有成果
             log_message("步驟 7：上傳成果到 -results Bucket...")
             
-            # report['artifacts'] 必定存在
             local_dino_txt_path = os.path.join(tmpdir, f"{video_base_name}_dino.txt")
             with open(local_dino_txt_path, "w", encoding="utf-8") as f: f.write("\n".join(dino_log_lines))
             upload_file_to_results(video_bucket_name, report["artifacts"]["dino_log_txt"], local_dino_txt_path, "text/plain")
 
-            # for img_name in os.listdir(local_dino_images_dir):
-            #     local_img_path = os.path.join(local_dino_images_dir, img_name)
-            #     gcs_img_path = f"{report['artifacts']['dino_images_dir']}{img_name}"
-            #     upload_file_to_results(video_bucket_name, gcs_img_path, local_img_path, "image/jpeg")
-            # log_message(f"  已上傳 {len(os.listdir(local_dino_images_dir))} 張 DINO 標註圖像。")
-            
-            # 上傳 zip
             if dino_zip_path_local and dino_zip_path_local.exists():
                 upload_file_to_results(
                     video_bucket_name,
@@ -589,11 +589,10 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
                 report["artifacts"]["dino_images_zip"] = f"{video_base_name}_dino_images.zip"
                 log_message("  已上傳 DINO 圖片 ZIP 檔。")
             else:
-                log_message("  無 DINO 圖片 ZIP 可上傳（可能沒有偵測到圖片或壓縮失敗）。")
+                log_message("  無 DINO 圖片 ZIP 可上傳。")
 
             upload_file_to_results(video_bucket_name, report["artifacts"]["knowledge_graph_ttl"], local_ttl_path, "text/turtle")
             
-            # Report JSON (最後上傳)
             upload_file_to_results(video_bucket_name, report["artifacts"]["report_json"], report_data=report, content_type="application/json")
             log_message("步驟 7：上傳完成。背景任務成功。")
             
@@ -604,7 +603,6 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
         trace = traceback.format_exc()
         log_message("錯誤堆疊：\n" + trace)
 
-        # 修正 KeyError:防禦性檢查 report
         if 'report' not in locals():
             report = {
                 "source_video": f"gs://{video_bucket_name}/{video_file_name}",
@@ -612,7 +610,6 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
                 "status": "error", "errors": ["嚴重初始化錯誤，report 物件未建立。"]
             }
         
-        # 確保 artifacts 和 errors key 存在
         if "artifacts" not in report:
             report["artifacts"] = {"report_json": f"{video_base_name}_report.json"}
         if "errors" not in report:
@@ -622,18 +619,15 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
         report["errors"].append(str(e))
         report["errors"].append(trace)
         try:
-            # 修正 KeyError: 使用 .get() 安全地取得檔名 
             report_json_name = report.get("artifacts", {}).get("report_json", f"{video_base_name}_report.json")
             upload_file_to_results(video_bucket_name, report_json_name, report_data=report, content_type="application/json")
             log_message("錯誤報告已上傳。")
         except Exception as ue:
             log_message(f"上傳錯誤報告失敗：{ue}")
 
-# 腳本執行入口 
-
 if __name__ == "__main__":
     log_message("===================================")
-    log_message(f"Vertex AI Custom Job Script (v2.5-mod-notrans-fix2) starting...")
+    log_message(f"Vertex AI Custom Job Script (v3-Final-Fix) starting...")
     log_message(f"Torch version: {torch.__version__}, CUDA available: {torch.cuda.is_available()}")
 
     parser = argparse.ArgumentParser(description="Process video into a knowledge graph.")

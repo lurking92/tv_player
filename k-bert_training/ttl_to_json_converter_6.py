@@ -1,4 +1,4 @@
-# 功能: 實作五分類邏輯，將 VisualObservation TTL 檔案，轉換為 K-BERT 模型所需的 JSON 動作序列。
+# ttl_to_json_converter_6.py (Full Code - Relaxed Rules)
 
 from rdflib import Graph, URIRef
 from rdflib.namespace import RDF, Namespace
@@ -10,9 +10,7 @@ from typing import List, Dict
 # RDF 命名空間定義
 EX = Namespace("http://example.org/")
 
-# ==============================================================================
-# K-BERT 動作列表 (必須與您的訓練集動作完全一致！)
-# ==============================================================================
+# K-BERT 動作列表 (省略中間冗長部分，保留結構)
 ALL_KBERT_ACTIONS = [
     'Admire_art1', 'Admire_art2', 'Brush_teeth1', 'Clean_desk3', 'Clean_desk4', 'Clean_fridge1', 
     'Clean_kitchen1', 'Clean_kitchentable1', 'Clean_livingroom1', 'Clean_sink3', 'Clean_sink4', 
@@ -64,18 +62,15 @@ ALL_KBERT_ACTIONS = [
     'vh2kg_schema'
 ]
 
-# 將動作分類到三個主要群組，以便隨機取樣
 FALL_ACTIONS = [a for a in ALL_KBERT_ACTIONS if a.startswith('Fall_')]
-WALK_MEMORY_LOSS_ACTIONS = [a for a in ALL_KBERT_ACTIONS if a.startswith('Walk_with_memory_loss')]
-RUN_DISORIENTATION_ACTIONS = [a for a in ALL_KBERT_ACTIONS if a.startswith('Run_with_disorientation')]
-# 其他所有動作，作為常規動作的抽樣池 (危險類別 5)
-NORMAL_ACTIONS = [a for a in ALL_KBERT_ACTIONS if not a.startswith(('Fall_', 'Walk_with_memory_loss', 'Run_with_disorientation'))]
+WALK_MEMORY_LOSS_ACTIONS = [a for a in ALL_KBERT_ACTIONS if 'memory_loss' in a]
+RUN_DISORIENTATION_ACTIONS = [a for a in ALL_KBERT_ACTIONS if 'disorientation' in a]
+CLIMB_ACTIONS = [a for a in ALL_KBERT_ACTIONS if 'climb' in a.lower() or 'stand_on' in a.lower()]
+NORMAL_ACTIONS = [a for a in ALL_KBERT_ACTIONS if not any(x in a for x in ['Fall_', 'memory_loss', 'disorientation', 'climb'])]
 
-
-# --- 核心轉換函式 ---
 def convert_observation_ttl_to_action_json(ttl_path: str, output_dir: str = ".") -> str:
     """
-    實作五分類邏輯：將 TTL 觀察推論為四種危險動作或一種常規動作。
+    實作放寬後的分類邏輯：將 TTL 觀察推論為四種危險動作或一種常規動作。
     """
     g = Graph()
     try:
@@ -85,7 +80,6 @@ def convert_observation_ttl_to_action_json(ttl_path: str, output_dir: str = ".")
         print(f"[ERROR] 解析 TTL 檔案 {ttl_path} 失敗: {e}")
         return ""
 
-    # 1. 儲存並排序所有觀察結果 (按時間戳排序)
     observations = []
     for event_uri, _, _ in g.triples((None, RDF.type, EX["VisualObservation"])):
         agent_uri = g.value(event_uri, EX.agent)
@@ -103,70 +97,78 @@ def convert_observation_ttl_to_action_json(ttl_path: str, output_dir: str = ".")
     observations.sort(key=lambda x: x['time'])
     print(f"[INFO] 總共 {len(observations)} 條低階觀察數據。")
 
-    # 2. 應用規則進行動作推論 (動作識別核心 - 五分類)
     action_sequence = []
     last_action_time = 0.0
     
-    # 設置時間閾值，用於區分 Run (快速) 和 Walk (慢速)
-    RUN_THRESHOLD = 0.5  # 小於 0.5 秒的間隔，假設為快速移動
-    WALK_THRESHOLD = 2.0  # 大於 2.0 秒的間隔，假設為停滯或慢速行走
+    RUN_THRESHOLD = 0.8 
+    WALK_THRESHOLD = 1.5
     
+    # 放寬的關鍵字庫
+    KW_FALL = ['lying', 'fall', 'ground', 'down', 'slip', 'trip', 'collapse', 'floor', 'bottom', 'drop']
+    KW_CLIMB = ['climb', 'ladder', 'stool', 'chair', 'table', 'counter', 'shelf', 'high', 'top', 'above', 'stand_on']
+    KW_RUN = ['run', 'fast', 'rush', 'sprint', 'hurry', 'quick', 'rapid']
+    KW_WANDER = ['wander', 'confuse', 'lost', 'aimless', 'pace', 'circle', 'dizzy', 'unknown']
+
     for obs in observations:
         time = obs['time']
         action_name = None
         time_diff = time - last_action_time
         
-        # --- 規則 1: 偵測 Fall 動作 (最高優先級) ---
-        if obs['object'] == 'lying_or_fall' and obs['relation'] == 'has_state':
-            # 隨機選擇一個 Fall_ 開頭的動作，以模擬訓練數據的多樣性
+        obj_str = str(obs['object']).lower()
+        rel_str = str(obs['relation']).lower()
+        
+        # 規則 1: Fall
+        if any(k in obj_str for k in KW_FALL) or any(k in rel_str for k in KW_FALL):
             if FALL_ACTIONS:
                 action_name = random.choice(FALL_ACTIONS)
-                
-        # --- 規則 2/3: 偵測 Walk/Run (基於 near 關係和時間間隔) ---
-        elif obs['relation'] == 'near':
-             
-             if time_diff < RUN_THRESHOLD and time_diff > 0.0:
-                 # 偵測 Run_with_disorientation (危險類別 4)
-                 if RUN_DISORIENTATION_ACTIONS:
-                     action_name = random.choice(RUN_DISORIENTATION_ACTIONS)
+                print(f"  [Trigger] 跌倒關鍵字觸發: {obj_str}")
 
-             elif time_diff > WALK_THRESHOLD:
-                 # 偵測 Walk_with_memory_loss (危險類別 2)
-                 if WALK_MEMORY_LOSS_ACTIONS:
-                     action_name = random.choice(WALK_MEMORY_LOSS_ACTIONS)
+        # 規則 2: Climbing
+        elif any(k in obj_str for k in KW_CLIMB):
+            if CLIMB_ACTIONS:
+                action_name = random.choice(CLIMB_ACTIONS)
+                print(f"  [Trigger] 爬高關鍵字觸發: {obj_str}")
+
+        # 規則 3: Run
+        elif (time_diff < RUN_THRESHOLD and time_diff > 0.0) or any(k in obj_str for k in KW_RUN):
+             if RUN_DISORIENTATION_ACTIONS:
+                 action_name = random.choice(RUN_DISORIENTATION_ACTIONS)
+                 print(f"  [Trigger] 奔跑特徵觸發")
+
+        # 規則 4: Wander
+        elif (time_diff > WALK_THRESHOLD) or any(k in obj_str for k in KW_WANDER):
+             if WALK_MEMORY_LOSS_ACTIONS:
+                 action_name = random.choice(WALK_MEMORY_LOSS_ACTIONS)
+                 print(f"  [Trigger] 迷失特徵觸發")
         
-        # --- 規則 4: 偵測常規動作 (低優先級) ---
-        # 排除跌倒狀態，且時間間隔適中，視為常規活動 (危險類別 5)
-        if action_name is None and obs['object'] != 'lying_or_fall' and time_diff > 1.0:
+        # 規則 5: Normal
+        if action_name is None:
             if NORMAL_ACTIONS:
                 action_name = random.choice(NORMAL_ACTIONS)
 
-
-        # 如果推論出動作，則加入序列
         if action_name:
-            # 確保不會重複加入上一個動作
             if not action_sequence or action_name != action_sequence[-1]:
                 action_sequence.append(action_name)
                 last_action_time = time
-                print(f"  [Action] 推論出: {action_name} @ {time:.2f}s")
+                # print(f"  [Action] 推論出: {action_name} @ {time:.2f}s")
 
-
-    # 3. 構造目標 JSON 格式 (與 K-BERT 輸入格式一致)
+    # 3. 輸出
     final_activities = action_sequence
-    # # 測試，加上一個已知的危險動作
+    
+    # --- [!! 強制測試開關 !!] ---
     # if FALL_ACTIONS:
-    #      print("[DEBUG] 強制附加 'Fall_while_walking_forward1' 用於測試。")
-    #      final_activities.append(random.choice(FALL_ACTIONS))
-    # # --- [!! 測試結束 !!] ---
+    #     print("[DEBUG] 強制附加 'Fall_while_walking_forward1' 用於測試。")
+    #     final_activities.append(random.choice(FALL_ACTIONS))
+    # --- [!! 測試代碼結束 !!] ---
+
     if not final_activities:
-         # 如果沒有推論出任何高階動作，給一個預設的低風險動作
          final_activities = ["Get_out_of_bed1"] 
     
     base_filename = os.path.splitext(os.path.basename(ttl_path))[0]
     
     json_data = {
         "statusCode": 200,
-        "method": "POST_Inferred", 
+        "method": "POST_Inferred_Relaxed", 
         "message": "Inferred Success",
         "data": {
             "id": f"{base_filename}_inferred", 
@@ -181,40 +183,9 @@ def convert_observation_ttl_to_action_json(ttl_path: str, output_dir: str = ".")
     with open(output_json_path, 'w', encoding='utf-8') as f:
         json.dump(json_data, f, indent=4, ensure_ascii=False)
         
-    print(f"\n[SUCCESS] 動作序列 JSON 儲存於: {output_json_path}")
+    print(f"\n[SUCCESS] 動作序列 JSON (放寬版) 儲存於: {output_json_path}")
     return output_json_path
 
-# --- 主執行部分 (測試和示範) ---
 if __name__ == "__main__":
-    # 這是測試用的虛擬 TTL 內容，用於模擬跌倒、快速移動和常規活動的混合序列
-    TEST_TTL_PATH = "test_video_data.ttl" 
-    
-    VIRTUAL_TTL_CONTENT = """
-@prefix ex: <http://example.org/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-ex:event_1 a ex:VisualObservation ; ex:agent ex:person1 ; ex:object ex:upright ; ex:relation ex:has_state ; ex:timeOffsetS 0.50 .
-ex:event_2 a ex:VisualObservation ; ex:agent ex:person1 ; ex:object ex:desk_counter ; ex:relation ex:near ; ex:timeOffsetS 0.60 . # (快速移動)
-ex:event_3 a ex:VisualObservation ; ex:agent ex:person1 ; ex:object ex:wall ; ex:relation ex:near ; ex:timeOffsetS 0.90 . # (快速移動)
-ex:event_4 a ex:VisualObservation ; ex:agent ex:person1 ; ex:object ex:kitchen_table ; ex:relation ex:near ; ex:timeOffsetS 4.00 . # (慢速移動)
-ex:event_5 a ex:VisualObservation ; ex:agent ex:person1 ; ex:object ex:lying_or_fall ; ex:relation ex:has_state ; ex:timeOffsetS 7.80 . # (跌倒)
-ex:event_6 a ex:VisualObservation ; ex:agent ex:person1 ; ex:object ex:wall ; ex:relation ex:near ; ex:timeOffsetS 12.00 . # (常規動作)
-ex:person1 a ex:Agent ; rdfs:label "person#1" .
-ex:desk_counter a ex:Object ; rdfs:label "desk counter" .
-ex:lying_or_fall a ex:Posture ; rdfs:label "lying_or_fall" .
-"""
-    
-    with open(TEST_TTL_PATH, "w", encoding="utf-8") as f:
-        f.write(VIRTUAL_TTL_CONTENT)
-            
-    # 執行轉換
-    output_json_file = convert_observation_ttl_to_action_json(TEST_TTL_PATH)
-    
-    if output_json_file:
-        print("\n--- 輸出 JSON 內容範例 ---")
-        with open(output_json_file, 'r', encoding='utf-8') as f:
-             print(f.read())
-        print("\n-------------------------")
-        
-        print(f"\n[NEXT STEP] 現在請使用 7_json_risk_detector.py 讀取此檔案：{output_json_file}")
-    
+    # 測試用
+    pass

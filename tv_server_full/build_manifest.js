@@ -1,8 +1,9 @@
-// build_manifest.js
+// build_manifest.js (結合版)
 // 讀 Episodes/*.json + 掃描 videos/*，輸出 public/manifest.json（敘述留空）
 // 每個活動只輸出 { name, base, ext, narration:null }（不再含 angles）；
 // 全域補上 angleSuffixMap，前端選角度時再用 base + 後綴 + ext 組 URL。
 // 掃描額外的影片檔案作為 true_scene
+// 讀取 risk_data.json 並注入風險分析數據
 
 import fs from "fs";
 import path from "path";
@@ -15,12 +16,32 @@ const __dirname = path.dirname(__filename);
 const EPISODES_DIR = path.join(__dirname, "Episodes");
 const VIDEOS_ROOT = path.join(__dirname, "videos");
 const OUTPUT_MANIFEST = path.join(__dirname, "public", "manifest.json");
+// --- 讀取外部 JSON ---
+const RISK_DATA_PATH = path.join(__dirname, "risk_data.json");
 
 const DEFAULT_INTERVAL_SEC = 2.5;
 
 const ANGLE_SUFFIX_MAP = { 1: "_0", 2: "_1", 3: "_2", 4: "_3", 5: "_4" };
 
 const VIDEO_EXTS = [".mp4", ".mov", ".mkv", ".webm"];
+
+// --- 讀取函式 ---
+let RISK_DATA = {};
+try {
+  if (fs.existsSync(RISK_DATA_PATH)) {
+    const raw = fs.readFileSync(RISK_DATA_PATH, "utf-8");
+    RISK_DATA = JSON.parse(raw);
+    console.log(
+      `[INFO] 成功載入 risk_data.json，包含 ${
+        Object.keys(RISK_DATA).length
+      } 筆資料。`
+    );
+  } else {
+    console.warn(`[WARN] 找不到 risk_data.json，將不包含預先計算的風險數據。`);
+  }
+} catch (e) {
+  console.error(`[ERROR] 讀取 risk_data.json 失敗: ${e.message}`);
+}
 
 // Helpers
 
@@ -58,7 +79,11 @@ function loadEpisodes(dir) {
         activities = raw.data.activities;
       }
 
-      scenes.push({ id, title, activities });
+      // --- 注入風險數據 ---
+      const risk = RISK_DATA[id] || null;
+
+      // 將 riskAnalysis 加入物件
+      scenes.push({ id, title, activities, riskAnalysis: risk });
     } catch (e) {
       console.warn("JSON parse failed:", full, e.message);
     }
@@ -170,10 +195,22 @@ function buildManifest() {
         narration: null,
       };
     });
-    console.log(`[SCAN] ${scene.id} activities=${acts.length}`);
-    return { id: scene.id, title: scene.title, activities: acts };
-  }); // 掃描額外的影片檔案
+    console.log(
+      `[SCAN] ${scene.id} activities=${
+        acts.length
+      } risk=${!!scene.riskAnalysis}`
+    );
 
+    // 回傳包含 riskAnalysis 的物件
+    return {
+      id: scene.id,
+      title: scene.title,
+      activities: acts,
+      riskAnalysis: scene.riskAnalysis,
+    };
+  });
+
+  // 掃描額外的影片檔案
   const standaloneVideos = scanStandaloneVideos(allVideoPaths, usedVideoPaths);
   console.log(`[SCAN] 額外影片數量: ${standaloneVideos.length}`);
 

@@ -9,10 +9,10 @@ from rdflib import Namespace
 # --- 模型設定 ---
 # 這些路徑將指向 Docker 容器內的模型檔案
 MODEL_DIR = "/app/kbert_model_output_multilabel"
-PRE_TRAINED_MODEL = 'bert-base-uncased' # 必須與訓練時一致
+PRE_TRAINED_MODEL = 'bert-base-uncased' 
 MAX_SEQ_LENGTH = 128
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-NUM_LABELS = 4 # 必須與 config.json 一致
+NUM_LABELS = 4 
 THRESHOLD = 0.5 # 判斷閾值
 
 # 風險標籤 (必須與 3_kbert_event_detector.py 順序一致)
@@ -122,7 +122,6 @@ def convert_triplets_to_text(visual_triples: List[Dict]) -> str:
         tail = triple.get("tail", "entity")
 
         # 轉換為 "The person has state lying or fall" 或 "The person near floor"
-        # 移除 #1, #2 等編號
         head_clean = head.split('#')[0]
 
         sentence = f"The {head_clean} {relation.lower().replace('_', ' ')} {tail.lower().replace('_', ' ')}"
@@ -157,33 +156,6 @@ def predict_risk_from_kg(visual_triples_list: List[Dict], extracted_knowledge_li
         return_attention_mask=True,
         return_token_type_ids=True
     )
-
-    # 4. K-BERT 核心：準備輸入。
-    # 注意：您隊友的模型 (kbert_custom_dataloader.py) 實際上並未將 triplets 注入到 input_ids 中，
-    # 而是將它們作為一個單獨的 'triplets' 鍵（在 2_dataset_generation.py 中）。
-    # 在 3_kbert_event_detector.py 中，這個 'triplets' 鍵並未被模型使用，
-    # 它只使用了 'input_ids', 'attention_mask', 'token_type_ids'。
-    # 
-    # 這意味著，您隊友的 K-BERT 模型 **實際上只是一個標準的 BERT 分類模型**，
-    # 它被訓練用來**分析動作序列的文字**，而不是知識圖譜本身。
-    #
-    # **但是！** # `2_dataset_generation.py` (Source 23) 確實將 `extracted_knowledge_triplets.json` (Source 34)
-    # 的內容 (all_knowledge) 加入到了 `kbert_train_data.jsonl` (Source 19) 的
-    # `triplets` 欄位中。
-    #
-    # `kbert_custom_dataloader.py` (Source 28) 也確實載入了 `triplets`，
-    # 只是在返回的字典中沒有明確傳遞給 BERT 模型。
-    # 
-    # *** 結論：`5_predict_risk.py` (Source 26) 的邏輯是正確的。K-BERT 模型只被訓練來分析「動作文本」。 ***
-
-    # *** 鑑於上述分析，我們必須改變策略 ***
-    # K-BERT 無法分析 TTL。我們必須使用「動作辨識」的結果。
-    # 由於我們沒有動作辨識模型，我們無法從影片中提取 K-BERT 需要的 ["Get_out_of_bed1", ...] 列表。
-
-    # 唯一的出路 (如果必須整合 K-BERT 到 main_gpu.py)：
-    # 我們必須「假裝」DINO/BLIP 的輸出是 K-BERT 能理解的。
-    # 我們將使用 DINO 產生的 `visual_triples` 來生成句子，
-    # 並「假設」K-BERT 模型能從這些句子中學到東西 (儘管它沒有受過這方面的訓練)。
 
     # 執行預測 (使用上面生成的 input_text)
     inputs = {

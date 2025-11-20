@@ -1,87 +1,179 @@
-# knowledge-graph-for-elderly
+# Knowledge Graph for Elderly Safety Monitoring System
 
-##### 使用 Git LFS (Large File Storage) 來管理大型模型檔案（例如 K-BERT 模型權重）。若要成功下載所有檔案並執行訓練和預測，請在 clone 儲存庫前確保您的環境已配置 Git LFS。
+**Important:** Use **Git LFS (Large File Storage)** to manage large model files (e.g., K-BERT model weights). To successfully download all files and perform training or prediction, ensure your environment is configured with Git LFS before cloning the repository.
 
----
-
-### k-bert_training 危險事件偵測
-
-#### 模型訓練操作步驟
-可同時檢測以下四種高風險事件：
-1.  Fall
-2.  Walk_with_memory_loss
-3.  Fall_with_climb
-4.  Run_with_disorientation
-   
----
-
-#### 階段一：數據集準備 
-
-此階段將原始動作序列轉換為 K-BERT 所需的 JSONL 訓練格式，並進行多標籤標註。
-
-| 檔案 | 輸出 | 備註 |
-| :--- | :--- | :--- |
-| `1.1_labeling_tool.py` | `action_sequences_with_labels.json` | 進行交互式標註，每個序列輸出 **4 個獨立的 $0/1$ 標籤列表**。 |
-| `2_dataset_generation.py` | `kbert_train_data.jsonl` | 整合標註結果與知識三元組。**最終 `label` 欄位為 4 維列表。** |
-
-**操作步驟:**
-
-1.  **標註**：運行 ` 1.1_labeling_tool.py`
-2.  **生成數據集**：運行 ` 2_dataset_generation.py`
+This is a neuro-symbolic AI system combining **Visual Perception** and **Knowledge Reasoning**. It analyzes home surveillance videos to detect potential dangerous behaviors in the elderly (such as falling, wandering, climbing, or running) in real-time.
 
 ---
 
-#### 階段二：模型訓練與配置
+## ☁️ System Architecture and GCP Configuration
 
-此階段使用 `kbert_train_data.jsonl` 訓練多標籤分類模型。
+This project is deployed on Google Cloud Platform (GCP) and relies on the following services:
 
-| 檔案 | 配置與輸出 | 輸出結果 (範例) |
-| :--- | :--- | :--- |
-| `kbert_custom_dataloader.py` | 標籤轉換為 `torch.float`。 | 無直接輸出，用於 `3_kbert_event_detector.py`。 |
-| `3_kbert_event_detector.py` | 設置 `NUM_LABELS = 4`；使用 `BCEWithLogitsLoss`。 模型輸出至 `kbert_model_output_multilabel`。 | **訓練完成，平均損失持續下降：**<br>Epoch 1 損失: 0.4402<br>...<br>Epoch 5 損失: 0.0764 |
+- **Google Cloud Storage (GCS):** Stores raw videos and analysis results.
+- **Vertex AI (Custom Jobs):** Executes GPU-accelerated AI model computations.
+- **Cloud Functions (Gen 2):** Acts as event triggers to orchestrate the automated pipeline.
+- **Artifact Registry:** Stores Docker images.
+- **Pub/Sub:** Handles asynchronous message delivery.
+- **Secret Manager:** Securely manages service accounts and API keys.
 
-**操作步驟:**
+### 1\. GCS Buckets
 
-1.  **執行訓練**：運行 ` 3_kbert_event_detector.py`
+You need to create two buckets:
+
+- **Raw Video Bucket:** `kg_tv-subtitle-videos-20251016` (Upload videos here)
+- **Analysis Results Bucket:** `kg_tv-subtitle-videos-20251016-results` (Stores .ttl, .json, .zip)
+
+### 2\. Pub/Sub Topics
+
+- `gcs-video-uploads`: Listens for raw video upload events.
+- `kbert-job-trigger-topic`: Listens for `.ttl` creation events in the results bucket.
+
+### 3\. Secret Manager
+
+Create the following secrets to protect sensitive information:
+
+- `vertex-sa-email`: Your Vertex AI Service Account Email (e.g., `...-compute@developer.gserviceaccount.com`).
+- `gemini-api-key`: Gemini API Key used for frontend real-time analysis.
+
+---
+
+## 🚀 Deployment Guide
+
+### A. Job 1: Visual Analysis Pipeline
+
+Responsible for executing DINO/BLIP and generating the knowledge graph.
+
+1.  **Build Image:**
+    ```bash
+    cd docker_gpu_code
+    gcloud builds submit --region=asia-east1 --tag asia-east1-docker.pkg.dev/[PROJECT_ID]/kg-pipeline-repo/kg-pipeline-gpu:latest .
+    ```
+2.  **Deploy Trigger (Cloud Function):**
+    ```bash
+    cd vertex_trigger_function
+    gcloud functions deploy trigger-vertex-job --gen2 \
+      --region=asia-east1 --runtime=python310 \
+      --source=./ --entry-point=trigger_vertex_job \
+      --trigger-topic=gcs-video-uploads --timeout=540s
+    ```
+
+### B. Job 2: K-BERT Risk Inference Pipeline
+
+Responsible for reading TTL files, converting them to action sequences, and predicting risks.
+
+1.  **Build Image:**
+    ```bash
+    cd k-bert_training
+    gcloud builds submit --region=asia-east1 --tag asia-east1-docker.pkg.dev/[PROJECT_ID]/kg-pipeline-repo/kg-pipeline-kbert:latest .
+    ```
+2.  **Deploy Trigger (Cloud Function):**
+    _Note: Must set `--memory=512MiB` to avoid OOM errors._
+    ```bash
+    cd vertex_trigger_function_job2
+    gcloud functions deploy trigger-kbert-job-2 --gen2 \
+      --region=asia-east1 --runtime=python310 \
+      --source=./ --entry-point=trigger_kbert_job \
+      --trigger-topic=kbert-job-trigger-topic \
+      --timeout=540s --memory=512MiB
+    ```
+
+### C. Frontend Server (Web UI)
+
+Provides the user interface for file uploads and result display.
+
+1.  **Install Dependencies:**
+    ```bash
+    cd tv_server_full
+    npm install
+    ```
+2.  **Start Service:**
+    _This command automatically executes `build_manifest.js` to update risk data for built-in videos._
+    ```bash
+    npm start
+    ```
+3.  **Access:** Open a browser and go to `http://localhost:3000`.
 
 ---
 
-#### 階段三：模型評估 (多標籤指標)
+## 🧠 K-BERT Dangerous Event Detection
 
-此階段評估模型在驗證集上的性能，使用適用於多標籤分類的指標。
+This section details the training and usage of the risk detection model. It is capable of simultaneously detecting the following four high-risk events:
 
-| 檔案 | 預測/指標計算 | 輸出結果  |
-| :--- | :--- | :--- |
-| `4_evaluate_model.py` | 預測使用 **Sigmoid & 0.5 閾值**；指標使用 **Micro/Macro F1-Score**。 | **各別標籤 F1-Score：**<br>Fall: 1.0000<br>Walk_with_memory_loss: 1.0000<br>Fall_with_climb: 0.0000 **(數據不足警告)**<br>Run_with_disorientation: 0.6667<br><br>**總體指標：**<br>Micro F1-Score: 0.9908<br>Macro F1-Score: 0.6667 |
+1.  **Fall**
+2.  **Walk_with_memory_loss**
+3.  **Fall_with_climb**
+4.  **Run_with_disorientation**
 
-**操作步驟:**
+### Stage 1: Dataset Preparation
 
-1.  **執行評估**：運行 `4_evaluate_model.py`
+This stage converts raw action sequences into the JSONL training format required by K-BERT and performs multi-label annotation.
+
+| File                      | Output                              | Notes                                                                                                     |
+| :------------------------ | :---------------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| `1.1_labeling_tool.py`    | `action_sequences_with_labels.json` | Performs interactive labeling; outputs **4 independent 0/1 label lists** per sequence.                    |
+| `2_dataset_generation.py` | `kbert_train_data.jsonl`            | Integrates labeling results with knowledge triplets. **The final `label` field is a 4-dimensional list.** |
+
+**Steps:**
+
+1.  **Labeling:** Run `python 1.1_labeling_tool.py`
+2.  **Generate Dataset:** Run `python 2_dataset_generation.py`
+
+---
+
+### Stage 2: Model Training and Configuration
+
+This stage uses `kbert_train_data.jsonl` to train the multi-label classification model.
+
+| File                         | Configuration & Output                                                                             | Output Example                                                                                        |
+| :--------------------------- | :------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
+| `kbert_custom_dataloader.py` | Converts labels to `torch.float`.                                                                  | No direct output; used by `3_kbert_event_detector.py`.                                                |
+| `3_kbert_event_detector.py`  | Sets `NUM_LABELS = 4`; uses `BCEWithLogitsLoss`. Model outputs to `kbert_model_output_multilabel`. | **Training complete, average loss decreases:**<br>Epoch 1 Loss: 0.4402<br>...<br>Epoch 5 Loss: 0.0764 |
+
+**Steps:**
+
+1.  **Execute Training:** Run `python 3_kbert_event_detector.py`
 
 ---
 
-### 階段四：實際預測 (批量偵測)
+### Stage 3: Model Evaluation (Multi-label Metrics)
 
-此階段使用訓練好的多標籤模型對新的 JSON 動作序列進行批量風險偵測。
+This stage evaluates the model's performance on the validation set using metrics suitable for multi-label classification.
 
-| 檔案 | 預測邏輯 | 輸出 |
-| :--- | :--- | :--- |
-| `5_predict_risk.py` | 載入模型，對輸入動作序列輸出 4 個機率和 $0/1$ 判斷。 | 輸出每個檔案的風險判斷及 4 維機率向量。 |
+| File                  | Prediction / Metric Calculation                                                             | Output Results                                                                                                                                                                                                                                                 |
+| :-------------------- | :------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `4_evaluate_model.py` | Uses **Sigmoid & 0.5 Threshold** for prediction; uses **Micro/Macro F1-Score** for metrics. | **Individual Label F1-Score:**<br>Fall: 1.0000<br>Walk_with_memory_loss: 1.0000<br>Fall_with_climb: 0.0000 **(Data Insufficiency Warning)**<br>Run_with_disorientation: 0.6667<br><br>**Overall Metrics:**<br>Micro F1-Score: 0.9908<br>Macro F1-Score: 0.6667 |
 
-**操作步驟:**
+**Steps:**
 
-1.  **執行預測**：運行 ` 5_predict_risk.py`
+1.  **Execute Evaluation:** Run `python 4_evaluate_model.py`
 
 ---
-### 階段五：即時偵測流程串接 (TTL 轉換與 K-BERT 預測)
-此階段將視覺管線輸出的低階 TTL 觀察，轉換為 K-BERT 模型輸入的動作序列 JSON，並進行實時風險偵測。
 
-| 檔案 | 預測邏輯 | 輸出 |
-| :--- | :--- | :--- |
-| `6_ttl_to_json_converter.py` | TTL 轉換器：讀取 TTL 檔案，執行五分類邏輯，將低階觀察轉換為高階動作序列 JSON。 | 輸出 JSON 動作序列 (如 *_inferred_actions.json)。 |
-| `7_json_risk_detector.py` | 實時預測器：載入訓練模型，讀取單一 JSON 動作序列，輸出 4 個機率和 $0/1$ 判斷。 | 輸出單一檔案的風險判斷及 4 維機率向量。 |
+### Stage 4: Actual Prediction (Batch Detection)
 
-**操作步驟:**
+This stage uses the trained multi-label model to perform batch risk detection on new JSON action sequences.
 
-1. 轉換 JSON：運行 6_ttl_to_json_converter.py
-2. 偵測風險：運行 7_json_risk_detector.py 
+| File                | Logic                                                                                     | Output                                                                      |
+| :------------------ | :---------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------- |
+| `5_predict_risk.py` | Loads the model and outputs 4 probabilities and 0/1 judgments for input action sequences. | Outputs risk judgments and 4-dimensional probability vectors for each file. |
+
+**Steps:**
+
+1.  **Execute Prediction:** Run `python 5_predict_risk.py`
+
+---
+
+### Stage 5: Real-time Detection Pipeline Integration (TTL Conversion & K-BERT Prediction)
+
+This stage converts the low-level TTL observations output by the visual pipeline into action sequence JSON for K-BERT input, and performs real-time risk detection.
+
+| File                         | Logic                                                                                                                                                  | Output                                                                         |
+| :--------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
+| `ttl_to_json_converter_6.py` | **TTL Converter:** Reads TTL files, executes logic rules (temporal/keyword), and converts low-level observations into high-level action sequence JSON. | Outputs JSON action sequences (e.g., `*_inferred_actions.json`).               |
+| `json_risk_detector_7.py`    | **Real-time Predictor:** Loads the trained model, reads a single JSON action sequence, and outputs 4 probabilities and 0/1 judgments.                  | Outputs risk judgment and 4-dimensional probability vectors for a single file. |
+
+**Steps:**
+
+1.  **Convert JSON:** Run `python ttl_to_json_converter_6.py`
+2.  **Detect Risk:** Run `python json_risk_detector_7.py`

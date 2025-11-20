@@ -40,9 +40,9 @@ RUN micromamba run -n app python -m pip install --upgrade pip && \
     torch==2.3.1+cu118 torchvision==0.18.1+cu118 torchaudio==2.3.1+cu118 && \
     micromamba run -n app python -m pip install --no-cache-dir -r /app/requirements.txt
 
-# 3. 複製你的 "GPU分析腳本"
+# 3. 複製"GPU分析腳本"
 #    (它會複製改名後的 main_gpu.py，並在容器中命名為 main.py)
 COPY main_gpu.py /app/main.py
 
-# 4. 以 micromamba 執行你的腳本
+# 4. 以 micromamba 執行腳本
 ENTRYPOINT ["micromamba","run","-n","app","python","/app/main.py"]
