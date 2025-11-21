@@ -12,23 +12,23 @@
       color:#eaeaea;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
       margin:16px;
-      font-size: 15px; /* 再調大一點 */
+      font-size: 13px; 
     }
     .row { display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap; }
     select, button, label, input[type="file"]::file-selector-button {
-      background:#21252e; /* 稍微亮一點的背景 */
+      background:#21252e; 
       color:#eaeaea;
       border:1px solid #333946; /* 加上邊框 */
       border-radius:8px;
       padding: 9px 14px; /* 稍微加大 padding */
-      font-size: 0.9em; /* 稍微縮小一點點，因為基礎字體變大了 */
+      font-size: 1.3em; 
     }
     input[type="file"] { color: #ccc; background: none; border: none; padding-left: 0;}
     button { cursor:pointer; transition: background-color 0.2s; }
     button:hover:not(:disabled) { background: #333946; }
     button:disabled { cursor: not-allowed; opacity: 0.6; }
 
-    /* --- 主要佈局 (新增包裹 upload 和 progress panel 的容器) --- */
+    /* --- 主要佈局--- */
     .top-panels-container {
         display: flex;
         gap: 16px; /* 面板間距 */
@@ -81,7 +81,7 @@
     }
     .progress-bar { flex:1; height:8px; background:#2a2f3a; border-radius:4px; cursor:pointer; position:relative; }
     .progress-filled { height:100%; background:#4a9eff; border-radius:4px; width:0%; transition:width 0.1s; }
-    .time-display { font-size:12px; color:#aaa; min-width:45px; text-align: center; }
+    .time-display { font-size:15px; color:#aaa; min-width:45px; text-align: center; }
 
     .buttons-container {
         display: flex;
@@ -89,14 +89,14 @@
         align-items: center;
         flex-wrap: wrap;
     }
-    #meta { opacity:.8; font-size: 0.9em; margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;}
-    #diag { margin-left:8px; opacity:.8; font-size: 0.9em; }
+    #meta { opacity:.8; font-size: 1.5em; margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;}
+    #diag { margin-left:8px; opacity:.8; font-size: 1.5em; }
 
     /* --- 除錯面板 (標題置頂) --- */
     .debug-panel {
         flex: 1;
         background:#1a1e24; border:1px solid #2a2f3a; border-radius:8px; padding:12px; margin: 0;
-        font-family:monospace; font-size: 13px;
+        font-family:monospace; font-size: 18px;
         display: flex;
         flex-direction: column;
         height: 540px;
@@ -117,7 +117,7 @@
     .debug-success { color:#4ade80; }
     .debug-error { color:#ef4444; }
     .debug-warning { color:#ff8a04; }
-    .debug-info { color:#8b5cf6; }
+    .debug-info { color: 0; }
 
     /* --- 控制項 --- */
     .mode-controls {
@@ -126,12 +126,12 @@
     .mode-toggle { display:flex; gap: 15px; align-items:center; margin-bottom:12px; }
     .mode-toggle label { display: flex; align-items: center; cursor: pointer;}
     .mode-toggle input[type="radio"] { margin-right: 5px; }
-    #uploadStatus { font-size: 0.85em; margin-top:8px; }
+    #uploadStatus { font-size: 2.0em; margin-top:8px; }
 
     /* --- K-BERT 面板 --- */
     #kbert-panel {
       background:#1a1e24; border:1px solid #2a2f3a; border-radius:8px; padding:12px;
-      font-family:monospace; font-size: 13.5px;
+      font-family:monospace; font-size: 17.5px;
     }
     .status-list { list-style-type:none; padding-left:0; margin:0; line-height:1.6; }
     #kbertResult strong { color: #4a9eff; }
@@ -145,7 +145,7 @@
         color: #fff;
         text-decoration: none;
         border-radius: 8px;
-        font-size: 13px;
+        font-size: 18px;
         border: none;
         cursor: pointer;
     }
@@ -160,7 +160,7 @@
         display: flex;
         gap: 16px;
         /* align-items: flex-start; */ /* 改為 stretch 或 baseline 試試看 */
-        align-items: stretch; /* << 讓左右面板等高 */
+        align-items: stretch; /* 讓左右面板等高 */
         margin-bottom: 16px;
     }
 
@@ -178,16 +178,16 @@
 
   <div class="top-panels-container">
       <div class="mode-controls">
-        <div class="debug-title">上傳影片進行雲端分析</div>
+        <div class="debug-title" style="font-size: 18px;">上傳影片進行雲端分析</div>
         <div class="row">
           <input type="file" id="videoUploader" accept="video/*" />
           <button id="uploadButton" style="background:#28a745;">上傳並分析</button>
         </div>
         <div id="uploadStatus">請選擇影片檔案...</div>
         <div id="multiUploadZone" style="border: 2px dashed #333946; border-radius: 8px; padding: 40px 20px; text-align: center; margin-top: 16px; color: #888;">
-          <div style="font-size: 2em; margin-bottom: 10px;">⬇️</div>
-          <div>若要新增檔案，請將檔案拖放到這裡。</div>
-          <div style="font-size: 0.8em; margin-top: 8px; color: #aaa;">(只支援mp4檔案)附件大小限制：500MB，附件數量限制：1</div>
+          <div style="font-size: 5.0em; margin-bottom: 10px;">⬇️</div>
+          <div style="font-size: 3.0em; ">若要新增檔案，請將檔案拖放到這裡。</div>
+          <div style="font-size: 2.0em; margin-top: 8px; color: #aaa;">(只支援mp4檔案)附件大小限制：500MB，附件數量限制：1</div>
       </div>
       </div>
 
@@ -199,7 +199,7 @@
             <li>[等待] 3. 執行知識圖譜分析 (可能需數分鐘)...</li>
             <li>[等待] 4. 分析完成。</li>
           </ul>
-          <div id="kbertResult" style="margin-top:10px;">等待影片上傳與分析...</div><div id="fakeKbertScores" style="margin-top:15px; padding-top:10px; border-top:1px dashed #333946; font-size:13px;">
+          <div id="kbertResult" style="margin-top:10px;">等待影片上傳與分析...</div><div id="KbertScores" style="margin-top:15px; padding-top:10px; border-top:1px dashed #333946; font-size:13px;">
             <div class="debug-title" style="margin-bottom:5px;">風險分數 (K-BERT Placeholder)</div>
             <div>跌倒 (Fall): <span id="scoreFall">未偵測</span></div>
             <div>爬高 (Climbing): <span id="scoreClimbing">未偵測</span></div>
@@ -242,8 +242,8 @@
       </div>
   </div>
   <div id="aiReportPanel" style="background:#1a1e24; border:1px solid #2a2f3a; border-radius:8px; padding:12px; margin-bottom:16px;">
-    <div class="debug-title" style="margin-bottom:5px;">AI 風險評估</div>
-    <div id="aiReportDisplay" style="font-size:13.5px; line-height:1.6;">(請啟用 AI 即時分析或等待雲端分析完成)</div>
+    <div class="debug-title" style="font-size : 18px; margin-bottom:5px;">AI 風險評估</div>
+    <div id="aiReportDisplay" style="font-size:18.5px; line-height:1.6;">(請啟用 AI 即時分析或等待雲端分析完成)</div>
     <button id="downloadAiReportBtn" style="margin-top:10px; background:#4a9eff;" disabled>下載AI報告</button>
   </div>
   <div class="main-content">
@@ -1193,7 +1193,7 @@ function updateAnalysisStatusUI(stage, message = '') {
       ? prevButtonsEl.innerHTML
       : '';
   
-  const kbertScoresEl = document.getElementById('fakeKbertScores');
+  const kbertScoresEl = document.getElementById('KbertScores');
   const currentScoresHTML = kbertScoresEl ? kbertScoresEl.innerHTML : `
       <div class="debug-title" style="margin-bottom:5px;">風險分數 (K-BERT Placeholder)</div>
       <div>跌倒 (Fall): <span id="scoreFall">未偵測</span></div>
@@ -1208,7 +1208,7 @@ function updateAnalysisStatusUI(stage, message = '') {
 
     <div id="kbertResult" style="margin-top:10px;">${currentResultHTML}</div>
 
-    <div id="fakeKbertScores" style="margin-top:15px; padding-top:10px; border-top:1px dashed #333946; font-size:13px;">
+    <div id="KbertScores" style="margin-top:15px; padding-top:10px; border-top:1px dashed #333946; font-size:18px;">
       ${currentScoresHTML}
     </div>
 
