@@ -215,7 +215,7 @@ def generate_visual_description(image_pil: Image.Image) -> str:
         log_message("警告：BLIP 模型未載入。"); return ""
     try:
         inputs = blip_processor(images=image_pil, return_tensors="pt").to(DEVICE)
-        output = blip_model.generate(**inputs, max_length=50, num_beams=5)
+        output = blip_model.generate(**inputs, max_length=50, num_beams=4)
         return blip_processor.decode(output[0], skip_special_tokens=True).strip()
     except Exception as e:
         log_message(f"錯誤：BLIP 生成描述失敗: {e}"); return ""
@@ -431,45 +431,67 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
             report["analysis"]["visual_analysis"]["status"] = "completed"
             log_message(f"步驟 1：完成（總frame {frame_index}，featuring {len(frame_analysis_results)} 次）。")
 
-            # 2) 視覺三元組 (強化版 - 整合 BLIP 語意與人物篩選)
+            # 2) 視覺三元組 (多重狀態版 - 支援同時偵測多種風險)
             log_message("步驟 2：生成視覺三元組...")
             if first_frame_size: W, H = first_frame_size
             else: W, H = 1, 1
             max_dim = float(max(W, H))
             visual_triples: List[Dict] = []
             
-            # 定義哪些 DINO 標籤算是「人」 (解決 DINO 看到 man 卻不認得是 person 的問題)
+            # 定義 DINO 人物標籤
             PERSON_LABELS = {"person", "man", "woman", "elderly", "child", "baby", "boy", "girl"}
 
-            # 解包時多拿出 caption
             for ts, dets, caption in frame_analysis_results: 
                 
-                # 1. 篩選人 (只要標籤包含 PERSON_LABELS 中的任一詞就算)
+                # 1. 篩選人
                 persons = [d for d in dets if any(p in str(d.get("label", "")).lower() for p in PERSON_LABELS) and d.get("score", 0) >= 0.35]
-                
-                # 2. 篩選物 (排除人)
+                # 2. 篩選物
                 objs = [d for d in dets if not any(p in str(d.get("label", "")).lower() for p in PERSON_LABELS) and d.get("score", 0) >= 0.35]
 
-                # 3. BLIP 跌倒關鍵字檢查 (如果 BLIP 描述裡有這些字，極大機率是跌倒)
+                # --- 3. BLIP 全方位關鍵字檢查 ---
                 caption_lower = caption.lower()
-                is_blip_falling = any(w in caption_lower for w in ["lying", "laying", "fall", "ground", "floor", "collapse", "down"])
+                
+                # (A) 跌倒關鍵字
+                is_blip_falling = any(w in caption_lower for w in ["lying", "laying", "fall", "ground", "floor", "collapse", "down", "trip", "slip"])
+                # (B) 跑步關鍵字
+                is_blip_running = any(w in caption_lower for w in ["run", "running", "jog", "sprint", "fast", "rush"])
+                # (C) 爬高關鍵字
+                is_blip_climbing = any(w in caption_lower for w in ["climb", "ladder", "stool", "on top of", "stand on", "standing on"])
+                # (D) 迷失/徘徊關鍵字
+                is_blip_wandering = any(w in caption_lower for w in ["wander", "pace", "pacing", "lost", "confused", "dizzy", "aimless"])
 
                 for i, p in enumerate(persons, start=1):
-                    # DINO 姿態判斷 (基於方框形狀)
+                    # DINO 姿態判斷
                     x1, y1, x2, y2 = p["bbox"]
                     w, h = x2 - x1, y2 - y1
                     is_shape_lying = (h / (w + 1e-6) < 0.8 and w > h)
                     
-                    # 結合 DINO 形狀 OR BLIP 語意來判定狀態
-                    state = "lying_or_fall" if (is_shape_lying or is_blip_falling) else "upright"
-                    
-                    visual_triples.append({ "head": f"person#{i}", "relation": "has_state", "tail": state, "time": round(ts, 2) })
-                    
-                    # 如果 BLIP 說倒地，額外加入 'near floor' 關係，讓 K-BERT 更容易抓到
-                    if is_blip_falling:
-                         visual_triples.append({ "head": f"person#{i}", "relation": "near", "tail": "floor", "time": round(ts, 2) })
+                    # 可同時觸發多種狀態
+                    # 1. 檢測跌倒
+                    if is_shape_lying or is_blip_falling:
+                        visual_triples.append({ "head": f"person#{i}", "relation": "has_state", "tail": "lying_or_fall", "time": round(ts, 2) })
+                        # 加強語意
+                        if is_blip_falling:
+                             visual_triples.append({ "head": f"person#{i}", "relation": "near", "tail": "floor", "time": round(ts, 2) })
 
-                    # 物件關係 (near) - 保持不變
+                    # 2. 檢測爬高
+                    if is_blip_climbing:
+                        visual_triples.append({ "head": f"person#{i}", "relation": "has_state", "tail": "climbing", "time": round(ts, 2) })
+                        visual_triples.append({ "head": f"person#{i}", "relation": "has_action", "tail": "climb", "time": round(ts, 2) })
+                        if objs:
+                             visual_triples.append({ "head": f"person#{i}", "relation": "on", "tail": "furniture", "time": round(ts, 2) })
+
+                    # 3. 檢測跑步
+                    if is_blip_running:
+                        visual_triples.append({ "head": f"person#{i}", "relation": "has_state", "tail": "running", "time": round(ts, 2) })
+                        visual_triples.append({ "head": f"person#{i}", "relation": "has_action", "tail": "run", "time": round(ts, 2) })
+
+                    # 4. 檢測迷失
+                    if is_blip_wandering:
+                        visual_triples.append({ "head": f"person#{i}", "relation": "has_state", "tail": "wandering", "time": round(ts, 2) })
+                        visual_triples.append({ "head": f"person#{i}", "relation": "has_action", "tail": "wander", "time": round(ts, 2) })
+
+                    # 物件關係 (near)
                     pb = p["bbox"]
                     px, py = (pb[0]+pb[2])/2, (pb[1]+pb[3])/2
                     for o in objs:
@@ -546,11 +568,11 @@ def process_video_for_kg(video_bucket_name: str, video_file_name: str) -> None:
             with open(local_ttl_path, "w", encoding="utf-8") as f: f.write(ttl_content)
             log_message("步驟 5：TTL 生成完成。")
 
-            # 6) K-BERT（預留）
-            log_message("步驟 6：K-BERT 分析（預留）...")
+            # 6) K-BERT
+            log_message("步驟 6：K-BERT 分析(使用Job2，跳過)...")
             kbert_result = analyze_with_kbert(visual_triples, [], [])
             report["analysis"]["kbert_analysis"] = kbert_result
-            # report["status"] = "completed" # <--- [修正] 已移除此行，避免過早標記完成
+            # report["status"] = "completed" # 移到最後一步設定
             log_message("步驟 6：完成。")
             
             # 建立 DINO 圖片 ZIP

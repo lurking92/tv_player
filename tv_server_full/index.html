@@ -187,7 +187,7 @@
         <div id="multiUploadZone" style="border: 2px dashed #333946; border-radius: 8px; padding: 40px 20px; text-align: center; margin-top: 16px; color: #888;">
           <div style="font-size: 2em; margin-bottom: 10px;">⬇️</div>
           <div>若要新增檔案，請將檔案拖放到這裡。</div>
-          <div style="font-size: 0.8em; margin-top: 8px; color: #aaa;">(只支援mp4檔案)附件大小限制：50MB，附件數量限制：1</div>
+          <div style="font-size: 0.8em; margin-top: 8px; color: #aaa;">(只支援mp4檔案)附件大小限制：500MB，附件數量限制：1</div>
       </div>
       </div>
 
@@ -330,6 +330,7 @@ let reportBusy = false; // 慢速報告的flag
 let pollingInterval = null;
 let uploadedVideoInfo = null;
 let currentAnalysisReport = null; // 儲存雲端分析報告
+let accumulatedAiReport = ""; //用於累積 AI 報告的變數
 
 // 除錯輸出
 function addDebugLog(message, type = 'info') {
@@ -408,6 +409,7 @@ function switchMode(mode) {
   }
   updateProgress();
   updatePlayPauseButton();
+  resetAiReport();
 }
 modeRadios.forEach(radio => radio.addEventListener('change', e => switchMode(e.target.value)));
 
@@ -434,7 +436,10 @@ document.getElementById('btnNext').onclick  = () => {
   if (i + 1 < playlist.length) { vsel.selectedIndex = i + 1; loadVideoByIndex(i + 1); }
   else { addDebugLog('已經是最後一個影片', 'warning'); }
 };
-document.getElementById('btnReset').onclick = () => { player.currentTime = 0; };
+document.getElementById('btnReset').onclick = () => { 
+  player.currentTime = 0; 
+  resetAiReport();
+};
 
 // --- 影片錯誤 ---
 player.addEventListener('error', () => {
@@ -658,7 +663,7 @@ function buildPlaylistFromManifest() {
   list.innerHTML = '';
 }
 
-// [修復] 補回 loadVideoByIndex 函式
+// loadVideoByIndex 函式
 function loadVideoByIndex(i) {
   if (currentMode !== 'virtual') return;
   const index = parseInt(i, 10);
@@ -686,6 +691,7 @@ function loadVideoByIndex(i) {
   pausedForDanger = false;
   player.pause();       
   updatePlayPauseButton();
+  resetAiReport();
 }
 
 
@@ -776,9 +782,33 @@ function startAIAnalysis() {
   }
 }
 
+function resetAiReport() {
+    accumulatedAiReport = ""; // 清空記憶體中的報告
+    const reportDisplay = document.getElementById('aiReportDisplay');
+    const downloadBtn = document.getElementById('downloadAiReportBtn');
+    
+    if (reportDisplay) {
+        reportDisplay.innerHTML = '(請啟用 AI 即時分析或等待雲端分析完成)';
+        // 恢復原本的樣式 (避免文字太長時的滾動條殘留)
+        reportDisplay.scrollTop = 0;
+    }
+    if (downloadBtn) { 
+        downloadBtn.disabled = true; 
+        downloadBtn.dataset.reportContent = ''; 
+    }
+    addDebugLog("已重置 AI 分析報告", "info");
+}
+
 function togglePlayPause() {
   if (!player.src) return;
+  
   if (player.paused || player.ended) {
+    // [新增] 重播偵測：如果影片是從頭開始 (且不是因為 AI 危險暫停而恢復)，則清空報告
+    if (player.currentTime < 0.5 && !pausedForDanger) {
+        addDebugLog("偵測到重新播放，已重置 AI 報告。", "info");
+        resetAiReport();
+    }
+
     pausedForDanger = false;
     alertOverlay.style.display = 'none';
     player.play().catch(e => addDebugLog(`播放失敗: ${e.message}`, 'error'));
@@ -916,19 +946,13 @@ async function triggerSlowReport(dataUrl = null) {
   const reportDisplay = document.getElementById('aiReportDisplay');
   const downloadBtn   = document.getElementById('downloadAiReportBtn');
 
-  if (dataUrl) {
-    if (reportDisplay) reportDisplay.innerHTML = '(偵測到風險，正在生成詳細報告...)';
-  } else {
-    if (reportDisplay && !reportDisplay.innerHTML.includes('...')) {
-       reportDisplay.innerHTML = '(AI 報告更新中...)';
-    }
-  }
+  // 讓舊的報告保留在畫面上，直到新的出來為止
 
   let finalDataUrl = dataUrl;
   try {
     if (!finalDataUrl) {
-      if (player.paused || player.ended) {
-        throw new Error("跳過：玩家非活動狀態");
+      if ((player.paused && !pausedForDanger) || player.ended) {
+        throw new Error("跳過：非活動狀態");
       }
       const vw = player.videoWidth || 0;
       const vh = player.videoHeight || 0;
@@ -953,6 +977,7 @@ async function triggerSlowReport(dataUrl = null) {
       };
     }
 
+    // 呼叫 API
     const res = await fetch('/api/analyze', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -967,18 +992,37 @@ async function triggerSlowReport(dataUrl = null) {
     if (out.error) throw new Error(`API-Slow returned error: ${out.error}`);
 
     const reportText = out?.report || "(AI 無法生成報告)";
-    if (reportDisplay) reportDisplay.innerHTML = reportText.replace(/\n/g, '<br>');
+    
+    // ---累積報告邏輯 ---
+    const timeStr = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+    const newEntry = `\n\n【${timeStr} 分析報告】\n${reportText}`;
+    
+    // 如果是第一筆，直接覆蓋預設文字；否則追加
+    if (accumulatedAiReport === "") {
+        accumulatedAiReport = `【${timeStr} 分析報告】\n${reportText}`;
+    } else {
+        accumulatedAiReport += newEntry;
+    }
+
+    // 更新 UI
+    if (reportDisplay) {
+        // 將換行符號轉為 <br> 以正確顯示
+        reportDisplay.innerHTML = accumulatedAiReport.replace(/\n/g, '<br>');
+        // 自動捲動到底部，讓使用者看到最新內容
+        reportDisplay.scrollTop = reportDisplay.scrollHeight;
+    }
+
     if (downloadBtn) {
       downloadBtn.disabled = false;
-      downloadBtn.dataset.reportContent = reportText;
+      downloadBtn.dataset.reportContent = accumulatedAiReport; // 下載包含所有歷史的報告
       downloadBtn.onclick = downloadCurrentAIReport;
     }
-    addDebugLog('AI 慢速報告更新完畢', 'success');
+    addDebugLog('AI 慢速報告已更新 ', 'success');
 
   } catch (e) {
     if (!e.message.startsWith("跳過")) {
        addDebugLog(`AI 慢速報告失敗: ${e.message}`, 'error');
-       if (reportDisplay) reportDisplay.innerHTML = `(報告生成失敗: ${e.message})`;
+       // 失敗時不動作，保留舊文字
     } else {
        addDebugLog(`AI 慢速報告: ${e.message}`, 'info');
     }
@@ -1193,7 +1237,7 @@ function startPollingForResult(fileName) {
     pollCount++;
     if (pollCount > maxPolls) {
       stopPolling();
-      const timeoutMsg = '等待超時 (1小時)，後端可能仍在處理或已失敗。';
+      const timeoutMsg = '等待超時 (3小時)，後端可能仍在處理或已失敗。';
       updateAnalysisStatusUI('error', timeoutMsg);
       uploadStatus.textContent = `錯誤：${timeoutMsg}`;
       uploadStatus.style.color = '#ef4444';
@@ -1246,7 +1290,7 @@ function startPollingForResult(fileName) {
       updateAnalysisStatusUI('error', `輪詢錯誤: ${errorMsg}`);
       addDebugLog(`輪詢 fetch 或 JSON 解析錯誤: ${errorMsg}`, 'error');
     }
-  }, 60000); 
+  }, 180000); 
 }
 
 function displayResults(fileName, data) {
@@ -1376,7 +1420,7 @@ function handleFileSelect(file) {
     return;
   }
 
-  const MAX_SIZE = 50 * 1024 * 1024; 
+  const MAX_SIZE = 500 * 1024 * 1024; 
   if (file.type !== 'video/mp4') {
      addDebugLog(`檔案格式不符: ${file.name} (${file.type})`, 'warning');
      uploadStatus.textContent = `錯誤：只支援 mp4 檔案。`;
@@ -1385,7 +1429,7 @@ function handleFileSelect(file) {
   }
   if (file.size > MAX_SIZE) {
      addDebugLog(`檔案過大: ${file.name} (${(file.size / 1024 / 1024).toFixed(1)}MB)`, 'warning');
-     uploadStatus.textContent = `錯誤：檔案大小超過 50MB 限制。`;
+     uploadStatus.textContent = `錯誤：檔案大小超過 500MB 限制。`;
      uploadStatus.style.color = '#ef4444';
      return;
   }
@@ -1411,6 +1455,7 @@ function handleFileSelect(file) {
   updateAnalysisStatusUI('initial');
   stopPolling();
   currentAnalysisReport = null; 
+  resetAiReport();
 }
 
 videoUploader.addEventListener('change', () => {

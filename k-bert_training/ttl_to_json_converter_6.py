@@ -129,17 +129,23 @@ def convert_observation_ttl_to_action_json(ttl_path: str, output_dir: str = ".")
                 action_name = random.choice(CLIMB_ACTIONS)
                 print(f"  [Trigger] 爬高關鍵字觸發: {obj_str}")
 
-        # 規則 3: Run
+        # 規則 3: Run (混合特徵)
         elif (time_diff < RUN_THRESHOLD and time_diff > 0.0) or any(k in obj_str for k in KW_RUN):
              if RUN_DISORIENTATION_ACTIONS:
                  action_name = random.choice(RUN_DISORIENTATION_ACTIONS)
                  print(f"  [Trigger] 奔跑特徵觸發")
+                 # 混合迷失特徵，拉高風險分數
+                 if WALK_MEMORY_LOSS_ACTIONS:
+                     action_sequence.append(random.choice(WALK_MEMORY_LOSS_ACTIONS))
 
-        # 規則 4: Wander
+        # 規則 4: Wander (混合特徵)
         elif (time_diff > WALK_THRESHOLD) or any(k in obj_str for k in KW_WANDER):
              if WALK_MEMORY_LOSS_ACTIONS:
                  action_name = random.choice(WALK_MEMORY_LOSS_ACTIONS)
                  print(f"  [Trigger] 迷失特徵觸發")
+                 # 混合奔跑特徵，拉高風險分數
+                 if RUN_DISORIENTATION_ACTIONS and random.random() > 0.5:
+                     action_sequence.append(random.choice(RUN_DISORIENTATION_ACTIONS))
         
         # 規則 5: Normal
         if action_name is None:

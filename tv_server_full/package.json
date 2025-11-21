@@ -4,6 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "build": "node build_manifest.js",
+    "prestart": "npm run build",
     "start": "node server.js"
   },
   "dependencies": {
