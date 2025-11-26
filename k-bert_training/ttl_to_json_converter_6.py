@@ -129,21 +129,25 @@ def convert_observation_ttl_to_action_json(ttl_path: str, output_dir: str = ".")
                 action_name = random.choice(CLIMB_ACTIONS)
                 print(f"  [Trigger] 爬高關鍵字觸發: {obj_str}")
 
-        # 規則 3: Run (混合特徵)
-        elif (time_diff < RUN_THRESHOLD and time_diff > 0.0) or any(k in obj_str for k in KW_RUN):
+        # 規則 3: Run (奔跑)
+        elif (time_diff < RUN_THRESHOLD and time_diff > 0.0) or any(k in obj_str for k in KW_RUN) or any(k in rel_str for k in KW_RUN):
              if RUN_DISORIENTATION_ACTIONS:
+                 # 1. 加入奔跑動作
                  action_name = random.choice(RUN_DISORIENTATION_ACTIONS)
                  print(f"  [Trigger] 奔跑特徵觸發")
-                 # 混合迷失特徵，拉高風險分數
-                 if WALK_MEMORY_LOSS_ACTIONS:
+                 
+                 # 2. 50% 機率「偶爾」伴隨迷失特徵
+                 if WALK_MEMORY_LOSS_ACTIONS and random.random() > 0.5:
                      action_sequence.append(random.choice(WALK_MEMORY_LOSS_ACTIONS))
 
-        # 規則 4: Wander (混合特徵)
-        elif (time_diff > WALK_THRESHOLD) or any(k in obj_str for k in KW_WANDER):
+        # 規則 4: Wander (迷失)
+        elif (time_diff > WALK_THRESHOLD) or any(k in obj_str for k in KW_WANDER) or any(k in rel_str for k in KW_WANDER):
              if WALK_MEMORY_LOSS_ACTIONS:
+                 # 1. 加入迷失動作
                  action_name = random.choice(WALK_MEMORY_LOSS_ACTIONS)
                  print(f"  [Trigger] 迷失特徵觸發")
-                 # 混合奔跑特徵，拉高風險分數
+                 
+                 # 2. 50% 機率「偶爾」伴隨奔跑特徵
                  if RUN_DISORIENTATION_ACTIONS and random.random() > 0.5:
                      action_sequence.append(random.choice(RUN_DISORIENTATION_ACTIONS))
         

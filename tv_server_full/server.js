@@ -169,51 +169,73 @@ app.post("/api/check-risk", async (req, res) => {
     });
   }
 });
+
 // API：Gemini 即時影像分析（單張影像 dataURL + 背景知識，"以當前畫面為主"）
 app.post("/api/analyze", async (req, res) => {
   try {
-    const { dataUrl, context } = req.body || {};
-    if (!dataUrl || typeof dataUrl !== "string") {
-      return res.status(400).json({ error: "missing dataUrl" });
-    }
+    const { dataUrl, context, fastResult } = req.body || {};
 
+    if (!dataUrl) return res.status(400).json({ error: "missing dataUrl" });
     const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) {
-      return res
-        .status(500)
-        .json({ error: "server missing GEMINI_API_KEY in .env file" });
-    }
-
     const model = "gemini-2.5-flash";
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-
     const base64Data = dataUrl.split(",")[1];
-    if (!base64Data) {
-      return res.status(400).json({ error: "Invalid dataUrl format" });
-    }
 
-    // 背景只取少量，避免干擾過大
-    const visualStr =
-      Array.isArray(context?.visual_triples) && context.visual_triples.length
-        ? `- 參考背景 - 影片視覺關聯(節錄): ${JSON.stringify(
-            context.visual_triples.slice(0, 3)
-          )}...`
-        : `- 無影片視覺關聯資訊`;
+    // 1. 準備背景資訊
+    const visualStr = context?.visual_triples?.length
+      ? `- 參考背景 - 視覺物件: ${JSON.stringify(
+          context.visual_triples.slice(0, 3)
+        )}...`
+      : "";
     const kbertStr = context?.kbert_summary
       ? `- 參考背景 - K-BERT 摘要: ${context.kbert_summary}`
-      : `- 無 K-BERT 摘要`;
+      : "";
 
+    // 2. 處理快篩強制指令
+    let mandatoryInstruction = "";
+    if (fastResult) {
+      const detected = [];
+      if (fastResult.fall) detected.push("跌倒 (Fall)");
+      if (fastResult.climbing) detected.push("攀爬 (Climbing)");
+      if (fastResult.running) detected.push("奔跑 (Running)");
+      if (fastResult.disoriented) detected.push("迷失方向 (Disoriented)");
+
+      if (detected.length > 0) {
+        mandatoryInstruction = `【強制指令】快篩系統已偵測到：${detected.join(
+          "、"
+        )}。報告必須包含此風險的描述。`;
+      }
+    }
+
+    // 3.七大行為特徵量表 (作為參考準則插入)
+    const behaviorChecklist = `
+    【失智症行為評估準則 (請在報告中對照檢查)】：
+    1. [空間] 頻繁進出某房間或遊蕩? (注意力渙散)
+    2. [動作] 跌倒或攀爬高處? (高風險)
+    3. [操作] 長時間開爐火無人看顧? (火災風險)
+    4. [停留] 在非日常區域(如走廊)長時間呆滯?
+    5. [地點] 在不恰當地點做出異常行為(如隨地便溺/睡覺)?
+    6. [反應] 面對事件反應遲緩?
+    7. [離家] 試圖獨自開門離開?`;
+
+    // 4. 組合 Prompt
     const prompt = `你是一位專注於失智症長者居家安全的 AI 助手。請優先根據眼前的即時影像進行分析，並輔以參考以下背景資訊，提供安全評估。
 
     背景資訊 (僅供參考，以即時影像為主):
     ${visualStr}
     ${kbertStr}
+    ${mandatoryInstruction}
+    ${behaviorChecklist}
 
     分析2項任務：
     1. 判斷目前畫面，或是根據前面提供的圖片判斷連續動作中是否有以下四種立即性風險 (fall, climbing, running, disoriented)，即使只是輕微跡象也要標記為 true。此判斷必須基於即時影像。
-    2. 根據即時影像，並稍微參考背景資訊，生成一份簡短的中文風險評估報告 (report)，包含：
-      - 危險動作傾向：根據四個布林值，描述目前畫面顯示的主要風險。若無則說明「目前畫面無明顯危險動作」。
-      - 環境風險評估：畫面中是否有容易絆倒的物品、危險物品、光線問題等？可結合背景資訊中的物件，提出潛在環境風險。
+    2. 根據即時影像，並參考【失智症行為評估準則】，生成一份簡短的中文風險評估報告 (report)，包含：
+      - 危險動作傾向：描述目前畫面顯示的主要風險。${
+        mandatoryInstruction
+          ? "請務必回應強制指令，若有其他風險也可提出。"
+          : "若無明顯危險則說明之。"
+      } 若觀察到上述七點準則中的行為，請特別指出。
+      - 環境風險評估：畫面中是否有容易絆倒的物品、危險物品(如爐火)、光線問題等？
       - 預防建議：針對上述畫面中觀察到的風險，提供 1-2 點具體建議。
 
     請嚴格以 JSON 格式回應，包含 analysis (四個布林值) 和 report (中文報告文字)，格式如下：
@@ -244,63 +266,25 @@ app.post("/api/analyze", async (req, res) => {
       body: JSON.stringify(payload),
     });
 
-    if (!resp.ok) {
-      const errorText = await resp.text();
-      console.error(
-        `[AI] Google Gemini API 錯誤: ${resp.status} ${resp.statusText}`
-      );
-      return res
-        .status(resp.status)
-        .json({ error: `Google Gemini API error`, details: errorText });
-    }
-
+    if (!resp.ok) throw new Error(await resp.text());
     const data = await resp.json();
     const content = data?.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
 
-    // 解析 JSON（允許模型外包一層 ```json ... ```）
     let parsed = {};
     try {
-      const cleaned = String(content)
-        .replace(/```json|```/g, "")
-        .trim();
-      parsed = JSON.parse(cleaned || "{}");
+      parsed = JSON.parse(content.replace(/```json|```/g, "").trim());
     } catch (e) {
-      console.error("[AI] JSON 解析失敗:", e.message, "原始回應:", content);
-      parsed = {
-        analysis: {
-          fall: false,
-          climbing: false,
-          running: false,
-          disoriented: false,
-        },
-        report: "AI 分析回應格式錯誤，無法生成報告。",
-      };
+      parsed = { report: content };
     }
 
-    const finalAnalysis = {
-      fall: !!parsed?.analysis?.fall,
-      climbing: !!parsed?.analysis?.climbing,
-      running: !!parsed?.analysis?.running,
-      disoriented: !!parsed?.analysis?.disoriented,
-    };
-    const finalReport =
-      typeof parsed?.report === "string"
-        ? parsed.report
-        : "無法生成有效的分析報告。";
-
     return res.json({
-      result: finalAnalysis, // 前端沿用 out.result
-      report: finalReport, // 新增：報告文字（前端顯示）
-      raw_response: content, // 方便除錯
-      model,
+      result: parsed.analysis,
+      report: parsed.report || "無法生成報告",
       timestamp: new Date().toISOString(),
     });
   } catch (e) {
     console.error("[AI] analyze error:", e);
-    return res.status(500).json({
-      error: String(e?.message || e),
-      timestamp: new Date().toISOString(),
-    });
+    return res.status(500).json({ error: String(e?.message || e) });
   }
 });
 

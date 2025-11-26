@@ -96,7 +96,7 @@
     .debug-panel {
         flex: 1;
         background:#1a1e24; border:1px solid #2a2f3a; border-radius:8px; padding:12px; margin: 0;
-        font-family:monospace; font-size: 18px;
+        font-family:monospace; font-size: 15px;
         display: flex;
         flex-direction: column;
         height: 540px;
@@ -131,7 +131,7 @@
     /* --- K-BERT 面板 --- */
     #kbert-panel {
       background:#1a1e24; border:1px solid #2a2f3a; border-radius:8px; padding:12px;
-      font-family:monospace; font-size: 17.5px;
+      font-family:monospace; font-size: 15.5px;
     }
     .status-list { list-style-type:none; padding-left:0; margin:0; line-height:1.6; }
     #kbertResult strong { color: #4a9eff; }
@@ -185,9 +185,9 @@
         </div>
         <div id="uploadStatus">請選擇影片檔案...</div>
         <div id="multiUploadZone" style="border: 2px dashed #333946; border-radius: 8px; padding: 40px 20px; text-align: center; margin-top: 16px; color: #888;">
-          <div style="font-size: 5.0em; margin-bottom: 10px;">⬇️</div>
-          <div style="font-size: 3.0em; ">若要新增檔案，請將檔案拖放到這裡。</div>
-          <div style="font-size: 2.0em; margin-top: 8px; color: #aaa;">(只支援mp4檔案)附件大小限制：500MB，附件數量限制：1</div>
+          <div style="font-size: 4.0em; margin-bottom: 10px;">⬇️</div>
+          <div style="font-size: 2.0em; ">若要新增檔案，請將檔案拖放到這裡。</div>
+          <div style="font-size: 1.5em; margin-top: 8px; color: #aaa;">(只支援mp4檔案)附件大小限制：500MB，附件數量限制：1</div>
       </div>
       </div>
 
@@ -770,7 +770,7 @@ function startAIAnalysis() {
 
   if (!aiTimer) {
     const analysisInterval = 1000; 
-    addDebugLog(`啟動 AI 快速偵測 (每 ${analysisInterval} 毫秒)`, 'info');
+    addDebugLog(`啟動 AI 快速偵測 (每 ${analysisInterval / 1000} 秒)`, 'info');
     aiTimer = setInterval(() => captureAndAnalyze_FastCheck(false), analysisInterval);
   }
 
@@ -783,7 +783,7 @@ function startAIAnalysis() {
 }
 
 function resetAiReport() {
-    accumulatedAiReport = ""; // 清空記憶體中的報告
+    accumulatedAiReport = "=== AI 風險評估紀錄 ===\n(以下為影片播放期間的即時分析紀錄)\n"; // 清空記憶體中的報告
     const reportDisplay = document.getElementById('aiReportDisplay');
     const downloadBtn = document.getElementById('downloadAiReportBtn');
     
@@ -924,7 +924,7 @@ function updateAIUI_Fast(result, dataUrl) {
         player.pause();
         pausedForDanger = true;
         addDebugLog(`警告：偵測到危險行為 [${stats.join(', ')}]，影片已自動暫停`, 'warning');
-        triggerSlowReport(dataUrl); 
+        triggerSlowReport(dataUrl, result);
       }
     } else {
       alertOverlay.style.display = 'none';
@@ -936,7 +936,7 @@ function updateAIUI_Fast(result, dataUrl) {
   }
 }
 
-async function triggerSlowReport(dataUrl = null) {
+async function triggerSlowReport(dataUrl = null, fastResult = null) {
   if (reportBusy) {
     addDebugLog('慢速報告：忙碌中，跳過此次觸發', 'info');
     return;
@@ -946,18 +946,27 @@ async function triggerSlowReport(dataUrl = null) {
   const reportDisplay = document.getElementById('aiReportDisplay');
   const downloadBtn   = document.getElementById('downloadAiReportBtn');
 
-  // 讓舊的報告保留在畫面上，直到新的出來為止
+  // UI 提示：只有在真的有 dataUrl (代表是強制觸發) 時才顯示「生成中」
+  // 平常定時觸發時，保持上一份報告的文字，不要閃爍成「更新中...」
+  if (dataUrl && reportDisplay) {
+      reportDisplay.innerHTML = '<span style="color:#4a9eff;">(偵測到風險，正在分析當前畫面...)</span>';
+  }
 
   let finalDataUrl = dataUrl;
   try {
+    // 1. 決定是否要執行分析
     if (!finalDataUrl) {
+      // 如果不是強制觸發，檢查播放狀態
+      // 邏輯：如果 (暫停中 且 不是因為危險而暫停) 或者 (影片結束) -> 跳過
       if ((player.paused && !pausedForDanger) || player.ended) {
-        throw new Error("跳過：非活動狀態");
+        throw new Error("SKIP_SILENTLY"); // 拋出特殊錯誤碼
       }
+      
+      // 擷取當前畫面
       const vw = player.videoWidth || 0;
       const vh = player.videoHeight || 0;
       if (vw === 0 || vh === 0) {
-        throw new Error("跳過：無影像畫面");
+        throw new Error("SKIP_SILENTLY");
       }
       const MAX_W = 256; 
       const scale = Math.min(1, MAX_W / vw);
@@ -969,6 +978,7 @@ async function triggerSlowReport(dataUrl = null) {
 
     if (!finalDataUrl) throw new Error("無可分析的影像資料");
 
+    // 2. 準備 Context
     let analysisContext = null;
     if (currentAnalysisReport) {
       analysisContext = {
@@ -977,13 +987,14 @@ async function triggerSlowReport(dataUrl = null) {
       };
     }
 
-    // 呼叫 API
+    // 3. 呼叫 API
     const res = await fetch('/api/analyze', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         dataUrl: finalDataUrl, 
-        context: analysisContext
+        context: analysisContext,
+        fastResult: fastResult
       })
     });
 
@@ -993,38 +1004,46 @@ async function triggerSlowReport(dataUrl = null) {
 
     const reportText = out?.report || "(AI 無法生成報告)";
     
-    // ---累積報告邏輯 ---
     const timeStr = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
-    const newEntry = `\n\n【${timeStr} 分析報告】\n${reportText}`;
+    // 這是要顯示在 UI 上，單次的最新報告
+    const uiReportHtml = `
+      <div style="border-bottom: 1px dashed #444; padding-bottom: 8px; margin-bottom: 8px;">
+        <span style="color: #888; font-size: 0.8em;">[${timeStr}] 最新分析:</span><br>
+        ${reportText.replace(/\n/g, '<br>')}
+      </div>
+    `;
+
+    // 這是要存檔的，累積的純文字報告
+    const logEntry = `\n\n=== [${timeStr}] 分析報告 ===\n${reportText}`;
     
-    // 如果是第一筆，直接覆蓋預設文字；否則追加
-    if (accumulatedAiReport === "") {
-        accumulatedAiReport = `【${timeStr} 分析報告】\n${reportText}`;
-    } else {
-        accumulatedAiReport += newEntry;
-    }
+    // 存檔(為了下載完整紀錄)
+    accumulatedAiReport += logEntry;
 
-    // 更新 UI
+    // UI：只顯示最新的一筆 (保持頁面乾淨)
     if (reportDisplay) {
-        // 將換行符號轉為 <br> 以正確顯示
-        reportDisplay.innerHTML = accumulatedAiReport.replace(/\n/g, '<br>');
-        // 自動捲動到底部，讓使用者看到最新內容
-        reportDisplay.scrollTop = reportDisplay.scrollHeight;
+        reportDisplay.innerHTML = uiReportHtml;
     }
 
+    // 更新下載按鈕
     if (downloadBtn) {
       downloadBtn.disabled = false;
-      downloadBtn.dataset.reportContent = accumulatedAiReport; // 下載包含所有歷史的報告
+      downloadBtn.dataset.reportContent = accumulatedAiReport; // 這裡放累積的內容
       downloadBtn.onclick = downloadCurrentAIReport;
     }
-    addDebugLog('AI 慢速報告已更新 ', 'success');
+    
+    // 成功時只印簡單 Log
+    addDebugLog(`AI 報告更新 (${timeStr})`, 'info'); 
 
   } catch (e) {
-    if (!e.message.startsWith("跳過")) {
-       addDebugLog(`AI 慢速報告失敗: ${e.message}`, 'error');
-       // 失敗時不動作，保留舊文字
-    } else {
-       addDebugLog(`AI 慢速報告: ${e.message}`, 'info');
+    if (e.message === "SKIP_SILENTLY" || e.message.startsWith("跳過")) {
+       // 這是正常的跳過 (非活動狀態)，完全不動作，不印 Log
+       return; 
+    }
+    
+    // 真的錯誤才印出來
+    addDebugLog(`AI 慢速報告錯誤: ${e.message}`, 'error');
+    if (reportDisplay && dataUrl) { // 只有在強制觸發失敗時才顯示錯誤在面板
+        reportDisplay.innerHTML = `(分析失敗: ${e.message})`;
     }
   } finally {
     reportBusy = false; 

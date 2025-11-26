@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-11-21T16:19:41.318Z",
+  "generatedAt": "2025-11-24T15:10:15.970Z",
   "config": {
     "defaultIntervalSec": 2.5
   },
@@ -5413,11 +5413,7 @@
     }
   ],
   "trueScenes": [
-    {
-      "name": "真人老人影片",
-      "src": "/videos/true_scene/%E7%9C%9F%E4%BA%BA%E8%80%81%E4%BA%BA%E5%BD%B1%E7%89%87.mp4",
-      "title": "真人老人影片"
-    }
+    {}
   ],
   "scenes": [
     {
